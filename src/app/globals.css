@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  /* Core palette - grounded in the group's actual materials: grain,
+     oil, steel, soil. Deliberately not the generic cream+terracotta
+     or near-black+neon defaults. */
+  --paper: #e9e3d4;      /* warm paper background */
+  --ink: #171a15;        /* near-black text, slightly warm */
+  --deep: #142019;       /* deep industrial green-black (hero/footer) */
+  --deep-2: #1c2c22;     /* one step lighter than --deep, for panels on dark */
+  --wheat: #b9862c;      /* grain/oil gold accent */
+  --wheat-soft: #e4c98a; /* lighter gold for text-on-dark */
+  --steel: #46545a;      /* slate blue-grey, chemicals/energy/infra */
+  --line: #d8cfb8;       /* hairline rule on paper */
+  --line-dark: #33443a;  /* hairline rule on deep */
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-wheat: var(--wheat);
+  --color-wheat-soft: var(--wheat-soft);
+  --color-steel: var(--steel);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--wheat);
+  outline-offset: 2px;
+}
