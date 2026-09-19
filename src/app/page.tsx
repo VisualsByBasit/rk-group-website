@@ -1,64 +1,57 @@
-import { companies, sectorOrder, companiesBySector } from "@/data/companies";
-import SectorSection from "@/components/SectorSection";
+import Link from "next/link";
+import Image from "next/image";
+import BrandCard from "@/components/BrandCard";
+import { brands, values } from "@/data/site";
 
-export default function Home() {
-  const sectorCount = sectorOrder.length;
-  const companyCount = companies.length;
-
+export default function HomePage() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="border-b border-line-dark bg-deep text-paper">
-        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <p className="text-sm text-wheat-soft">Pakistan</p>
-          <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium leading-tight sm:text-5xl">
-            A powerhouse of Pakistani industry, built one mill, one plant and
-            one field at a time.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/75">
-            RK Group of Industries is a diversified conglomerate spanning
-            food, edible oils, chemicals, energy, manufacturing and
-            infrastructure — driving Pakistan&apos;s industrial future
-            through {companyCount} operating companies.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-10">
-            <div>
-              <p className="font-display text-3xl font-medium text-wheat-soft">
-                {companyCount}
-              </p>
-              <p className="text-sm text-paper/60">operating companies</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-medium text-wheat-soft">
-                {sectorCount}
-              </p>
-              <p className="text-sm text-paper/60">industry sectors</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-medium text-wheat-soft">
-                1
-              </p>
-              <p className="text-sm text-paper/60">group, nationwide reach</p>
-            </div>
+    <>
+      <section className="hero">
+        <div className="hero-grain" aria-hidden="true"></div>
+        <div className="shell hero-layout">
+          <div className="hero-copy">
+            <p className="kicker"><span></span> Built in Pakistan. Built to endure.</p>
+            <h1>Industry,<br /><em>with purpose.</em></h1>
+            <p className="hero-intro">RK Group brings together essential industries and trusted consumer brands—guided by the belief that progress should be useful, responsible and made to last.</p>
+            <div className="hero-actions"><Link className="button button--gold" href="/about">Discover RK Group <b>↗</b></Link><Link className="text-link" href="/brands">Explore our brands <span>→</span></Link></div>
+          </div>
+          <div className="hero-visual" aria-label="RK Group product portfolio">
+            <div className="hero-ring"></div>
+            <div className="hero-product hero-product--one"><Image src="/products/islamabad-macaroni.jpg" alt="Islamabad Macaroni packaging" fill priority sizes="280px" /></div>
+            <div className="hero-product hero-product--two"><Image src="/products/dilpasand-banaspati.jpg" alt="Dilpasand Banaspati packaging" fill priority sizes="230px" /></div>
+            <span className="hero-caption">Everyday products.<br />Enduring standards.</span>
           </div>
         </div>
+        <div className="hero-scroll"><span></span>Scroll to explore</div>
       </section>
 
-      {/* Sectors */}
-      <section id="sectors" className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="font-display text-2xl font-medium text-ink">Our companies</h2>
-        <p className="mt-2 max-w-xl text-ink/70">
-          Every subsidiary under RK Group of Industries, grouped by the
-          sector it operates in.
-        </p>
-        <div className="mt-6">
-          {sectorOrder.map((sector) => {
-            const list = companiesBySector(sector);
-            if (list.length === 0) return null;
-            return <SectorSection key={sector} sector={sector} companies={list} />;
-          })}
+      <section className="intro-section shell">
+        <p className="section-tag">RK / In brief</p>
+        <div className="intro-grid">
+          <h2>A group shaped around the needs of everyday life.</h2>
+          <div><p>From food staples and consumer products to the industries that keep economies moving, RK Group operates across a focused portfolio of businesses.</p><Link className="line-link" href="/industries">View our industries <span>↗</span></Link></div>
         </div>
       </section>
-    </div>
+
+      <section className="brand-feature">
+        <div className="shell section-head"><div><p className="section-tag section-tag--light">Portfolio / Consumer brands</p><h2>Made for real life.<br /><em>Held to a higher standard.</em></h2></div><Link className="button button--outline" href="/brands">View all brands <b>↗</b></Link></div>
+        <div className="brand-rail shell">
+          {brands.slice(0, 3).map((brand, i) => <BrandCard brand={brand} featured={i === 1} key={brand.slug} />)}
+        </div>
+      </section>
+
+      <section className="values-section shell">
+        <p className="section-tag">The RK way</p>
+        <div className="values-title"><h2>How we build<br />for the long term.</h2><p>Clear principles shape how we invest, operate and grow.</p></div>
+        <div className="value-list">{values.map(([num, title, copy]) => <article key={num}><span>{num}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+      </section>
+
+      <section className="leadership-teaser">
+        <div className="shell leadership-teaser-grid">
+          <div className="leader-portrait"><Image src="/leadership/sheikh-khalid-islam.jpg" alt="Sheikh Khalid Islam" fill sizes="(max-width: 800px) 90vw, 45vw" /></div>
+          <div className="leader-copy"><p className="section-tag section-tag--light">Leadership</p><blockquote>“Enduring businesses are built by respecting the trust placed in them—by customers, colleagues and communities.”</blockquote><h3>Sheikh Khalid Islam</h3><p>Chief Executive Officer, RK Group<br />Vice Chairman, PVMA</p><Link className="line-link line-link--light" href="/leadership">Meet our leadership <span>↗</span></Link></div>
+        </div>
+      </section>
+    </>
   );
 }
