@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const brands = [
-  { name: "ACP", category: "Banaspati ghee & cooking oil", copy: "The flagship name at the heart of RK Group's edible-oils story—built around dependable quality for everyday kitchens.", image: "/assets/companies/aa-foods.png", className: "brand-acp" },
+  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", image: "/assets/brands/acp-banaspati.jpg", className: "brand-acp" },
   { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta brand made for generous family meals, with quality wheat and a proudly local identity.", image: "/assets/brands/islamabad-macaroni.jpg", className: "brand-islamabad" },
   { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", image: "/assets/brands/dilpasand.jpg", className: "brand-dilpasand" },
   { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", image: "/assets/brands/deewan.png", className: "brand-deewan" },
@@ -110,7 +110,7 @@ export default function HomePage() {
       <section className="portfolio section-pad" id="portfolio">
         <div className="shell portfolio-intro">
           <div><p className="eyebrow light"><span /> The wider portfolio</p><h2>One group.<br /><em>Many capabilities.</em></h2></div>
-          <p>RK Group’s operating companies connect consumer needs with industrial capability—from food and grain to energy, manufacturing and infrastructure.</p>
+          <p>RK Group’s operating companies connect consumer needs with industrial capability, from food and grain to energy, manufacturing and infrastructure.</p>
         </div>
         <div className="shell company-grid">
           {companies.map(([name, sector, image], index) => (

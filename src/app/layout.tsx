@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rkgroupindustries.com"),
-  title: { default: "RK Group Of Industries", template: "%s — RK Group" },
+  title: { default: "RK Group Of Industries", template: "%s | RK Group" },
   description: "Discover RK Group, a diversified Pakistani enterprise with trusted brands and capabilities across food, edible oils, manufacturing, energy and infrastructure.",
   applicationName: "RK Group",
   authors: [{ name: "RK Group" }],
