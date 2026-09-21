@@ -27,8 +27,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 
 .site-header { height: 74px; background: rgba(251,250,246,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); }
 .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.brand-lockup { display: flex; align-items: center; gap: 11px; font: 500 17px "Space Grotesk"; letter-spacing: -.035em; }
-.brand-lockup img { width: 52px; height: 40px; object-fit: cover; object-position: center; }
+.brand-lockup { display: flex; align-items: center; gap: 12px; font: 500 19px "Space Grotesk"; letter-spacing: -.035em; }
+.brand-lockup img { width: 68px; height: 51px; object-fit: contain; object-position: center; }
 .brand-lockup strong { font-weight: 600; }
 .brand-lockup--light img { filter: brightness(0) invert(1); }
 .desktop-nav { display: flex; align-items: center; gap: 34px; font-size: 13px; }
@@ -99,7 +99,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-logo img { object-fit: contain; padding: 45px; }
 .brand-acp { background: #e7a037; }
 .brand-acp .brand-logo { background: #fff7e9; }
-.brand-acp .brand-logo img { padding: 80px; }
+.brand-acp .brand-logo img { padding: 0; object-fit: cover; object-position: center; }
 .brand-islamabad { background: #073c2d; color: #f7edce; }
 .brand-islamabad .brand-description { color: rgba(255,255,255,.62); }
 .brand-islamabad .brand-logo { background: #073c2d; }
@@ -161,7 +161,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .shell { width: min(100% - 30px, 1240px); }
   .section-pad { padding: 82px 0; }
   .site-header { height: 66px; }
-  .brand-lockup img { width: 42px; height: 33px; }
+  .brand-lockup { font-size: 17px; }
+  .brand-lockup img { width: 58px; height: 43px; }
   .hero { min-height: calc(100svh - 66px); align-items: flex-end; }
   .hero-image { object-position: 66% center; }
   .hero-shade { background: linear-gradient(0deg, rgba(5,8,7,.98) 0%, rgba(5,8,7,.76) 57%, rgba(5,8,7,.18) 100%); }
@@ -189,7 +190,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .brand-copy { min-height: 350px; padding: 45px 28px; }
   .brand-logo { height: 390px; margin: 0 12px 12px; }
   .brand-logo img { padding: 25px; }
-  .brand-acp .brand-logo img { padding: 55px; }
+  .brand-acp .brand-logo img { padding: 0; }
   .company-grid { grid-template-columns: repeat(2,1fr); }
   .company-card { min-height: 260px; padding: 15px; }
   .company-logo { height: 125px; }

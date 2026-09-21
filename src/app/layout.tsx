@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "RK Group Of Industries", description: "Generations of enterprise across food, manufacturing, energy and infrastructure.", images: ["/assets/hero/islamabad.png"] },
   category: "industry",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  icons: { icon: "/rk-group-logo.jpg", apple: "/rk-group-logo.jpg" },
+  icons: { icon: "/assets/rk-group-logo-transparent.png", apple: "/assets/rk-group-logo-transparent.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "RK Group",
     alternateName: "RK Group of Industries",
     url: "https://rkgroupindustries.com",
-    logo: "https://rkgroupindustries.com/rk-group-logo.jpg",
+    logo: "https://rkgroupindustries.com/assets/rk-group-logo-transparent.png",
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
     founder: { "@type": "Person", name: "Sheikh Abdul Majeed" },
     employee: [
