@@ -4,32 +4,32 @@ const brands = [
   { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", image: "/assets/brands/acp-banaspati.jpg", className: "brand-acp" },
   { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta brand made for generous family meals, with quality wheat and a proudly local identity.", image: "/assets/brands/islamabad-macaroni.jpg", className: "brand-islamabad" },
   { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", image: "/assets/brands/dilpasand.jpg", className: "brand-dilpasand" },
-  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", image: "/assets/brands/deewan.png", className: "brand-deewan" },
-  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", image: "/assets/brands/kashmir-tea.png", className: "brand-kashmir" },
+  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", image: "/assets/brands/deewan.webp", className: "brand-deewan" },
+  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", image: "/assets/brands/kashmir-tea.webp", className: "brand-kashmir" },
 ];
 
 const companies = [
-  ["AA Foods", "Food processing", "aa-foods.png"],
-  ["Al-Khalid Flour Mills", "Flour & grain milling", "al-khalid-flour.png"],
-  ["Basila Industries", "Manufacturing", "basila-industries.png"],
-  ["Brother Oil & Ghee", "Edible oils", "brother-oil.png"],
-  ["Islamabad Chemical", "Industrial solutions", "islamabad-chemical.png"],
-  ["Kam Foods", "Food products", "kam-foods.png"],
-  ["Karco", "Consumer products", "karco.png"],
-  ["KF Food Complex", "Food production", "kf-food-complex.png"],
-  ["Khyber Green Energy", "Renewable energy", "khyber-green-energy.png"],
-  ["KKR Oil & Ghee Mills", "Edible oils", "kkr-oil.png"],
-  ["Noor Industries", "Manufacturing", "noor-industries.png"],
-  ["Salam Food Industries", "Food production", "salam-food.png"],
-  ["Pak Tameerat", "Infrastructure", "pak-tameerat.png"],
+  ["AA Foods", "Food processing", "aa-foods.webp"],
+  ["Al-Khalid Flour Mills", "Flour & grain milling", "al-khalid-flour.webp"],
+  ["Basila Industries", "Manufacturing", "basila-industries.webp"],
+  ["Brother Oil & Ghee", "Edible oils", "brother-oil.webp"],
+  ["Islamabad Chemical", "Industrial solutions", "islamabad-chemical.webp"],
+  ["Kam Foods", "Food products", "kam-foods.webp"],
+  ["Karco", "Consumer products", "karco.webp"],
+  ["KF Food Complex", "Food production", "kf-food-complex.webp"],
+  ["Khyber Green Energy", "Renewable energy", "khyber-green-energy.webp"],
+  ["KKR Oil & Ghee Mills", "Edible oils", "kkr-oil.webp"],
+  ["Noor Industries", "Manufacturing", "noor-industries.webp"],
+  ["Salam Food Industries", "Food production", "salam-food.webp"],
+  ["Pak Tameerat", "Infrastructure", "pak-tameerat.webp"],
 ] as const;
 
 export default function HomePage() {
   return (
     <>
       <section className="hero" id="top">
-        <Image className="hero-image" src="/assets/hero/islamabad.png" alt="Islamabad skyline with Faisal Mosque and the Margalla Hills" fill priority sizes="100vw" />
-        <div className="hero-shade" />
+        <Image className="hero-image" src="/assets/hero/islamabad.webp" alt="Islamabad skyline with Faisal Mosque and the Margalla Hills" fill priority sizes="100vw" />
+        <div className="hero-shade" aria-hidden="true" />
         <div className="shell hero-content">
           <p className="eyebrow light"><span /> Pakistan, built into our story</p>
           <h1>Everyday essentials.<br /><em>Enduring enterprise.</em></h1>
@@ -67,21 +67,21 @@ export default function HomePage() {
         </div>
         <div className="shell leaders-grid">
           <article className="leader-card">
-            <div className="leader-image"><Image src="/assets/leadership/sheikh-khalid-islam.png" alt="Sheikh Khalid Islam" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
+            <div className="leader-image"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
             <div className="leader-body">
               <span className="leader-index">01 / Chairman</span>
               <h3>Sheikh Khalid Islam</h3>
-              <p className="roles">Chairman, RK Group · Chairman, KK Group<br />Vice Chairman, PVMA</p>
+              <p className="roles">Chairman, RK Group · Chairman, KK Group<br />Vice Chairman, PVMA (2024–2026)</p>
               <p>Known for strategic vision, operational discipline and principled industry leadership, Sheikh Khalid Islam has guided growth across the edible-oils sector while representing manufacturers in constructive dialogue on food security and industrial policy.</p>
             </div>
           </article>
           <article className="leader-card">
-            <div className="leader-image"><Image src="/assets/leadership/sheikh-saim-khalid.png" alt="Sheikh Saim Khalid" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
+            <div className="leader-image"><Image src="/assets/leadership/sheikh-saim-khalid.webp" alt="Sheikh Saim Khalid" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
             <div className="leader-body">
               <span className="leader-index">02 / Director</span>
               <h3>Sheikh Saim Khalid</h3>
               <p className="roles">Director, RK Group · Director, KK Group</p>
-              <p>Representing the next generation of leadership, Sheikh Saim Khalid brings a forward-looking focus to brand building, disciplined growth and the continued modernization of the Group’s diverse portfolio.</p>
+              <p>As a Director of RK Group and KK Group, Sheikh Saim Khalid represents continuity in the family enterprise and its focus on thoughtful modernization across the portfolio.</p>
             </div>
           </article>
         </div>

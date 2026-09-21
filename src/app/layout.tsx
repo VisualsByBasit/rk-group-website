@@ -25,12 +25,13 @@ export const metadata: Metadata = {
     siteName: "RK Group",
     title: "RK Group Of Industries",
     description: "Generations of enterprise across food, manufacturing, energy and infrastructure.",
-    images: [{ url: "/assets/hero/islamabad.png", width: 1792, height: 1024, alt: "RK Group in Islamabad, Pakistan" }],
+    images: [{ url: "/assets/hero/islamabad.webp", width: 1792, height: 1024, alt: "RK Group in Islamabad, Pakistan" }],
   },
-  twitter: { card: "summary_large_image", title: "RK Group Of Industries", description: "Generations of enterprise across food, manufacturing, energy and infrastructure.", images: ["/assets/hero/islamabad.png"] },
+  twitter: { card: "summary_large_image", title: "RK Group Of Industries", description: "Generations of enterprise across food, manufacturing, energy and infrastructure.", images: ["/assets/hero/islamabad.webp"] },
   category: "industry",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  icons: { icon: "/assets/rk-group-logo-transparent.png", apple: "/assets/rk-group-logo-transparent.png" },
+  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  icons: { icon: "/assets/rk-group-logo.png", apple: "/assets/rk-group-logo.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -40,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "RK Group",
     alternateName: "RK Group of Industries",
     url: "https://rkgroupindustries.com",
-    logo: "https://rkgroupindustries.com/assets/rk-group-logo-transparent.png",
+    logo: "https://rkgroupindustries.com/assets/rk-group-logo.png",
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
     founder: { "@type": "Person", name: "Sheikh Abdul Majeed" },
     employee: [
@@ -49,5 +50,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
     brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati"].map(name => ({ "@type": "Brand", name })),
   };
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main>{children}</main><Footer /></body></html>;
+  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /></body></html>;
 }

@@ -11,6 +11,6 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#faf9f6",
     theme_color: "#0b0c0b",
-    icons: [{ src: "/assets/rk-group-logo-transparent.png", sizes: "1792x1024", type: "image/png" }],
+    icons: [{ src: "/assets/rk-group-logo.png", sizes: "900x514", type: "image/png" }],
   };
 }
