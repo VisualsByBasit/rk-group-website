@@ -110,24 +110,13 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-visual { position: relative; min-width: 0; min-height: 650px; overflow: hidden; background: #e9e2d4; }
 .product-lineup { object-fit: cover; object-position: center; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 .brand-showcase:hover .product-lineup { transform: scale(1.018); }
-.brand-mark { position: absolute; z-index: 2; top: 26px; left: 26px; width: 224px; height: 92px; overflow: hidden; border: 1px solid rgba(11,12,11,.11); border-radius: 14px; background: rgba(255,255,255,.94); box-shadow: 0 14px 38px rgba(0,0,0,.15); backdrop-filter: blur(12px); }
-.brand-mark img { object-fit: contain; padding: 10px; }
 .brand-acp { background: linear-gradient(145deg, #f4b53f, #e58c22); }
-.brand-acp .brand-mark img { padding: 3px; }
 .brand-islamabad { background: #073c2d; color: #f7edce; }
 .brand-islamabad .brand-description { color: rgba(255,255,255,.62); }
-.brand-islamabad .brand-mark { background: rgba(4,43,31,.94); border-color: rgba(255,255,255,.16); }
-.brand-islamabad .brand-mark img { padding: 7px; }
 .brand-dilpasand { background: linear-gradient(145deg, #ffe354, #ffc91a); }
-.brand-dilpasand .brand-mark { background: #ffe326; }
-.brand-dilpasand .brand-mark img { padding: 7px; }
 .brand-deewan { background: linear-gradient(145deg, #f8d73d, #eeb51e); }
-.brand-deewan .brand-mark { background: #f7d627; }
-.brand-deewan .brand-mark img { padding: 7px; }
 .brand-kashmir { background: linear-gradient(145deg, #a90f14, #71080d); color: white; }
 .brand-kashmir .brand-description { color: rgba(255,255,255,.7); }
-.brand-kashmir .brand-mark { background: #f5d916; }
-.brand-kashmir .brand-mark img { padding: 7px; }
 
 .portfolio { position: relative; overflow: hidden; background: radial-gradient(circle at 90% 10%, rgba(237,136,24,.14), transparent 26%), linear-gradient(145deg, #092d22, #0e3a2c 56%, #154836); color: white; }
 .portfolio::after { content: "RK"; position: absolute; right: -30px; bottom: -130px; color: rgba(255,255,255,.025); font: 600 420px/1 "Space Grotesk"; letter-spacing: -.12em; pointer-events: none; }
@@ -223,7 +212,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .brand-showcase { display: flex; flex-direction: column; min-height: auto; border-radius: 18px; }
   .brand-copy { min-height: 350px; padding: 44px 28px; }
   .brand-visual { min-height: 420px; }
-  .brand-mark { width: 176px; height: 74px; top: 18px; left: 18px; }
   .format-list { margin-top: 22px; }
   .company-grid { grid-template-columns: repeat(2,1fr); }
   .company-card { min-height: 260px; padding: 15px; }

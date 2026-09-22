@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const brands = [
-  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", logo: "/assets/brands/acp-banaspati.jpg", lineup: "/assets/brand-lineups/acp.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-acp" },
-  { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta range made for generous family meals, with six distinctive shapes and a proudly local identity.", logo: "/assets/brands/islamabad-macaroni-logo.webp", lineup: "/assets/brand-lineups/islamabad-macaroni.webp", formats: ["Elbows", "Penne", "Fusilli", "Shells", "Farfalle", "Vermicelli"], className: "brand-islamabad" },
-  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", logo: "/assets/brands/dilpasand.jpg", lineup: "/assets/brand-lineups/dilpasand.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-dilpasand" },
-  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", logo: "/assets/brands/deewan.webp", lineup: "/assets/brand-lineups/deewan.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-deewan" },
-  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", logo: "/assets/brands/kashmir-tea.webp", lineup: "/assets/brand-lineups/kashmir-tea.webp", formats: ["Loose-leaf tins", "Tea cartons", "Sealed pouches", "Gift caddies"], className: "brand-kashmir" },
+  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", lineup: "/assets/brand-lineups/acp.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-acp" },
+  { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta range made for generous family meals, with six distinctive shapes and a proudly local identity.", lineup: "/assets/brand-lineups/islamabad-macaroni.webp", formats: ["Elbows", "Penne", "Fusilli", "Shells", "Farfalle", "Vermicelli"], className: "brand-islamabad" },
+  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", lineup: "/assets/brand-lineups/dilpasand.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-dilpasand" },
+  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", lineup: "/assets/brand-lineups/deewan.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-deewan" },
+  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", lineup: "/assets/brand-lineups/kashmir-tea.webp", formats: ["Loose-leaf tins", "Tea cartons", "Sealed pouches", "Gift caddies"], className: "brand-kashmir" },
 ];
 
 const companies = [
@@ -119,7 +119,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="brand-visual">
-                <div className="brand-mark"><Image src={brand.logo} alt={`${brand.name} logo`} fill sizes="240px" /></div>
                 <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
               </div>
             </article>
