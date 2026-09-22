@@ -199,9 +199,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .fact-row span { font-size: 8px; }
   .light-heading { display: block; }
   .light-heading h2 { text-align: left; }
-  .leaders-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: 0; width: 100%; padding-inline: 15px; gap: 12px; scrollbar-width: none; }
-  .leaders-grid::-webkit-scrollbar { display: none; }
-  .leader-card { flex: 0 0 88vw; scroll-snap-align: center; }
+  .leaders-grid { display: grid; grid-template-columns: 1fr; width: min(100% - 30px, 1240px); margin-inline: auto; gap: 24px; }
+  .leader-card { width: 100%; }
   .leader-image { height: 520px; }
   .leader-body { min-height: 520px; padding: 31px 25px 36px; }
   .brands-heading, .portfolio-intro { grid-template-columns: 1fr; gap: 28px; }
@@ -226,7 +225,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 
 @media (max-width: 430px) {
-  .leader-card { flex-basis: 91vw; }
   .leader-image { height: 455px; }
   .company-grid { grid-template-columns: 1fr; }
   .company-card { min-height: 240px; }
