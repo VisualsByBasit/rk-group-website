@@ -63,16 +63,24 @@ export default function HomePage() {
       <section className="leadership section-pad" id="leadership">
         <div className="shell section-heading light-heading">
           <p className="eyebrow light"><span /> Leadership</p>
-          <h2>Experience meets<br /><em>new momentum.</em></h2>
+          <h2>Stewardship today.<br /><em>Ambition for tomorrow.</em></h2>
         </div>
         <div className="shell leaders-grid">
           <article className="leader-card">
             <div className="leader-image"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
             <div className="leader-body">
-              <span className="leader-index">01 / Chairman</span>
+              <span className="leader-index">01 / Group leadership</span>
               <h3>Sheikh Khalid Islam</h3>
-              <p className="roles">Chairman, RK Group · Chairman, KK Group<br />Vice Chairman, PVMA (2024–2026)</p>
-              <p>Known for strategic vision, operational discipline and principled industry leadership, Sheikh Khalid Islam has guided growth across the edible-oils sector while representing manufacturers in constructive dialogue on food security and industrial policy.</p>
+              <ul className="role-list" aria-label="Leadership roles">
+                <li>Chief Executive Officer, RK Group of Industries</li>
+                <li>Chairman, RK Group</li>
+                <li>Chairman, KK Group</li>
+                <li>Vice Chairman, PVMA (2024-2026)</li>
+              </ul>
+              <div className="leader-profile">
+                <p>Sheikh Khalid Islam brings extensive experience in Pakistan&apos;s edible oil and banaspati ghee industry. He has led strategic growth, operating discipline and business expansion across the Group while keeping quality, resilience and long-term value at the centre of its direction.</p>
+                <p>His industry service includes previous terms as Senior Vice Chairman and Executive Committee Member of the Pakistan Vanaspati Manufacturers Association, along with participation in leadership roles within the Federation of Pakistan Chambers of Commerce and Industry. He has represented manufacturers in dialogue with government and regulatory institutions on food security, taxation, digital invoicing, freight costs and industrial policy.</p>
+              </div>
             </div>
           </article>
           <article className="leader-card">
@@ -80,8 +88,13 @@ export default function HomePage() {
             <div className="leader-body">
               <span className="leader-index">02 / Director</span>
               <h3>Sheikh Saim Khalid</h3>
-              <p className="roles">Director, RK Group · Director, KK Group</p>
-              <p>As a Director of RK Group and KK Group, Sheikh Saim Khalid represents continuity in the family enterprise and its focus on thoughtful modernization across the portfolio.</p>
+              <ul className="role-list" aria-label="Leadership roles">
+                <li>Director, RK Group</li>
+                <li>Director, KK Group</li>
+              </ul>
+              <div className="leader-profile">
+                <p>Sheikh Saim Khalid represents the next generation of the family enterprise. His perspective brings together the Group&apos;s established operating values with a clear focus on thoughtful modernization, stronger brands and disciplined growth across the portfolio.</p>
+              </div>
             </div>
           </article>
         </div>

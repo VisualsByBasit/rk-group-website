@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   category: "industry",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
-  icons: { icon: "/assets/rk-group-logo.png", apple: "/assets/rk-group-logo.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -45,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
     founder: { "@type": "Person", name: "Sheikh Abdul Majeed" },
     employee: [
-      { "@type": "Person", name: "Sheikh Khalid Islam", jobTitle: "Chairman" },
+      { "@type": "Person", name: "Sheikh Khalid Islam", jobTitle: "Chief Executive Officer and Chairman" },
       { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
     ],
     brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati"].map(name => ({ "@type": "Brand", name })),
