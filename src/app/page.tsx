@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const brands = [
-  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", image: "/assets/brands/acp-banaspati.jpg", className: "brand-acp" },
-  { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta brand made for generous family meals, with quality wheat and a proudly local identity.", image: "/assets/brands/islamabad-macaroni.jpg", className: "brand-islamabad" },
-  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", image: "/assets/brands/dilpasand.jpg", className: "brand-dilpasand" },
-  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", image: "/assets/brands/deewan.webp", className: "brand-deewan" },
-  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", image: "/assets/brands/kashmir-tea.webp", className: "brand-kashmir" },
+  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", logo: "/assets/brands/acp-banaspati.jpg", lineup: "/assets/brand-lineups/acp.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-acp" },
+  { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta range made for generous family meals, with six distinctive shapes and a proudly local identity.", logo: "/assets/brands/islamabad-macaroni-logo.webp", lineup: "/assets/brand-lineups/islamabad-macaroni.webp", formats: ["Elbows", "Penne", "Fusilli", "Shells", "Farfalle", "Vermicelli"], className: "brand-islamabad" },
+  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", logo: "/assets/brands/dilpasand.jpg", lineup: "/assets/brand-lineups/dilpasand.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-dilpasand" },
+  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", logo: "/assets/brands/deewan.webp", lineup: "/assets/brand-lineups/deewan.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-deewan" },
+  { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", logo: "/assets/brands/kashmir-tea.webp", lineup: "/assets/brand-lineups/kashmir-tea.webp", formats: ["Loose-leaf tins", "Tea cartons", "Sealed pouches", "Gift caddies"], className: "brand-kashmir" },
 ];
 
 const companies = [
@@ -44,9 +44,10 @@ export default function HomePage() {
 
       <section className="story section-pad" id="story">
         <div className="shell story-grid">
-          <div>
+          <div className="story-heading">
             <p className="eyebrow"><span /> Our story</p>
             <h2>Built across generations.<br />Designed for what comes next.</h2>
+            <p className="section-note">A family enterprise shaped by patient growth, practical ambition and an enduring commitment to the essentials people rely on.</p>
           </div>
           <div className="story-copy">
             <p>RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade. The next generation expanded into wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
@@ -103,19 +104,24 @@ export default function HomePage() {
 
       <section className="brands section-pad" id="brands">
         <div className="shell section-heading brands-heading">
-          <div><p className="eyebrow"><span /> Main brands</p><h2>Names that live<br />in everyday life.</h2></div>
-          <p>Five distinctive brands. One shared commitment to consistency, care and value.</p>
+          <div><p className="eyebrow"><span /> Brand family</p><h2>Made for real life.<br />Built to be remembered.</h2></div>
+          <p>Five distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
         </div>
         <div className="shell brand-stack">
           {brands.map((brand, index) => (
-            <article className={`brand-panel ${brand.className}`} key={brand.name}>
+            <article className={`brand-showcase ${brand.className}`} key={brand.name}>
               <div className="brand-copy">
-                <span className="brand-number">0{index + 1}</span>
-                <p>{brand.category}</p>
+                <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p></div>
                 <h3>{brand.name}</h3>
                 <p className="brand-description">{brand.copy}</p>
+                <div className="format-list" aria-label={`${brand.name} product formats`}>
+                  {brand.formats.map(format => <span key={format}>{format}</span>)}
+                </div>
               </div>
-              <div className="brand-logo"><Image src={brand.image} alt={`${brand.name} logo`} fill sizes="(max-width: 820px) 90vw, 50vw" /></div>
+              <div className="brand-visual">
+                <div className="brand-mark"><Image src={brand.logo} alt={`${brand.name} logo`} fill sizes="240px" /></div>
+                <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
+              </div>
             </article>
           ))}
         </div>
