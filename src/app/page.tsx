@@ -93,7 +93,8 @@ export default function HomePage() {
                 <li>Director, KK Group</li>
               </ul>
               <div className="leader-profile">
-                <p>Sheikh Saim Khalid represents the next generation of the family enterprise. His perspective brings together the Group&apos;s established operating values with a clear focus on thoughtful modernization, stronger brands and disciplined growth across the portfolio.</p>
+                <p>Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. His place within the Group&apos;s leadership reflects continuity of purpose and confidence in the future, bringing the values established over decades into a new era.</p>
+                <p>With respect for the reputation built by earlier generations, he embodies a measured and forward-looking outlook for RK Group. His presence reinforces the Group&apos;s commitment to thoughtful progress, enduring relationships and enterprises designed to remain relevant for generations to come.</p>
               </div>
             </div>
           </article>
