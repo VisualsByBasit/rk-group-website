@@ -73,14 +73,14 @@ export default function HomePage() {
               <span className="leader-index">01 / Group leadership</span>
               <h3>Sheikh Khalid Islam</h3>
               <ul className="role-list" aria-label="Leadership roles">
-                <li>Chief Executive Officer, RK Group of Industries</li>
                 <li>Chairman, RK Group</li>
                 <li>Chairman, KK Group</li>
                 <li>Vice Chairman, PVMA (2024-2026)</li>
+                <li>Vice Chairman, PVMA (2017-2018)</li>
               </ul>
               <div className="leader-profile">
-                <p>Sheikh Khalid Islam brings extensive experience in Pakistan&apos;s edible oil and banaspati ghee industry. He has led strategic growth, operating discipline and business expansion across the Group while keeping quality, resilience and long-term value at the centre of its direction.</p>
-                <p>His industry service includes previous terms as Senior Vice Chairman and Executive Committee Member of the Pakistan Vanaspati Manufacturers Association, along with participation in leadership roles within the Federation of Pakistan Chambers of Commerce and Industry. He has represented manufacturers in dialogue with government and regulatory institutions on food security, taxation, digital invoicing, freight costs and industrial policy.</p>
+                <p>Sheikh Khalid Islam brings extensive experience in Pakistan&apos;s edible oil and banaspati ghee industry. As Chairman of RK Group and KK Group, he has guided long-term growth with an emphasis on operating discipline, resilience, product quality and enterprises designed to create enduring value.</p>
+                <p>His service to the Pakistan Vanaspati Manufacturers Association spans two documented terms as Vice Chairman. He first assumed the office for 2017-18 and was elected again for 2024-26, with both appointments made unopposed and unanimously by the PVMA Executive Committee. These repeated appointments reflect sustained confidence in his experience and his contribution to the wider edible-oil industry.</p>
               </div>
             </div>
           </article>
