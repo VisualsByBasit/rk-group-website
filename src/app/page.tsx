@@ -79,6 +79,7 @@ export default function HomePage() {
                 <li>Chairman, KK Group</li>
                 <li>Vice Chairman, PVMA (2024-2026)</li>
                 <li>Vice Chairman, PVMA (2017-2018)</li>
+                <li>Member, FPCCI</li>
               </ul>
               <div className="leader-profile">
                 <p>Sheikh Khalid Islam brings extensive experience in Pakistan&apos;s edible oil and banaspati ghee industry. As Chairman of RK Group and KK Group, he has guided long-term growth with an emphasis on operating discipline, resilience, product quality and enterprises designed to create enduring value.</p>
