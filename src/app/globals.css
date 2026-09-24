@@ -111,6 +111,10 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .product-lineup { object-fit: cover; object-position: center; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 .brand-showcase:hover .product-lineup { transform: scale(1.018); }
 .brand-acp { background: linear-gradient(145deg, #f4b53f, #e58c22); }
+.brand-nimco { background: #f3e6c6; color: #123c2c; }
+.brand-gulberg { background: #f4cd39; color: #173e2c; }
+.brand-nimco .product-lineup, .brand-gulberg .product-lineup { object-fit: contain; }
+.brand-nimco .brand-visual, .brand-gulberg .brand-visual { background: #173e2c; }
 .brand-islamabad { background: #073c2d; color: #f7edce; }
 .brand-islamabad .brand-description { color: rgba(255,255,255,.62); }
 .brand-dilpasand { background: linear-gradient(145deg, #ffe354, #ffc91a); }

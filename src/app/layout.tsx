@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   authors: [{ name: "RK Group" }],
   creator: "RK Group",
   publisher: "RK Group",
-  keywords: ["RK Group", "RK Group Pakistan", "Pakistan industrial group", "Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati"],
+  keywords: ["RK Group", "RK Group Pakistan", "Pakistan industrial group", "Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati", "Islamabad Nimco", "Gulberg Banaspati Ghee"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -44,10 +44,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
     founder: { "@type": "Person", name: "Sheikh Abdul Majeed" },
     employee: [
-      { "@type": "Person", name: "Sheikh Khalid Islam", jobTitle: "Chief Executive Officer and Chairman" },
+      { "@type": "Person", name: "Sheikh Khalid Islam", jobTitle: "Chairman" },
       { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
     ],
-    brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati"].map(name => ({ "@type": "Brand", name })),
+    brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati", "Islamabad Nimco", "Gulberg Banaspati Ghee"].map(name => ({ "@type": "Brand", name })),
   };
   return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /></body></html>;
 }

@@ -6,6 +6,8 @@ const brands = [
   { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", lineup: "/assets/brand-lineups/dilpasand.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-dilpasand" },
   { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", lineup: "/assets/brand-lineups/deewan.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-deewan" },
   { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", lineup: "/assets/brand-lineups/kashmir-tea.webp", formats: ["Loose-leaf tins", "Tea cartons", "Sealed pouches", "Gift caddies"], className: "brand-kashmir" },
+  { name: "Islamabad Nimco", category: "Traditional savoury snacks", copy: "From tea-time conversations to family gatherings, Islamabad Nimco brings a familiar crunch to the moments we share. Explore Classic Mix, Special Mix and the bold flavours of Chatpata Mix.", lineup: "/assets/brand-lineups/islamabad-nimco.webp", formats: ["Classic Mix", "Special Mix", "Chatpata Mix"], className: "brand-nimco" },
+  { name: "Gulberg", category: "Banaspati ghee", copy: "Gulberg Banaspati Ghee brings a familiar kitchen essential to everyday family cooking. Its distinctive yellow-and-green packaging is available in retail pouches and trade cartons from KKR Oil & Ghee Mills.", lineup: "/assets/brand-lineups/gulberg.webp", formats: ["900g pouches", "Trade cartons"], className: "brand-gulberg" },
 ];
 
 const companies = [
@@ -105,7 +107,7 @@ export default function HomePage() {
       <section className="brands section-pad" id="brands">
         <div className="shell section-heading brands-heading">
           <div><p className="eyebrow"><span /> Brand family</p><h2>Made for real life.<br />Built to be remembered.</h2></div>
-          <p>Five distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
+          <p>Seven distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
         </div>
         <div className="shell brand-stack">
           {brands.map((brand, index) => (
