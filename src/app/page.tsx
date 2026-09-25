@@ -1,10 +1,11 @@
 import Image from "next/image";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 const brands = [
-  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", lineup: "/assets/brand-lineups/acp.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-acp" },
+  { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", lineup: "/assets/brand-lineups/acp-no-tub.webp", formats: ["Metal tins", "Retail pouches", "Trade cartons"], className: "brand-acp" },
   { name: "Islamabad Macaroni", category: "Premium pasta", copy: "A contemporary pasta range made for generous family meals, with six distinctive shapes and a proudly local identity.", lineup: "/assets/brand-lineups/islamabad-macaroni.webp", formats: ["Elbows", "Penne", "Fusilli", "Shells", "Farfalle", "Vermicelli"], className: "brand-islamabad" },
-  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", lineup: "/assets/brand-lineups/dilpasand.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-dilpasand" },
-  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", lineup: "/assets/brand-lineups/deewan.webp", formats: ["Metal tins", "Retail pouches", "Family tubs", "Trade cartons"], className: "brand-deewan" },
+  { name: "Dilpasand", category: "Banaspati", copy: "A familiar kitchen name created for full flavour, consistent results and the recipes families return to.", lineup: "/assets/brand-lineups/dilpasand-no-tub.webp", formats: ["Metal tins", "Retail pouches", "Trade cartons"], className: "brand-dilpasand" },
+  { name: "Dewan", category: "Banaspati ghee", copy: "A trusted pantry essential with a distinctive identity and a long-standing place in everyday cooking.", lineup: "/assets/brand-lineups/deewan-no-tub.webp", formats: ["Metal tins", "Retail pouches", "Trade cartons"], className: "brand-deewan" },
   { name: "Kashmir Tea", category: "Premium tea", copy: "A rich, carefully presented blend made for the conversations and rituals that bring people together.", lineup: "/assets/brand-lineups/kashmir-tea.webp", formats: ["Loose-leaf tins", "Tea cartons", "Sealed pouches", "Gift caddies"], className: "brand-kashmir" },
   { name: "Islamabad Nimco", category: "Traditional savoury snacks", copy: "From tea-time conversations to family gatherings, Islamabad Nimco brings a familiar crunch to the moments we share. Explore Classic Mix, Special Mix and the bold flavours of Chatpata Mix.", lineup: "/assets/brand-lineups/islamabad-nimco.webp", formats: ["Classic Mix", "Special Mix", "Chatpata Mix"], className: "brand-nimco" },
   { name: "Gulberg", category: "Banaspati ghee", copy: "Gulberg Banaspati Ghee brings a familiar kitchen essential to everyday family cooking. Its distinctive yellow-and-green packaging is available in retail pouches and trade cartons from KKR Oil & Ghee Mills.", lineup: "/assets/brand-lineups/gulberg.webp", formats: ["900g pouches", "Trade cartons"], className: "brand-gulberg" },
@@ -29,20 +30,7 @@ const companies = [
 export default function HomePage() {
   return (
     <>
-      <section className="hero" id="top">
-        <Image className="hero-image" src="/assets/hero/islamabad.webp" alt="Islamabad skyline with Faisal Mosque and the Margalla Hills" fill priority sizes="100vw" />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="shell hero-content">
-          <p className="eyebrow light"><span /> Pakistan, built into our story</p>
-          <h1>Everyday essentials.<br /><em>Enduring enterprise.</em></h1>
-          <p className="hero-lede">RK Group brings generations of enterprise to the food, manufacturing, energy and infrastructure businesses that move life forward.</p>
-          <div className="hero-actions">
-            <a className="button primary" href="#brands">Explore our brands <span>↓</span></a>
-            <a className="quiet-link" href="#story">Discover our story</a>
-          </div>
-        </div>
-        <a className="scroll-cue" href="#story" aria-label="Scroll to our story"><span>Scroll</span><b>↓</b></a>
-      </section>
+      <HeroSlideshow />
 
       <section className="story section-pad" id="story">
         <div className="shell story-grid">
