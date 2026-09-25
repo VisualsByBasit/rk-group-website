@@ -92,7 +92,7 @@ export default function HeroSlideshow() {
 
   useEffect(() => {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setActive(current => (current + 1) % slides.length), 6500);
+    const timer = window.setInterval(() => setActive(current => (current + 1) % slides.length), 3000);
     return () => window.clearInterval(timer);
   }, [paused]);
 
