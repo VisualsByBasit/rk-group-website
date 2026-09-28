@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import Leadership from "@/components/Leadership";
 
 const brands = [
   { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", lineup: "/assets/brand-lineups/acp-no-tub.webp", formats: ["Metal tins", "Retail pouches", "Trade cartons"], className: "brand-acp" },
@@ -32,6 +33,8 @@ export default function HomePage() {
     <>
       <HeroSlideshow />
 
+      <div className="group-ribbon"><div className="shell"><span>Generations of enterprise <b>Since 1953</b></span><span>Food & edible oils</span><span>Manufacturing</span><span>Energy</span><span>Infrastructure</span></div></div>
+
       <section className="story section-pad" id="story">
         <div className="shell story-grid">
           <div className="story-heading">
@@ -49,58 +52,25 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <ol className="shell heritage-timeline" aria-label="RK Group milestones">
+          <li><span>1953</span><h3>The first chapter</h3><p>A family enterprise begins in the sugar trade.</p></li>
+          <li><span>1989</span><h3>A foundation in industry</h3><p>ACP Oil Mills marks a new era in edible oils.</p></li>
+          <li><span>1996</span><h3>Expanding the essentials</h3><p>Al-Khalid Flour Mills joins the family of businesses.</p></li>
+          <li><span>Today</span><h3>A broader horizon</h3><p>13 companies, connected by a shared commitment to progress.</p></li>
+        </ol>
       </section>
 
-      <section className="leadership section-pad" id="leadership">
-        <div className="shell section-heading light-heading">
-          <p className="eyebrow light"><span /> Leadership</p>
-          <h2>Stewardship today.<br /><em>Ambition for tomorrow.</em></h2>
-        </div>
-        <div className="shell leaders-grid">
-          <article className="leader-card">
-            <div className="leader-image"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
-            <div className="leader-body">
-              <span className="leader-index">01 / Group leadership</span>
-              <h3>Sheikh Khalid Islam</h3>
-              <ul className="role-list" aria-label="Leadership roles">
-                <li>Chairman, RK Group</li>
-                <li>Chairman, KK Group</li>
-                <li>Vice Chairman, PVMA (2024-2026)</li>
-                <li>Vice Chairman, PVMA (2017-2018)</li>
-                <li>Member, FPCCI</li>
-              </ul>
-              <div className="leader-profile">
-                <p>Sheikh Khalid Islam brings extensive experience in Pakistan&apos;s edible oil and banaspati ghee industry. As Chairman of RK Group and KK Group, he has guided long-term growth with an emphasis on operating discipline, resilience, product quality and enterprises designed to create enduring value.</p>
-                <p>His service to the Pakistan Vanaspati Manufacturers Association spans two documented terms as Vice Chairman. He first assumed the office for 2017-18 and was elected again for 2024-26, with both appointments made unopposed and unanimously by the PVMA Executive Committee. These repeated appointments reflect sustained confidence in his experience and his contribution to the wider edible-oil industry.</p>
-              </div>
-            </div>
-          </article>
-          <article className="leader-card">
-            <div className="leader-image"><Image src="/assets/leadership/sheikh-saim-khalid.webp" alt="Sheikh Saim Khalid" fill sizes="(max-width: 820px) 100vw, 50vw" /></div>
-            <div className="leader-body">
-              <span className="leader-index">02 / Director</span>
-              <h3>Sheikh Saim Khalid</h3>
-              <ul className="role-list" aria-label="Leadership roles">
-                <li>Director, RK Group</li>
-                <li>Director, KK Group</li>
-              </ul>
-              <div className="leader-profile">
-                <p>Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. His place within the Group&apos;s leadership reflects continuity of purpose and confidence in the future, bringing the values established over decades into a new era.</p>
-                <p>With respect for the reputation built by earlier generations, he embodies a measured and forward-looking outlook for RK Group. His presence reinforces the Group&apos;s commitment to thoughtful progress, enduring relationships and enterprises designed to remain relevant for generations to come.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
+      <Leadership />
 
       <section className="brands section-pad" id="brands">
         <div className="shell section-heading brands-heading">
           <div><p className="eyebrow"><span /> Brand family</p><h2>Made for real life.<br />Built to be remembered.</h2></div>
           <p>Seven distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
         </div>
+        <nav className="shell brand-directory" aria-label="Explore our brands">{brands.map(brand => <a key={brand.name} href={`#${brand.className}`}>{brand.name}<span aria-hidden="true">↗</span></a>)}</nav>
         <div className="shell brand-stack">
           {brands.map((brand, index) => (
-            <article className={`brand-showcase ${brand.className}`} key={brand.name}>
+            <article className={`brand-showcase ${brand.className}`} id={brand.className} key={brand.name}>
               <div className="brand-copy">
                 <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p></div>
                 <h3>{brand.name}</h3>

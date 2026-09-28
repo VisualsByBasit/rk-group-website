@@ -5,6 +5,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="shell footer-top">
         <div><Logo light /><p>Generations of enterprise.<br />A future built with purpose.</p></div>
+        <nav className="footer-nav" aria-label="Footer navigation"><a href="#story">Our story</a><a href="#leadership">Our leadership</a><a href="#brands">Our brands</a><a href="#portfolio">Our companies</a></nav>
         <a className="back-top" href="#top">Back to top <span>↑</span></a>
       </div>
       <div className="shell privacy-row">

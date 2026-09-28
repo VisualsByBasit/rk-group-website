@@ -7,10 +7,10 @@
 :root {
   --ink: #0b0c0b;
   --charcoal: #131714;
-  --orange: #ed8818;
+  --orange: #cda568;
   --green: #0e3a2c;
-  --cream: #f4f0e7;
-  --paper: #fbfaf6;
+  --cream: #f1ede4;
+  --paper: #faf8f2;
   --muted: #6e716b;
   --line: rgba(11,12,11,.15);
 }
@@ -38,6 +38,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .desktop-nav a { position: relative; padding: 10px 0; }
 .desktop-nav a::after { content: ""; position: absolute; height: 2px; left: 0; right: 100%; bottom: 2px; background: var(--orange); transition: right .25s ease; }
 .desktop-nav a:hover::after { right: 0; }
+.desktop-nav a:last-child { border: 1px solid var(--line); padding: 11px 18px; }
 .mobile-menu { display: none; }
 
 .hero { --hero-accent: var(--orange); --hero-position: center; min-height: calc(100svh - 74px); color: white; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--ink); transition: background-color .6s ease; }
@@ -98,23 +99,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .leadership { position: relative; overflow: hidden; background: radial-gradient(circle at 85% 10%, rgba(237,136,24,.12), transparent 27%), radial-gradient(circle at 12% 72%, rgba(25,99,73,.22), transparent 30%), var(--charcoal); color: white; }
 .leadership::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 54px 54px; pointer-events: none; }
 .section-heading { margin-bottom: 58px; }
-.light-heading { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; }
-.light-heading h2 { text-align: right; }
-.leaders-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.leader-card { position: relative; background: rgba(26,33,29,.9); border: 1px solid rgba(255,255,255,.09); border-radius: 22px; overflow: hidden; box-shadow: 0 28px 70px rgba(0,0,0,.22); }
-.leader-image { position: relative; height: 620px; overflow: hidden; background: #222923; }
-.leader-image img { object-fit: cover; object-position: center top; transition: transform .7s ease; }
-.leader-card:hover .leader-image img { transform: scale(1.018); }
-.leader-body { min-height: 540px; padding: 40px 42px 46px; border-top: 3px solid var(--orange); }
-.leader-card:nth-child(2) .leader-body { border-color: #286b53; }
 .leader-index { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .18em; color: var(--orange); margin-bottom: 20px; }
-.leader-card:nth-child(2) .leader-index { color: #66a28a; }
-.leader-body h3 { font-size: clamp(30px,3vw,44px); margin: 0 0 12px; }
-.role-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 26px; list-style: none; }
-.role-list li { padding: 8px 10px; border: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.84); font-size: 10px; line-height: 1.35; letter-spacing: .035em; }
-.leader-profile { max-width: 570px; }
-.leader-profile p { color: rgba(255,255,255,.58); font-size: 14px; line-height: 1.75; margin-bottom: 15px; }
-.leader-profile p:last-child { margin-bottom: 0; }
 
 .brands { position: relative; overflow: hidden; background: radial-gradient(circle at 95% 8%, rgba(237,136,24,.16), transparent 25%), var(--cream); }
 .brands-heading { display: grid; grid-template-columns: 1fr .55fr; align-items: end; }
@@ -228,12 +213,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .fact-row { gap: 8px; }
   .fact-row strong { font-size: 27px; }
   .fact-row span { font-size: 8px; }
-  .light-heading { display: block; }
-  .light-heading h2 { text-align: left; }
-  .leaders-grid { display: grid; grid-template-columns: 1fr; width: min(100% - 30px, 1240px); margin-inline: auto; gap: 24px; }
-  .leader-card { width: 100%; }
-  .leader-image { height: 520px; }
-  .leader-body { min-height: 520px; padding: 31px 25px 36px; }
   .brands-heading, .portfolio-intro { grid-template-columns: 1fr; gap: 28px; }
   .brands-heading > p, .portfolio-intro > p { justify-self: start; }
   .story-copy { padding: 30px 24px; }
@@ -256,7 +235,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 
 @media (max-width: 430px) {
-  .leader-image { height: 455px; }
   .company-grid { grid-template-columns: 1fr; }
   .company-card { min-height: 240px; }
   .company-logo { height: 130px; }
@@ -266,4 +244,106 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
   .hero h1, .hero-lede { animation: none !important; }
+}
+
+/* Editorial rhythm, heritage and leadership. */
+.group-ribbon { background: #0d2c24; color: #d5c9b4; border-top: 1px solid #ffffff24; }
+.group-ribbon .shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 27px; }
+.group-ribbon span { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; }
+.group-ribbon span:first-child { padding-right: 35px; border-right: 1px solid #ffffff30; }
+.group-ribbon b { display: block; color: #fff; font-size: 16px; font-weight: 400; letter-spacing: .04em; margin-top: 7px; }
+.story { background: var(--paper); }
+.story-copy { border: 0; border-radius: 0; background: transparent; padding: 18px 0 0; box-shadow: none; }
+.fact-row div { border-radius: 0; border-top: 1px solid #cdbfa8; padding-inline: 0; background: transparent; }
+.fact-row strong { color: #806239; }
+.heritage-timeline { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0; margin-top: 80px; margin-bottom: 0; }
+.heritage-timeline li { position: relative; border-top: 1px solid #cdbfa8; padding: 30px 30px 0 0; }
+.heritage-timeline li::before { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #97784b; top: -4px; left: 0; }
+.heritage-timeline span { font: 400 33px Georgia, serif; color: #84653e; }
+.heritage-timeline h3 { font-size: 17px; letter-spacing: -.03em; margin: 19px 0 10px; }
+.heritage-timeline p { font-size: 13px; line-height: 1.7; color: var(--muted); max-width: 230px; margin-bottom: 0; }
+.leadership { background: #112b24; }
+.leadership::before { display: none; }
+.leadership-heading { display: grid; grid-template-columns: 1.4fr .6fr; align-items: end; gap: 60px; }
+.leadership-heading > p { font-size: 15px; line-height: 1.85; color: #c0c9c1; max-width: 330px; margin-bottom: 4px; }
+.leadership h2 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.045em; }
+.chairman-feature { display: grid; grid-template-columns: .95fr 1.05fr; background: #1a352d; border: 1px solid #cda56845; }
+.chairman-portrait { position: relative; min-height: 720px; background: #192721; }
+.chairman-portrait img { object-fit: cover; object-position: center top; }
+.portrait-caption { position: absolute; bottom: 25px; left: 25px; padding: 12px 17px; background: #10271fec; border: 1px solid #cda56870; font-size: 9px; text-transform: uppercase; letter-spacing: .2em; }
+.chairman-body { padding: clamp(28px, 4vw, 58px); align-self: center; }
+.chairman-body h3 { font-size: clamp(45px, 5.1vw, 70px); line-height: 1.02; margin: 27px 0; }
+.chairman-intro { font-family: Georgia, serif; font-size: 25px; line-height: 1.35; color: #dec498; }
+.chairman-body > p:not([class]) { font-size: 14px; line-height: 1.85; color: #c0c9c1; }
+.chairman-credentials { list-style: none; padding: 0; margin: 25px 0; }
+.chairman-credentials li { padding: 13px 0; border-top: 1px solid #ffffff1c; font-size: 12px; line-height: 1.6; }
+.chairman-credentials span { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .14em; color: #b7bfae; margin-bottom: 4px; }
+.leadership-divider { display: flex; justify-content: space-between; gap: 20px; margin: 55px 0 27px; padding-bottom: 20px; border-bottom: 1px solid #ffffff26; color: #c4cabc; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.leadership-divider span:last-child { color: #dec498; }
+.leadership-team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; align-items: start; }
+.team-profile { min-width: 0; background: #19352c; border: 1px solid #ffffff1c; }
+.team-portrait { position: relative; aspect-ratio: 4 / 4.6; overflow: hidden; background: #d8d8d0; }
+.team-portrait img { object-fit: cover; object-position: center top; transition: transform .6s ease; }
+.team-profile:hover .team-portrait img { transform: scale(1.025); }
+.team-portrait--abubakar img { object-position: 50% top; }
+.team-body { padding: 28px 25px; border-top: 2px solid #cda568; }
+.team-body .leader-index { font-size: 8px; letter-spacing: .13em; margin-bottom: 17px; color: #dec498; }
+.team-body h3 { font-size: clamp(27px, 2.5vw, 34px); line-height: 1.13; min-height: 2.26em; margin-bottom: 20px; }
+.team-roles { padding: 0; list-style: none; margin: 0 0 22px; color: #e2e6de; font-size: 12px; line-height: 1.7; min-height: 62px; }
+.team-description { font-size: 13px; line-height: 1.85; color: #bdc9c0; }
+.chamber-list { padding-left: 16px; color: #cbd6cd; font-size: 12px; line-height: 1.8; margin: 0 0 22px; }
+.profile-details { border-top: 1px solid #ffffff26; margin-top: 25px; }
+.profile-details summary { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 19px 0 0; list-style: none; cursor: pointer; color: #e3c692; font-size: 12px; line-height: 1.6; }
+.profile-details summary::-webkit-details-marker { display: none; }
+.profile-details summary span { font-size: 23px; font-weight: 400; transition: transform .2s; }
+.profile-details[open] summary span { transform: rotate(45deg); }
+.biography-copy { padding-top: 22px; }
+.biography-copy h4 { font: 500 15px/1.5 "Space Grotesk", sans-serif; color: #f2e8d5; margin: 25px 0 10px; }
+.biography-copy h4:first-child { margin-top: 0; }
+.biography-copy p, .biography-copy ul { font-size: 13px; color: #c0cfc3; line-height: 1.85; }
+.biography-copy ul { padding-left: 18px; }
+.biography-copy p:last-child { margin-bottom: 0; }
+.brand-directory { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.brand-directory a { display: flex; align-items: center; gap: 24px; border: 1px solid #bcb4a3; padding: 13px 17px; font-size: 12px; transition: background .2s, color .2s; }
+.brand-directory a:hover { background: var(--green); color: #fff; }
+.brand-directory span { color: #84653e; }
+.brand-showcase { border-radius: 4px; box-shadow: none; scroll-margin-top: 95px; }
+.company-card { border-radius: 4px; }
+.company-logo { border-radius: 2px; }
+.standards-list article { border-radius: 4px; box-shadow: none; }
+.footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 35px; font-size: 13px; color: #c0c9c1; }
+.footer-nav a:hover { color: #e3c692; }
+@media (max-width: 1000px) {
+  .leadership-heading { grid-template-columns: 1fr; gap: 24px; }
+  .leadership-heading > p { max-width: 600px; }
+  .chairman-portrait { min-height: 680px; }
+  .team-body { padding: 25px 18px; }
+  .team-body h3 { font-size: 27px; }
+  .group-ribbon .shell { flex-wrap: wrap; justify-content: flex-start; }
+  .heritage-timeline { gap: 0; }
+  .footer-top { gap: 30px; flex-wrap: wrap; }
+}
+@media (max-width: 720px) {
+  .group-ribbon .shell { gap: 18px 24px; padding-block: 25px; }
+  .group-ribbon span { font-size: 9px; }
+  .group-ribbon span:first-child { width: 100%; border: 0; padding: 0 0 16px; border-bottom: 1px solid #ffffff30; }
+  .group-ribbon b { display: inline; margin-left: 14px; font-size: 13px; }
+  .heritage-timeline { grid-template-columns: 1fr 1fr; gap: 35px 0; margin-top: 45px; }
+  .heritage-timeline li { padding-right: 16px; }
+  .heritage-timeline h3 { font-size: 15px; }
+  .chairman-feature { grid-template-columns: 1fr; }
+  .chairman-portrait { min-height: 0; aspect-ratio: 4 / 4.7; }
+  .chairman-body { padding: 32px 25px; }
+  .chairman-body h3 { font-size: 48px; }
+  .leadership-divider { margin-top: 40px; line-height: 1.8; }
+  .leadership-divider span:last-child { display: none; }
+  .leadership-team { grid-template-columns: 1fr; gap: 28px; }
+  .team-portrait { aspect-ratio: 4 / 4.3; }
+  .team-body { padding: 30px 25px; }
+  .team-body h3 { font-size: 34px; min-height: 0; }
+  .team-roles { min-height: 0; }
+  .brand-directory { gap: 8px; }
+  .brand-directory a { padding: 12px; gap: 12px; font-size: 11px; }
+  .brand-showcase { border-radius: 4px; }
+  .footer-nav { width: 100%; }
 }

@@ -10,6 +10,8 @@ const conversions = [
   ["hero/islamabad.png", "hero/islamabad.webp", 1792, 82],
   ["leadership/sheikh-khalid-islam.png", "leadership/sheikh-khalid-islam.webp", 1100, 86],
   ["leadership/sheikh-saim-khalid.png", "leadership/sheikh-saim-khalid.webp", 1100, 86],
+  ["leadership/raja-abubakar-farooq.jpeg", "leadership/raja-abubakar-farooq.webp", 1000, 86],
+  ["leadership/raja-muhammad-farooq.jpeg", "leadership/raja-muhammad-farooq.webp", 1000, 86],
   ["brands/deewan.png", "brands/deewan.webp", 1200, 88],
   ["brands/kashmir-tea.png", "brands/kashmir-tea.webp", 1200, 88],
 ];

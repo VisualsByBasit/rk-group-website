@@ -92,18 +92,18 @@ export default function HeroSlideshow() {
 
   useEffect(() => {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setActive(current => (current + 1) % slides.length), 3000);
+    const timer = window.setInterval(() => setActive(current => (current + 1) % slides.length), 7000);
     return () => window.clearInterval(timer);
   }, [paused]);
 
   const slide = slides[active];
 
   return (
-    <section className={`hero hero--${slide.theme}`} id="top" aria-roledescription="carousel" aria-label="RK Group and its brands">
+    <section className={`hero hero--${slide.theme}`} id="top" aria-roledescription="carousel" aria-label="RK Group and its brands" onFocusCapture={() => setPaused(true)}>
       <div className="hero-slides">
         {slides.map((item, index) => (
           <div className={`hero-slide${index === active ? " is-active" : ""}`} aria-hidden={index !== active} key={item.name}>
-            <Image className="hero-image" src={item.image} alt={index === active ? item.alt : ""} fill priority={index === 0} sizes="100vw" />
+            <Image className="hero-image" src={item.image} alt={index === active ? item.alt : ""} fill preload={index === 0} sizes="100vw" />
           </div>
         ))}
       </div>

@@ -46,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     employee: [
       { "@type": "Person", name: "Sheikh Khalid Islam", jobTitle: "Chairman" },
       { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
+      { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
     ],
     brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati", "Islamabad Nimco", "Gulberg Banaspati Ghee"].map(name => ({ "@type": "Brand", name })),
   };
