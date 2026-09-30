@@ -306,6 +306,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .biography-copy p, .biography-copy ul { font-size: 13px; color: #c0cfc3; line-height: 1.85; }
 .biography-copy ul { padding-left: 18px; }
 .biography-copy p:last-child { margin-bottom: 0; }
+.biography-sources a { color: #e3c692; text-decoration: underline; text-underline-offset: 3px; }
 .brand-directory { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
 .brand-directory a { display: flex; align-items: center; gap: 24px; border: 1px solid #bcb4a3; padding: 13px 17px; font-size: 12px; transition: background .2s, color .2s; }
 .brand-directory a:hover { background: var(--green); color: #fff; }
