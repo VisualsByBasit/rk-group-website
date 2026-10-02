@@ -18,6 +18,14 @@ const leaders = [
     detail: "saim" as const,
   },
   {
+    name: "Sheikh Atif Islam",
+    image: "sheikh-atif-islam.webp",
+    label: "Business & industry",
+    roles: ["Director, RK Group", "Director, KK Group"],
+    copy: "Sheikh Atif Islam serves as Director of RK Group and KK Group, with memberships in PVMA and the business chambers of Mirpur and Khyber.",
+    detail: "atif" as const,
+  },
+  {
     name: "Raja Abubakar Farooq",
     image: "raja-abubakar-farooq.webp",
     label: "Business & professional service",
@@ -79,11 +87,12 @@ export default function Leadership() {
         <div className="leadership-team">
           {leaders.map((leader) => (
             <article className="team-profile" key={leader.name}>
-              <div className={`team-portrait team-portrait--${leader.detail}`}><Image src={`/assets/leadership/${leader.image}`} alt={leader.name} fill sizes="(max-width: 720px) 100vw, (max-width: 1000px) 50vw, 33vw" /></div>
+              <div className={`team-portrait team-portrait--${leader.detail}`}><Image src={`/assets/leadership/${leader.image}`} alt={leader.name} fill sizes="(max-width: 720px) 100vw, (max-width: 1000px) 50vw, 25vw" /></div>
               <div className="team-body"><p className="leader-index">{leader.label}</p><h3>{leader.name}</h3><ul className="credential-pills team-roles" aria-label={`${leader.name} roles and qualifications`}>{leader.roles.map(role => <li className={`credential-pill${role.startsWith("Director,") ? " credential-pill--primary" : ""}`} key={role}>{role}</li>)}</ul><p className="team-description">{leader.copy}</p>
                 {leader.detail === "abubakar" && <ul className="credential-pills chamber-list" aria-label="Chamber memberships"><li className="credential-pill credential-pill--secondary">Member, Mirpur Chamber of Commerce</li><li className="credential-pill credential-pill--secondary">Member, Islamabad Chamber of Commerce</li></ul>}
-                <details className="profile-details"><summary>{leader.detail === "farooq" ? "Read his journey" : "More about " + (leader.detail === "saim" ? "Saim" : "Abubakar")} <span aria-hidden="true">+</span></summary>
-                  {leader.detail === "farooq" ? <FarooqBiography /> : <div className="biography-copy"><p>{leader.detail === "saim" ? "As Director of RK Group and KK Group, Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. With respect for the reputation built by earlier generations, his presence reinforces the Group’s commitment to continuity and thoughtful growth." : "Raja Abubakar Farooq holds a degree in law and serves as Director of both RK Group and KK Group. A member of the Mirpur Chamber of Commerce and Islamabad Chamber of Commerce, he maintains connections across the regional business community. He is the son of Raja Muhammad Farooq."}</p></div>}
+                {leader.detail === "atif" && <ul className="credential-pills chamber-list" aria-label="Industry and chamber memberships"><li className="credential-pill credential-pill--secondary">Member, PVMA</li><li className="credential-pill credential-pill--secondary">Member, Mirpur Chamber of Commerce</li><li className="credential-pill credential-pill--secondary">Member, Khyber Chamber of Commerce</li></ul>}
+                <details className="profile-details"><summary>{leader.detail === "farooq" ? "Read his journey" : "More about " + (leader.detail === "saim" ? "Saim" : leader.detail === "atif" ? "Atif" : "Abubakar")} <span aria-hidden="true">+</span></summary>
+                  {leader.detail === "farooq" ? <FarooqBiography /> : <div className="biography-copy"><p>{leader.detail === "saim" ? "As Director of RK Group and KK Group, Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. With respect for the reputation built by earlier generations, his presence reinforces the Group’s commitment to continuity and thoughtful growth." : leader.detail === "atif" ? "Alongside his directorships at RK Group and KK Group, Sheikh Atif Islam is a member of the Pakistan Vanaspati Manufacturers Association (PVMA), Mirpur Chamber of Commerce and Khyber Chamber of Commerce. These affiliations connect his business roles with industry and regional business communities." : "Raja Abubakar Farooq holds a degree in law and serves as Director of both RK Group and KK Group. A member of the Mirpur Chamber of Commerce and Islamabad Chamber of Commerce, he maintains connections across the regional business community. He is the son of Raja Muhammad Farooq."}</p></div>}
                 </details>
               </div>
             </article>

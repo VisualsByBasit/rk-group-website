@@ -1,0 +1,7 @@
+Tool: built-in image_gen (image edit)
+Source: user-supplied portrait of Sheikh Atif Islam.
+Output master: source-assets/sheikh-atif-islam.png
+Website asset: public/assets/leadership/sheikh-atif-islam.webp
+
+Prompt:
+Edit the supplied portrait for a corporate leadership website. Preserve this man's exact identity, face, facial proportions, hairstyle, beard, expression, body shape, dark charcoal suit, pale pink shirt and blue patterned tie. Remove all lettering, PVMA logo, gold decorative overlay and other people. Replace the event background with a plain warm light-gray studio background. Natural restrained cleanup of compression and lighting, realistic skin texture, no beautification or change in age. Centered head-and-upper-torso portrait, vertical 4:5 composition, comfortable space above the hair and both shoulders visible. Restore only the clothing areas obscured by lettering. No text, logos, objects or decorative elements.
