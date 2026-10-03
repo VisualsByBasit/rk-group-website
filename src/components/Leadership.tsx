@@ -83,6 +83,34 @@ export default function Leadership() {
             </details>
           </div>
         </article>
+        <article className="chairman-feature former-chairman" aria-labelledby="former-chairman-title">
+          <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-abdul-islam.png" alt="Sheikh Abdul Islam, former Chairman of KK Group, in a classic suit" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">A legacy of enterprise</span></div>
+          <div className="chairman-body">
+            <p className="eyebrow light"><span /> Former Chairman · KK Group</p>
+            <h3 id="former-chairman-title">Sheikh<br />Abdul Islam</h3>
+            <p className="chairman-intro">From trade to industry.<br />A foundation for growth.</p>
+            <p>Sheikh Abdul Islam served as Chairman of KK Group before Sheikh Khalid Islam. He joined the business in 1965 and expanded its trading activities into wheat and ghee, helping shape the Group’s development into manufacturing and other essential sectors.</p>
+            <p>His chapter in the Group’s history encompasses edible oils, flour milling, petroleum retail and bottled water, with milestones including ACP Oil Mills in 1989, Al-Khalid Flour Mills in 1996 and KK Oil & Ghee Mills in 2012.</p>
+            <details className="profile-details">
+              <summary>KK Group history & group concerns <span aria-hidden="true">+</span></summary>
+              <div className="biography-copy">
+                <h4>1989 · A.C.P Oil Mills (Pvt.) Ltd.</h4>
+                <p>The family entered ghee, cooking oil and soap manufacturing, with a 50% shareholding in the name of Sheikh Abdul Islam, then Chairman.</p>
+                <h4>1996 · Al-Khalid Flour Mills (Pvt.) Ltd.</h4>
+                <p>A flour mill was established in district Attock with 100% shareholding.</p>
+                <h4>A.C.P Petroleum</h4>
+                <p>The Group established a petrol pump and CNG station on Saidpur Road as a franchise for Total Parco Pakistan Ltd. products, with 50% shareholding.</p>
+                <h4>2006 · Mik Mak Station</h4>
+                <p>Established at Lawrencepur, district Attock, with 100% shareholding, the station sold petrol, diesel and other lubricants from Hascol Storage (Pvt.) Ltd.</p>
+                <h4>2009 · Care Enterprises</h4>
+                <p>M/S Care Enterprises was established to process and bottle mineral water under the “Oxygen +” brand, with 50% shareholding.</p>
+                <h4>October 2012 · KK Oil & Ghee Mills (Pvt.) Ltd.</h4>
+                <p>The company was established to process ghee, cooking oil and soap, with 100% shareholding.</p>
+                <p>Shareholding figures reflect the Group’s history at the time of these milestones.</p>
+              </div>
+            </details>
+          </div>
+        </article>
         <div className="leadership-divider"><span>Shared values. Complementary experience.</span><span>Our leadership</span></div>
         <div className="leadership-team">
           {leaders.map((leader) => (

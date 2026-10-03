@@ -43,7 +43,7 @@ export default function HomePage() {
             <p className="section-note">A family enterprise shaped by patient growth, practical ambition and an enduring commitment to the essentials people rely on.</p>
           </div>
           <div className="story-copy">
-            <p>RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade. The next generation expanded into wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
+            <p>RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade. Sheikh Abdul Islam joined the business in 1965 and expanded into wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
             <p>From ACP Oil Mills in 1989 and Al-Khalid Flour Mills in 1996 to a wider portfolio of food, edible-oil, manufacturing, energy and infrastructure businesses, the Group has grown through practical ambition and long-term thinking.</p>
             <div className="fact-row">
               <div><strong>1953</strong><span>Origins in trade</span></div>

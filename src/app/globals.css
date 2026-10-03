@@ -268,6 +268,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .leadership-heading > p { font-size: 15px; line-height: 1.85; color: #c0c9c1; max-width: 330px; margin-bottom: 4px; }
 .leadership h2 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.045em; }
 .chairman-feature { display: grid; grid-template-columns: .95fr 1.05fr; background: #1a352d; border: 1px solid #cda56845; }
+.former-chairman { margin-top: 32px; }
+.former-chairman .chairman-portrait { align-self: stretch; min-height: 0; background: #e4e1dc; }
 .chairman-portrait { position: relative; min-height: 720px; background: #192721; }
 .chairman-portrait img { object-fit: cover; object-position: center top; }
 .portrait-caption { position: absolute; bottom: 25px; left: 25px; padding: 12px 17px; background: #10271fec; border: 1px solid #cda56870; font-size: 9px; text-transform: uppercase; letter-spacing: .2em; }
@@ -338,6 +340,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .heritage-timeline h3 { font-size: 15px; }
   .chairman-feature { grid-template-columns: 1fr; }
   .chairman-portrait { min-height: 0; aspect-ratio: 4 / 4.7; }
+  .former-chairman .chairman-portrait { aspect-ratio: 5 / 4; }
   .chairman-body { padding: 32px 25px; }
   .chairman-body h3 { font-size: 48px; }
   .leadership-divider { margin-top: 40px; line-height: 1.8; }
