@@ -7,9 +7,10 @@ import "@fontsource/ibm-plex-sans/500.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rkgroupindustries.com"),
+  metadataBase: new URL(siteUrl),
   title: { default: "RK Group Of Industries", template: "%s | RK Group" },
   description: "Discover RK Group, a diversified Pakistani enterprise with trusted brands and capabilities across food, edible oils, manufacturing, energy and infrastructure.",
   applicationName: "RK Group",
@@ -39,8 +40,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@type": "Organization",
     name: "RK Group",
     alternateName: "RK Group of Industries",
-    url: "https://rkgroupindustries.com",
-    logo: "https://rkgroupindustries.com/assets/rk-group-logo.png",
+    url: siteUrl,
+    logo: `${siteUrl}/assets/rk-group-logo.png`,
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
     founder: { "@type": "Person", name: "Sheikh Abdul Majeed" },
     employee: [
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
       { "@type": "Person", name: "Sheikh Atif Islam", jobTitle: "Director" },
       { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
+      { "@type": "Person", name: "Abdul Haseeb", jobTitle: "Chief Financial Officer (CFO)" },
     ],
     brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati", "Islamabad Nimco", "Gulberg Banaspati Ghee"].map(name => ({ "@type": "Brand", name })),
   };

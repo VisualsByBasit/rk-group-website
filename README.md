@@ -30,7 +30,9 @@ To connect Google Search Console:
 3. Copy only the verification token into the deployment environment variable `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
 4. Rebuild and deploy the site.
 5. Verify ownership in Search Console.
-6. Submit `https://rkgroupindustries.com/sitemap.xml`.
+6. Submit `https://rkgroupofindustries.vercel.app/sitemap.xml`.
+
+The production URL defaults to `https://rkgroupofindustries.vercel.app`. Set `NEXT_PUBLIC_SITE_URL` before rebuilding when moving to a custom domain; canonical metadata, structured data, robots and the sitemap use this value.
 
 After deployment, test the live URL with Google Rich Results Test, Facebook Sharing Debugger and LinkedIn Post Inspector.
 

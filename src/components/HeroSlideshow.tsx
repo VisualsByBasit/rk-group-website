@@ -26,7 +26,7 @@ const slides = [
   },
   {
     name: "Islamabad Macaroni",
-    image: "/assets/brand-lineups/islamabad-macaroni.webp",
+    image: "/assets/brand-lineups/islamabad-macaroni-v2.webp",
     alt: "Islamabad Macaroni jars and packets in six pasta shapes",
     eyebrow: "Islamabad Macaroni",
     title: "Different shapes.",
@@ -97,12 +97,13 @@ export default function HeroSlideshow() {
   }, [paused]);
 
   const slide = slides[active];
+  const destinations = ["#story", "#brand-acp", "#brand-islamabad", "#brand-dilpasand", "#brand-deewan", "#brand-kashmir", "#brand-nimco", "#brand-gulberg"];
 
   return (
     <section className={`hero hero--${slide.theme}`} id="top" aria-roledescription="carousel" aria-label="RK Group and its brands" onFocusCapture={() => setPaused(true)}>
       <div className="hero-slides">
         {slides.map((item, index) => (
-          <div className={`hero-slide${index === active ? " is-active" : ""}`} aria-hidden={index !== active} key={item.name}>
+          <div className={`hero-slide${index > 0 ? " hero-slide--product" : ""}${index === active ? " is-active" : ""}`} aria-hidden={index !== active} key={item.name}>
             <Image className="hero-image" src={item.image} alt={index === active ? item.alt : ""} fill preload={index === 0} sizes="100vw" />
           </div>
         ))}
@@ -114,10 +115,11 @@ export default function HeroSlideshow() {
         <p className="hero-lede" key={`${slide.name}-description`}>{slide.description}</p>
         <div className="hero-actions">
           <a className="button primary" href="#brands">Explore our brands <span>↓</span></a>
-          <a className="quiet-link" href={active === 0 ? "#story" : "#brands"}>{active === 0 ? "Discover our story" : `View ${slide.name}`}</a>
+          <a className="quiet-link" href={destinations[active]}>{active === 0 ? "Discover our story" : `View ${slide.name}`}</a>
         </div>
       </div>
       <div className="hero-controls" aria-label="Choose a hero slide">
+        <span className="hero-count" aria-hidden="true">{String(active + 1).padStart(2, "0")} <span>/ {String(slides.length).padStart(2, "0")}</span></span>
         <button type="button" className="hero-step" onClick={() => setActive(current => (current - 1 + slides.length) % slides.length)} aria-label="Previous slide">←</button>
         <div className="hero-dots">
           {slides.map((item, index) => (

@@ -11,7 +11,7 @@ const leaders = [
   },
   {
     name: "Sheikh Saim Khalid",
-    image: "sheikh-saim-khalid.webp",
+    image: "sheikh-saim-khalid-suit-v2.webp",
     label: "Next-generation leadership",
     roles: ["Director, RK Group", "Director, KK Group"],
     copy: "Carrying a family tradition of enterprise into its next chapter, with a focus on enduring relationships, thoughtful progress and the values established over generations.",
@@ -84,7 +84,7 @@ export default function Leadership() {
           </div>
         </article>
         <article className="chairman-feature former-chairman" aria-labelledby="former-chairman-title">
-          <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-abdul-islam.png" alt="Sheikh Abdul Islam, former Chairman of KK Group, in a classic suit" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">A legacy of enterprise</span></div>
+          <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-abdul-islam.webp" alt="Sheikh Abdul Islam, former Chairman of KK Group, in a classic suit" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">A legacy of enterprise</span></div>
           <div className="chairman-body">
             <p className="eyebrow light"><span /> Former Chairman · KK Group</p>
             <h3 id="former-chairman-title">Sheikh<br />Abdul Islam</h3>
@@ -126,6 +126,29 @@ export default function Leadership() {
             </article>
           ))}
         </div>
+        <article className="team-profile finance-profile" aria-labelledby="abdul-haseeb-title">
+          <div className="team-portrait">
+            <Image src="/assets/leadership/abdul-haseeb.webp" alt="Abdul Haseeb in a charcoal suit" fill sizes="(max-width: 720px) 100vw, 320px" />
+          </div>
+          <div className="team-body">
+            <p className="leader-index">Finance leadership</p>
+            <h3 id="abdul-haseeb-title">Abdul Haseeb</h3>
+            <ul className="credential-pills team-roles" aria-label="Abdul Haseeb roles">
+              <li className="credential-pill credential-pill--primary">CFO, KK Group</li>
+              <li className="credential-pill credential-pill--primary">CFO, RK Group</li>
+            </ul>
+            <p className="team-description">Abdul Haseeb serves as Chief Financial Officer (CFO) of KK Group and RK Group, bringing a financial perspective to the leadership of both organisations.</p>
+            <details className="profile-details">
+              <summary>More about Abdul Haseeb <span aria-hidden="true">+</span></summary>
+              <div className="biography-copy">
+                <h4>Finance leadership across both groups</h4>
+                <p>His appointments span both groups, placing him within the senior leadership of each organisation. As CFO, he represents the finance function alongside the chairmanship and directorships that shape the groups’ business direction.</p>
+                <p>His profile reflects the role of financial leadership within a wider enterprise: connecting the financial side of the business with the broader priorities of its leadership.</p>
+                <p className="biography-sources"><a href="https://www.linkedin.com/in/abdul-haseeb-19447ba6/">View Abdul Haseeb on LinkedIn</a></p>
+              </div>
+            </details>
+          </div>
+        </article>
       </div>
     </section>
   );
