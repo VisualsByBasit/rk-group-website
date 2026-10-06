@@ -307,7 +307,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .profile-details summary { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 19px 0 0; list-style: none; cursor: pointer; color: #e3c692; font-size: 12px; line-height: 1.6; }
 .profile-details summary::-webkit-details-marker { display: none; }
 .profile-details summary span { font-size: 23px; font-weight: 400; transition: transform .2s; }
-.profile-details[open] summary span { transform: rotate(45deg); }
+.profile-details[open] summary span { transform: none; }
 .biography-copy { padding-top: 22px; }
 .biography-copy h4 { font: 500 15px/1.5 "Space Grotesk", sans-serif; color: #f2e8d5; margin: 25px 0 10px; }
 .biography-copy h4:first-child { margin-top: 0; }
@@ -362,7 +362,10 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .team-profile { transition: border-color .25s ease; }
 .team-profile:hover { border-color: #cda56870; }
 .profile-details summary { min-height: 52px; padding-top: 15px; }
-.profile-details summary span { display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border: 1px solid #cda56855; border-radius: 50%; font-size: 20px; }
+.profile-details summary span { position: relative; display: block; flex: 0 0 28px; width: 28px; height: 28px; border: 1px solid #cda56855; border-radius: 50%; font-size: 0; }
+.profile-details summary span::before, .profile-details summary span::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
+.profile-details summary span::after { transform: translate(-50%, -50%) rotate(90deg); transition: opacity .2s ease; }
+.profile-details[open] summary span::after { opacity: 0; }
 .company-grid { gap: 18px; }
 .company-card { background: #ffffff06; padding: 22px; }
 .company-card p { color: #c5d0c6; line-height: 1.7; }

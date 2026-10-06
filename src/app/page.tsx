@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
+import Standards from "@/components/Standards";
 
 const brands = [
   { name: "ACP", category: "Banaspati ghee", copy: "The flagship name at the heart of RK Group's edible-oils story, built around dependable quality for everyday kitchens.", lineup: "/assets/brand-lineups/acp-no-tub.webp", formats: ["Metal tins", "Retail pouches", "Trade cartons"], className: "brand-acp" },
@@ -103,16 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="standards section-pad" id="standards">
-        <div className="shell standards-grid">
-          <div><p className="eyebrow"><span /> How we work</p><h2>Quality is not a claim.<br />It is a system.</h2></div>
-          <div className="standards-list">
-            <article><span>01</span><div><h3>Disciplined processes</h3><p>Structured sourcing, refining, production and packing practices support consistent outcomes across the portfolio.</p></div></article>
-            <article><span>02</span><div><h3>Long-term stewardship</h3><p>Investment decisions are shaped around resilience, responsible growth and the usefulness of what we build.</p></div></article>
-            <article><span>03</span><div><h3>Progress with purpose</h3><p>Established operating experience is paired with modern brand thinking and the ambition to keep improving.</p></div></article>
-          </div>
-        </div>
-      </section>
+      <Standards />
     </>
   );
 }
