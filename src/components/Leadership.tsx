@@ -55,13 +55,13 @@ export default function Leadership() {
         <article className="chairman-feature">
           <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam, Chairman of RK Group" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">Office of the Chairman</span></div>
           <div className="chairman-body">
-            <p className="eyebrow light"><span /> Chairman · RK Group & KK Group</p>
+            <p className="eyebrow light"><span /> Chairman · RK Group & CEO · KK Group</p>
             <h3>Sheikh<br />Khalid Islam</h3>
             <p className="chairman-intro">Guiding the Group.<br />Building for generations.</p>
             <p>A Pakistani industrialist with deep roots in edible oil and banaspati ghee manufacturing, Sheikh Khalid Islam leads RK Group and KK Group. His work connects manufacturing in Mirpur, Azad Jammu & Kashmir, with industry representation and business leadership in Islamabad.</p>
             <ul className="credential-pills chairman-credentials" aria-label="Chairman roles and memberships">
               <li className="credential-pill credential-pill--primary">Chairman, RK Group</li>
-              <li className="credential-pill credential-pill--primary">Chairman, KK Group</li>
+              <li className="credential-pill credential-pill--primary">CEO, KK Group</li>
               <li className="credential-pill">Vice Chairman, PVMA · 2024–2026</li>
               <li className="credential-pill">Vice Chairman, PVMA · 2017–2018</li>
               <li className="credential-pill credential-pill--secondary">Member, FPCCI</li>
