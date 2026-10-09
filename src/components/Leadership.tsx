@@ -1,59 +1,7 @@
 import Image from "next/image";
-
-const leaders = [
-  {
-    name: "Raja Muhammad Farooq",
-    image: "raja-muhammad-farooq.webp",
-    label: "Enterprise & community",
-    roles: ["Entrepreneur & community leader", "Former Senior Vice Chairman, PVMA · Two terms"],
-    copy: "From Sahamni, Azad Jammu & Kashmir, to Islamabad and Mirpur, a life shaped by enterprise, public service and a lasting commitment to the people of Kashmir.",
-    detail: "farooq" as const,
-  },
-  {
-    name: "Sheikh Saim Khalid",
-    image: "sheikh-saim-khalid-suit-v2.webp",
-    label: "Next-generation leadership",
-    roles: ["Director, RK Group", "Director, KK Group"],
-    copy: "Carrying a family tradition of enterprise into its next chapter, with a focus on enduring relationships, thoughtful progress and the values established over generations.",
-    detail: "saim" as const,
-  },
-  {
-    name: "Sheikh Atif Islam",
-    image: "sheikh-atif-islam.webp",
-    label: "Business & industry",
-    roles: ["Director, RK Group", "Director, KK Group"],
-    copy: "Sheikh Atif Islam serves as Director of RK Group and KK Group, with memberships in PVMA and the business chambers of Mirpur and Khyber.",
-    detail: "atif" as const,
-  },
-  {
-    name: "Raja Abubakar Farooq",
-    image: "raja-abubakar-farooq.webp",
-    label: "Business & professional service",
-    roles: ["Director, RK Group", "Director, KK Group", "Law graduate"],
-    copy: "Bringing a legal education and an active connection with the business community to his directorships at RK Group and KK Group.",
-    detail: "abubakar" as const,
-  },
-];
-
-function FarooqBiography() {
-  return (
-    <div className="biography-copy">
-      <p>Originally from Sahamni, AJK, Raja Muhammad Farooq moved to Islamabad in 1985. With an MBA, CA and LLB, he built interests in oil, plastics, tea, soap and ghee manufacturing.</p>
-      <p>The first PTI President in Azad Kashmir and twice Senior Vice Chairman of PVMA, he continues his business projects in Mirpur and community service in Sahamni. His son, Raja Abubakar Farooq, carries forward the family’s enterprise.</p>
-    </div>
-  );
-}
-
-export default function Leadership() {
-  return (
-    <section className="leadership section-pad" id="leadership" aria-labelledby="leadership-title">
-      <div className="shell section-heading leadership-heading">
-        <div><p className="eyebrow light"><span /> The people behind the progress</p><h2 id="leadership-title">Rooted in experience.<br /><em>United by purpose.</em></h2></div>
-        <p>Led by Chairman Sheikh Khalid Islam, our leadership connects generations of enterprise with the ambition to build lasting value.</p>
-      </div>
-      <div className="shell">
+export default function Leadership() { return <section className="leadership" aria-label="Leadership profiles"><div className="shell">
         <article className="chairman-feature">
-          <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam, Chairman of RK Group" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">Office of the Chairman</span></div>
+          <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-khalid-islam.webp" alt="Sheikh Khalid Islam, Chairman of RK Group" loading="eager" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">Office of the Chairman</span></div>
           <div className="chairman-body">
             <p className="eyebrow light"><span /> Chairman · RK Group & CEO · KK Group</p>
             <h3>Sheikh<br />Khalid Islam</h3>
@@ -83,7 +31,10 @@ export default function Leadership() {
             </details>
           </div>
         </article>
-        <article className="chairman-feature former-chairman" aria-labelledby="former-chairman-title">
+<div className="leadership-divider"><h2>Directors &amp; finance leadership</h2><span>RK Group · KK Group</span></div><div className="leadership-team"><article className="team-profile"><div className="team-portrait"><Image src="/assets/leadership/sheikh-saim-khalid-suit-v2.webp" alt="Sheikh Saim Khalid" fill sizes="(max-width: 760px) 90vw, 45vw" /></div><div className="team-body"><p className="leader-index">Director</p><h3>Sheikh Saim Khalid</h3><ul className="credential-pills team-roles"><li className="credential-pill credential-pill--primary">Director, RK Group</li><li className="credential-pill credential-pill--primary">Director, KK Group</li></ul><p className="team-description">Sheikh Saim Khalid serves as Director of RK Group and KK Group, continuing the family’s involvement in the businesses.</p></div></article>
+<article className="team-profile"><div className="team-portrait"><Image src="/assets/leadership/sheikh-atif-islam.webp" alt="Sheikh Atif Islam" fill sizes="(max-width: 760px) 90vw, 45vw" /></div><div className="team-body"><p className="leader-index">Director</p><h3>Sheikh Atif Islam</h3><ul className="credential-pills team-roles"><li className="credential-pill credential-pill--primary">Director, RK Group</li><li className="credential-pill credential-pill--primary">Director, KK Group</li></ul><p className="team-description">Sheikh Atif Islam serves as Director of RK Group and KK Group. He is a member of PVMA and the business chambers of Mirpur and Khyber.</p></div></article>
+<article className="team-profile"><div className="team-portrait"><Image src="/assets/leadership/raja-abubakar-farooq.webp" alt="Raja Abubakar Farooq" fill sizes="(max-width: 760px) 90vw, 45vw" /></div><div className="team-body"><p className="leader-index">Director</p><h3>Raja Abubakar Farooq</h3><ul className="credential-pills team-roles"><li className="credential-pill credential-pill--primary">Director, RK Group</li><li className="credential-pill credential-pill--primary">Director, KK Group</li></ul><p className="team-description">A law graduate, Raja Abubakar Farooq is a member of the Mirpur and Islamabad Chambers of Commerce. He is the son of Raja Muhammad Farooq.</p></div></article>
+<article className="team-profile"><div className="team-portrait"><Image src="/assets/leadership/abdul-haseeb.webp" alt="Abdul Haseeb" fill sizes="(max-width: 760px) 90vw, 45vw" /></div><div className="team-body"><p className="leader-index">Finance leadership</p><h3>Abdul Haseeb</h3><ul className="credential-pills team-roles"><li className="credential-pill credential-pill--primary">CFO, RK Group</li><li className="credential-pill credential-pill--primary">CFO, KK Group</li></ul><p className="team-description">Abdul Haseeb serves as Chief Financial Officer of RK Group and KK Group.</p><a className="editorial-link" href="https://www.linkedin.com/in/abdul-haseeb-19447ba6/">View LinkedIn profile <span aria-hidden="true">↗</span></a></div></article></div><div className="leadership-divider"><h2>Enterprise &amp; community</h2></div><article className="team-profile community-profile"><div className="team-portrait"><Image src="/assets/leadership/raja-muhammad-farooq.webp" alt="Raja Muhammad Farooq" fill sizes="(max-width: 760px) 90vw, 40vw" /></div><div className="team-body"><p className="leader-index">Enterprise &amp; community</p><h3>Raja Muhammad Farooq</h3><ul className="credential-pills"><li className="credential-pill">Entrepreneur &amp; community leader</li><li className="credential-pill">Former Senior Vice Chairman, PVMA · Two terms</li></ul><p className="team-description">From Sahamni, Azad Jammu &amp; Kashmir, to Islamabad and Mirpur, his profile connects business activity with public and community service.</p><details className="profile-details"><summary>Read his journey <span aria-hidden="true">+</span></summary><div className="biography-copy"><p>Originally from Sahamni, AJK, Raja Muhammad Farooq moved to Islamabad in 1985. With an MBA, CA and LLB, he built interests in oil, plastics, tea, soap and ghee manufacturing.</p><p>The first PTI President in Azad Kashmir and twice Senior Vice Chairman of PVMA, he continues his business projects in Mirpur and community service in Sahamni. His son, Raja Abubakar Farooq, carries forward the family’s enterprise.</p></div></details></div></article><div className="leadership-divider"><h2>Heritage</h2><span>A chapter in the Group’s history</span></div><p className="heritage-note">The following profile records Sheikh Abdul Islam’s role as former Chairman of KK Group and the business history associated with his tenure.</p>        <article className="chairman-feature former-chairman" id="former-chairman" aria-labelledby="former-chairman-title">
           <div className="chairman-portrait"><Image src="/assets/leadership/sheikh-abdul-islam.webp" alt="Sheikh Abdul Islam, former Chairman of KK Group, in a classic suit" fill sizes="(max-width: 720px) 100vw, 42vw" /><span className="portrait-caption">A legacy of enterprise</span></div>
           <div className="chairman-body">
             <p className="eyebrow light"><span /> Former Chairman · KK Group</p>
@@ -111,45 +62,4 @@ export default function Leadership() {
             </details>
           </div>
         </article>
-        <div className="leadership-divider"><span>Shared values. Complementary experience.</span><span>Our leadership</span></div>
-        <div className="leadership-team">
-          {leaders.map((leader) => (
-            <article className="team-profile" key={leader.name}>
-              <div className={`team-portrait team-portrait--${leader.detail}`}><Image src={`/assets/leadership/${leader.image}`} alt={leader.name} fill sizes="(max-width: 720px) 100vw, (max-width: 1000px) 50vw, 25vw" /></div>
-              <div className="team-body"><p className="leader-index">{leader.label}</p><h3>{leader.name}</h3><ul className="credential-pills team-roles" aria-label={`${leader.name} roles and qualifications`}>{leader.roles.map(role => <li className={`credential-pill${role.startsWith("Director,") ? " credential-pill--primary" : ""}`} key={role}>{role}</li>)}</ul><p className="team-description">{leader.copy}</p>
-                {leader.detail === "abubakar" && <ul className="credential-pills chamber-list" aria-label="Chamber memberships"><li className="credential-pill credential-pill--secondary">Member, Mirpur Chamber of Commerce</li><li className="credential-pill credential-pill--secondary">Member, Islamabad Chamber of Commerce</li></ul>}
-                {leader.detail === "atif" && <ul className="credential-pills chamber-list" aria-label="Industry and chamber memberships"><li className="credential-pill credential-pill--secondary">Member, PVMA</li><li className="credential-pill credential-pill--secondary">Member, Mirpur Chamber of Commerce</li><li className="credential-pill credential-pill--secondary">Member, Khyber Chamber of Commerce</li></ul>}
-                <details className="profile-details"><summary>{leader.detail === "farooq" ? "Read his journey" : "More about " + (leader.detail === "saim" ? "Saim" : leader.detail === "atif" ? "Atif" : "Abubakar")} <span aria-hidden="true">+</span></summary>
-                  {leader.detail === "farooq" ? <FarooqBiography /> : <div className="biography-copy"><p>{leader.detail === "saim" ? "As Director of RK Group and KK Group, Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. With respect for the reputation built by earlier generations, his presence reinforces the Group’s commitment to continuity and thoughtful growth." : leader.detail === "atif" ? "Alongside his directorships at RK Group and KK Group, Sheikh Atif Islam is a member of the Pakistan Vanaspati Manufacturers Association (PVMA), Mirpur Chamber of Commerce and Khyber Chamber of Commerce. These affiliations connect his business roles with industry and regional business communities." : "Raja Abubakar Farooq holds a degree in law and serves as Director of both RK Group and KK Group. A member of the Mirpur Chamber of Commerce and Islamabad Chamber of Commerce, he maintains connections across the regional business community. He is the son of Raja Muhammad Farooq."}</p></div>}
-                </details>
-              </div>
-            </article>
-          ))}
-        </div>
-        <article className="team-profile finance-profile" aria-labelledby="abdul-haseeb-title">
-          <div className="team-portrait">
-            <Image src="/assets/leadership/abdul-haseeb.webp" alt="Abdul Haseeb in a charcoal suit" fill sizes="(max-width: 720px) 100vw, 320px" />
-          </div>
-          <div className="team-body">
-            <p className="leader-index">Finance leadership</p>
-            <h3 id="abdul-haseeb-title">Abdul Haseeb</h3>
-            <ul className="credential-pills team-roles" aria-label="Abdul Haseeb roles">
-              <li className="credential-pill credential-pill--primary">CFO, KK Group</li>
-              <li className="credential-pill credential-pill--primary">CFO, RK Group</li>
-            </ul>
-            <p className="team-description">Abdul Haseeb serves as Chief Financial Officer (CFO) of KK Group and RK Group, bringing a financial perspective to the leadership of both organisations.</p>
-            <details className="profile-details">
-              <summary>More about Abdul Haseeb <span aria-hidden="true">+</span></summary>
-              <div className="biography-copy">
-                <h4>Finance leadership across both groups</h4>
-                <p>His appointments span both groups, placing him within the senior leadership of each organisation. As CFO, he represents the finance function alongside the chairmanship and directorships that shape the groups’ business direction.</p>
-                <p>His profile reflects the role of financial leadership within a wider enterprise: connecting the financial side of the business with the broader priorities of its leadership.</p>
-                <p className="biography-sources"><a href="https://www.linkedin.com/in/abdul-haseeb-19447ba6/">View Abdul Haseeb on LinkedIn</a></p>
-              </div>
-            </details>
-          </div>
-        </article>
-      </div>
-    </section>
-  );
-}
+</div></section>; }

@@ -1,14 +1,7 @@
+import Link from "next/link";
 import Logo from "./Logo";
-
-export default function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="shell footer-top">
-        <div><Logo light /><p>Generations of enterprise.<br />A future built with purpose.</p></div>
-        <nav className="footer-nav" aria-label="Footer navigation"><a href="#story">Our story</a><a href="#leadership">Our leadership</a><a href="#brands">Our brands</a><a href="#portfolio">Our companies</a></nav>
-        <a className="back-top" href="#top">Back to top <span>↑</span></a>
-      </div>
-      <div className="shell privacy-row">
+import { navigation } from "@/lib/content";
+export default function Footer() { return <footer className="site-footer"><div className="shell footer-top"><div><Logo light /><h2>Explore RK Group.</h2></div><nav className="footer-nav" aria-label="Footer navigation">{navigation.map(([href, label]) => <Link href={href} key={href}>{label}<span aria-hidden="true">↗</span></Link>)}</nav><div className="footer-social"><span>Food · Manufacturing · Energy · Infrastructure</span><a href="https://www.instagram.com/rkgroup_of_industries/">RK Group on Instagram ↗</a></div></div>      <div className="shell privacy-row">
         <details className="privacy-policy" id="privacy">
           <summary>Privacy</summary>
           <div className="privacy-copy">
@@ -21,7 +14,4 @@ export default function Footer() {
         </details>
         <span className="cookie-status">Cookie status: no non-essential cookies</span>
       </div>
-      <div className="shell footer-bottom"><span>© {new Date().getFullYear()} RK Group</span><span>Food · Manufacturing · Energy · Infrastructure</span></div>
-    </footer>
-  );
-}
+<div className="shell footer-bottom"><span>© {new Date().getFullYear()} RK Group</span><a href="#top">Back to top ↑</a></div></footer>; }

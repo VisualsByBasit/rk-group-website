@@ -53,5 +53,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
     brand: ["Kashmir Tea", "Deewan Banaspati", "Islamabad Macaroni", "ACP Banaspati Ghee", "Dilpasand Banaspati", "Islamabad Nimco", "Gulberg Banaspati Ghee"].map(name => ({ "@type": "Brand", name })),
   };
-  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /></body></html>;
 }
