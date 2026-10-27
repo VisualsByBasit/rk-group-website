@@ -4,3 +4,9 @@ node_modules/
 out/
 .env*.local
 *.log
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
+design/
+.agents/
+.claude/skills/
+skills-lock.json
