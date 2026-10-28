@@ -31,13 +31,13 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 - **Pickup:** the buyer collects the order with their own transport. Factories are in **Mirpur, Azad Kashmir**. Exact pickup details and any other terms are discussed after the buyer gets in touch.
 - **Landline:** 051-4449011 (`tel:+92514449011`). Hours: **Monday to Saturday, 10am to 6pm**.
 - A **separate WhatsApp number** and an **RK Group email** are coming later. Until then the WhatsApp button and the enquiry form are built but switched off (see Task 2).
-- Kashmir Tea and Gulberg **stay on the site** as they are, but are **not** part of distributor enquiries yet.
+- **Gulberg is part of the wholesale programme** (same rules as the other ghee brands). **Kashmir Tea** stays on the site but is **not** part of distributor enquiries yet.
 
 ### Wholesale rules (for the distributor section and form)
 
 | Products | Wholesale unit | Order options | Minimum |
 | --- | --- | --- | --- |
-| ACP, Dilpasand, Dewan (banaspati ghee) | Cartons | 250 kg, 500 kg, 1000 kg, custom | 250 kg |
+| ACP, Dilpasand, Dewan, Gulberg (banaspati ghee) | Cartons | 250 kg, 500 kg, 1000 kg, custom | 250 kg |
 | Islamabad Nimco | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
 | Islamabad Macaroni | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
 
@@ -55,8 +55,8 @@ These are product information only. They do **not** appear in the enquiry form.
   - Dewan: 1 kg, 900 g, 450 g, 225 g
 - **Islamabad Nimco** (Classic Mix, Special Mix, Chatpata Mix): 25 g, 35 g, 100 g, 200 g. **Premium Classic Mix** stand-up pouch: 200 g, 400 g. Wholesale: 25 kg bag.
 - **Islamabad Macaroni:** Elbow 400 g retail pack. Wholesale: 25 kg bag.
-- Existing `formats` entries in `src/lib/brands.ts` mention "Metal tins" for ACP, Dilpasand and Dewan. **Ask Abdulbasit** whether tins are still sold before keeping or removing them.
-- Gulberg and Kashmir Tea sizes: leave exactly as they are.
+- **Metal tins** are still sold. Keep "Metal tins" in the existing `formats` lists, but add no tin sizes or tin terms; those are agreed between buyer and seller.
+- Gulberg and Kashmir Tea sizes: leave exactly as they are (Gulberg: 900 g pouches, trade cartons).
 
 ### Product claims (approved)
 
@@ -112,7 +112,7 @@ Switching either feature on later must be a one-line change here.
 
 ### 2d. Enquiry form (built and tested now, switched off)
 
-- Fields: name, business name, city, phone, product (ACP, Dilpasand, Dewan, Islamabad Nimco, Islamabad Macaroni - Elbow), quantity (options change with the product: 250/500/1000 kg/custom for ghee, 25/50/100 kg/custom for nimco and macaroni; custom validated against that product's minimum), optional message.
+- Fields: name, business name, city, phone, product (ACP, Dilpasand, Dewan, Gulberg, Islamabad Nimco, Islamabad Macaroni - Elbow), quantity (options change with the product: 250/500/1000 kg/custom for ghee, 25/50/100 kg/custom for nimco and macaroni; custom validated against that product's minimum), optional message.
 - Allow more than one product line per enquiry if it stays simple; otherwise one product per enquiry.
 - Submit formats everything into a message and opens WhatsApp (when `WHATSAPP_LIVE`), with a `mailto:` fallback when `ENQUIRY_EMAIL` is set. The site stores nothing.
 - Labels on every field, inline errors tied with `aria-describedby`, keyboard usable, works at 390px.
@@ -122,7 +122,7 @@ Switching either feature on later must be a one-line change here.
 
 - Add the sizes from "Product sizes" above to each brand's block on the homepage and to its brand page. Ghee shows retail packs and carton configurations; Nimco shows its mixes and pack sizes; Macaroni shows its retail pack and keeps the six shapes.
 - Add the approved claims for Macaroni and Nimco.
-- A "Wholesale enquiries" link to `/#distributors` on each eligible brand page (ACP, Dilpasand, Dewan, Nimco, Macaroni). Not on Gulberg or Kashmir Tea.
+- A "Wholesale enquiries" link to `/#distributors` on each eligible brand page (ACP, Dilpasand, Dewan, Gulberg, Nimco, Macaroni). Not on Kashmir Tea.
 
 ### 2f. Audit fixes (from an AI Workforce OS scan of the live site, plus a contrast scan on the SEO branch)
 
@@ -170,7 +170,7 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 
 - WhatsApp number: set `WHATSAPP_NUMBER`, flip `WHATSAPP_LIVE`, add it to `contactPoint`.
 - RK Group email: set `ENQUIRY_EMAIL`, flip `ENQUIRY_FORM_LIVE`.
-- Kashmir Tea and Gulberg wholesale terms, if they join the distributor programme.
+- Kashmir Tea wholesale terms, if it joins the distributor programme.
 
 ## Out of scope for now
 
@@ -181,3 +181,4 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 
 - 28 Oct 2026: Took over from ChatGPT. Reviewed SEO PR #2; build, lint, SEO checks and visual check pass. Decided: merge SEO first, then distributor features, Search Console after final deploy. Scoped wholesale-only features. Handoff written for Claude Code in VS Code.
 - 28 Oct 2026: Added confirmed business details (landline, hours, wholesale rules, cash at pickup, Mirpur factories, product sizes, approved claims). WhatsApp and form built but switched off until the number and email arrive. Folded in the AI Workforce OS audit (canonical, contrast, security headers, llms.txt) with measured contrast failures.
+- 28 Oct 2026: Gulberg added to the wholesale programme (ghee rules). Metal tins confirmed as sold; no tin specifics on the site.
