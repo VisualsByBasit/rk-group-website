@@ -1,13 +1,10 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
+import { brands } from "@/lib/brands";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{
-    url: siteUrl,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 1,
-  }];
+  // Omit lastModified rather than reporting every rebuild as a content change.
+  return ["/", ...brands.map(brand => `/brands/${brand.slug}/`), "/leadership/sheikh-khalid-islam/"].map(path => ({ url: `${siteUrl}${path}` }));
 }

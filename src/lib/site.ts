@@ -1,2 +1,3 @@
-// Set NEXT_PUBLIC_SITE_URL when moving to a custom production domain.
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://rkgroupofindustries.vercel.app").replace(/\/$/, "");
+// Keep search signals on the primary domain, including preview builds.
+// Do not let an obsolete Vercel environment variable override the canonical origin.
+export const siteUrl = "https://rkgroupofindustries.com";

@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
+
 import { useRef } from "react";
 import Logo from "./Logo";
 
-const links = [["#story", "Story"], ["#leadership", "Leadership"], ["#brands", "Brands"], ["#portfolio", "Companies"], ["#standards", "Standards"]] as const;
+const links = [["/#story", "Story"], ["/#leadership", "Leadership"], ["/#brands", "Brands"], ["/#portfolio", "Companies"], ["/#standards", "Standards"]] as const;
 
 export default function Header() {
   const menu = useRef<HTMLDetailsElement>(null);
@@ -12,11 +14,11 @@ export default function Header() {
       <div className="shell nav-wrap">
         <Logo />
         <nav className="desktop-nav" aria-label="Main navigation">
-          {links.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
+          {links.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
         </nav>
         <details className="mobile-menu" ref={menu} onKeyDown={event => { if (event.key === "Escape" && menu.current) { menu.current.open = false; menu.current.querySelector("summary")?.focus(); } }}>
           <summary aria-label="Toggle navigation"><span /><span /></summary>
-          <nav aria-label="Mobile navigation">{links.map(([href, label]) => <a href={href} key={href} onClick={() => { if (menu.current) menu.current.open = false; }}>{label}</a>)}</nav>
+          <nav aria-label="Mobile navigation">{links.map(([href, label]) => <Link href={href} key={href} onClick={() => { if (menu.current) menu.current.open = false; }}>{label}</Link>)}</nav>
         </details>
       </div>
     </header>
