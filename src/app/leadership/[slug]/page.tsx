@@ -9,9 +9,7 @@ import { siteUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
-// First review round: the chairman and one short biography. The rest follow once the design is approved.
-const reviewRound = ["sheikh-khalid-islam", "sheikh-saim-khalid"];
-export function generateStaticParams() { return leaders.filter(leader => reviewRound.includes(leader.slug)).map(({ slug }) => ({ slug })); }
+export function generateStaticParams() { return leaders.map(({ slug }) => ({ slug })); }
 
 async function getLeader(params: Props["params"]) {
   const leader = leaderBySlug((await params).slug);
@@ -64,7 +62,7 @@ export default async function LeaderPage({ params }: Props) {
         </Fragment>)}
         {leader.milestones && <section className="profile-milestones" aria-labelledby="milestones-title">
           <h2 id="milestones-title">KK Group history and group concerns</h2>
-          <ol>{leader.milestones.map((milestone, index) => <li key={milestone.title}><span>{milestone.when || String(index + 1).padStart(2, "0")}</span><div><h3>{milestone.title}</h3><p>{milestone.copy}</p></div></li>)}</ol>
+          <ol>{leader.milestones.map(milestone => <li key={milestone.title}><span>{milestone.when}</span><div><h3>{milestone.title}</h3><p>{milestone.copy}</p></div></li>)}</ol>
           {leader.milestonesNote && <p className="profile-note">{leader.milestonesNote}</p>}
         </section>}
         {leader.sources && <p className="profile-sources">Further reading: {leader.sources.map((source, index) => <Fragment key={source.href}>{index > 0 && (index === leader.sources!.length - 1 ? " and " : ", ")}<a href={source.href}>{source.label}</a></Fragment>)}.</p>}

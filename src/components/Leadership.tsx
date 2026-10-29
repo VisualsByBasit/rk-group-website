@@ -35,7 +35,7 @@ function Feature({ leader, former: isFormer }: { leader: Leader; former?: boolea
       <div className="chairman-body">
         <p className="eyebrow light"><span /> {leader.label}</p>
         <h3 id={titleId}>{leader.nameLines?.[0]}<br />{leader.nameLines?.[1]}</h3>
-        {!isFormer && <Link className="brand-page-link" href={leaderPath(leader)}>View {leader.name}’s profile ↗</Link>}
+        <Link className="brand-page-link" href={leaderPath(leader)}>View {leader.name}’s profile ↗</Link>
         {leader.intro && <p className="chairman-intro">{leader.intro[0]}<br />{leader.intro[1]}</p>}
         {leader.summary.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
         {!isFormer && <ul className="credential-pills chairman-credentials" aria-label="Chairman roles and memberships">{leader.credentials.map(item => <li className={pillClass(item.kind)} key={item.text}>{item.text}</li>)}</ul>}
@@ -61,6 +61,7 @@ function TeamCard({ leader, finance: isFinance }: { leader: Leader; finance?: bo
         <ul className="credential-pills team-roles" aria-label={`${leader.name} ${isFinance ? "roles" : "roles and qualifications"}`}>{roles.map(item => <li className={pillClass(item.kind)} key={item.text}>{item.text}</li>)}</ul>
         {leader.summary.map(paragraph => <p className="team-description" key={paragraph}>{paragraph}</p>)}
         {memberships.length > 0 && <ul className="credential-pills chamber-list" aria-label={memberships.some(item => item.text.includes("PVMA")) ? "Industry and chamber memberships" : "Chamber memberships"}>{memberships.map(item => <li className={pillClass(item.kind)} key={item.text}>{item.text}</li>)}</ul>}
+        <Link className="brand-page-link team-profile-link" href={leaderPath(leader)}>View profile<span className="visually-hidden">: {leader.name}</span> <span aria-hidden="true">↗</span></Link>
         <details className="profile-details">
           <summary>{leader.home.detailLabel} <span aria-hidden="true">+</span></summary>
           <Biography leader={leader} />
