@@ -38,7 +38,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .desktop-nav a { position: relative; padding: 10px 0; }
 .desktop-nav a::after { content: ""; position: absolute; height: 2px; left: 0; right: 100%; bottom: 2px; background: var(--orange); transition: right .25s ease; }
 .desktop-nav a:hover::after { right: 0; }
-.desktop-nav a:last-child { border: 1px solid var(--line); padding: 11px 18px; }
 .mobile-menu { display: none; }
 
 .hero { --hero-accent: var(--orange); --hero-position: center; min-height: calc(100svh - 74px); color: white; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--ink); transition: background-color .6s ease; }
@@ -462,8 +461,15 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .detail-related a { display: inline-block; margin: 10px 24px 10px 0; }
 
 /* Floating WhatsApp button. On phones the hero controls stop short of it; the footer leaves room so nothing ends up hidden beneath it. */
-.wa-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; display: grid; place-items: center; width: 56px; height: 56px; padding: 0; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: var(--green); color: white; box-shadow: 0 12px 32px rgba(11,12,11,.24); cursor: pointer; transition: background-color .2s ease; }
-.wa-float:hover { background: #154d3b; }
+/* #1a9e4b is a slightly deeper WhatsApp green: white icon 3.48:1, button 3.28:1 on the page and 5.71:1 on the footer. */
+.wa-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; display: grid; place-items: center; width: 56px; height: 56px; padding: 0; border: 0; border-radius: 50%; background: #1a9e4b; color: white; box-shadow: 0 8px 22px rgba(26,158,75,.38), 0 2px 6px rgba(11,12,11,.12); cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.wa-float:hover { background: #168f45; transform: translateY(-3px); box-shadow: 0 14px 32px rgba(26,158,75,.5), 0 4px 10px rgba(11,12,11,.14); }
+.wa-float:active { transform: translateY(0) scale(.95); box-shadow: 0 4px 12px rgba(26,158,75,.4); transition-duration: .08s; }
+.wa-float:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+/* Thin pulse ring every four seconds. It is an outline only and ignores the pointer, so it never hides what is beneath it. */
+.wa-float::after { content: ""; position: absolute; inset: 0; border: 2px solid #1a9e4b; border-radius: 50%; opacity: 0; pointer-events: none; animation: wa-pulse 4s ease-out 1.5s infinite; }
+.wa-float[aria-expanded="true"]::after { animation: none; }
+@keyframes wa-pulse { 0% { opacity: .55; transform: scale(1); } 35% { opacity: 0; transform: scale(1.4); } 100% { opacity: 0; transform: scale(1.4); } }
 .wa-panel { position: fixed; z-index: 46; right: 24px; bottom: 92px; width: min(320px, calc(100vw - 30px)); padding: 20px 22px 22px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 22px 60px rgba(11,12,11,.22); animation: wa-in .18s ease-out; }
 .wa-panel[hidden] { display: none; }
 .wa-panel:focus { outline: none; }
@@ -488,6 +494,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 @media (prefers-reduced-motion: reduce) {
   .wa-panel { animation: none; }
+  .wa-float::after { animation: none; display: none; }
+  .wa-float:hover, .wa-float:active { transform: none; }
 }
 
 /* Wholesale and distribution. */
@@ -578,4 +586,27 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (max-width: 460px) {
   .hero-dots { display: none; }
   .hero-count { display: inline; margin-right: auto; }
+}
+.enquiry-status a { white-space: nowrap; color: var(--green); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Header call to action: the only emphasised item in the header. */
+.header-actions { display: flex; align-items: center; gap: 30px; }
+.header-cta { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 600; white-space: nowrap; box-shadow: 0 6px 18px rgba(205,165,104,.38); transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.header-cta:hover { background: #b8904f; transform: translateY(-1px); box-shadow: 0 10px 26px rgba(160,120,60,.42); }
+.header-cta:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+.header-cta--menu { display: none; }
+@media (min-width: 961px) and (max-width: 1180px) {
+  .header-actions { gap: 22px; }
+  .desktop-nav { gap: 20px; }
+}
+@media (max-width: 960px) {
+  .header-actions { gap: 18px; }
+  .header-cta--menu { display: flex; width: 100%; padding: 14px 16px; }
+}
+@media (max-width: 960px) {
+  .header-actions > .header-cta { padding: 10px 14px; font-size: 12px; box-shadow: 0 4px 12px rgba(205,165,104,.34); }
+}
+/* Below 440px the compact button would crowd the logo, so it lives at the top of the menu only. */
+@media (max-width: 439px) {
+  .header-actions > .header-cta { display: none; }
 }
