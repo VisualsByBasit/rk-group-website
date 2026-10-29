@@ -7,7 +7,7 @@ import { siteUrl } from "@/lib/site";
 const path = "/leadership/sheikh-khalid-islam/";
 const name = "Sheikh Khalid Islam";
 const image = "/assets/leadership/sheikh-khalid-islam.webp";
-export const metadata = pageMetadata("Sheikh Khalid Islam — Chairman", "Meet Sheikh Khalid Islam, Chairman of RK Group and CEO of KK Group, with a background in edible oil and banaspati ghee manufacturing in Pakistan.", path, image);
+export const metadata = pageMetadata("Sheikh Khalid Islam, Chairman of RK Group", "Meet Sheikh Khalid Islam, Chairman of RK Group and CEO of KK Group, with a background in edible oil and banaspati ghee manufacturing in Pakistan.", path, image);
 
 export default function ChairmanPage() {
   const url = `${siteUrl}${path}`;

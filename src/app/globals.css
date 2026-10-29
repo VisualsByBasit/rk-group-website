@@ -448,6 +448,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .detail-breadcrumb { margin-bottom: 32px; font-size: .9rem; }
 .detail-page h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.08; max-width: 1000px; margin: 20px 0 28px; }
 .detail-intro { max-width: 780px; font-size: 1.2rem; line-height: 1.8; }
+.detail-page .biography-sources a { color: var(--green); }
 .detail-product { position: relative; height: clamp(240px, 45vw, 540px); margin: 40px 0; background: #f4f2eb; border-radius: 20px; }
 .detail-product img { object-fit: contain; padding: 24px; }
 .detail-portrait { position: relative; width: min(100%, 560px); aspect-ratio: 4 / 5; margin: 40px 0; }
