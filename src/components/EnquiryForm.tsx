@@ -1,12 +1,13 @@
 "use client";
 
 import { useId, useRef, useState, type FormEvent } from "react";
-import { ENQUIRY_EMAIL, LANDLINE, emailReady, whatsappReady, whatsappUrl } from "@/lib/contact";
+import { ENQUIRY_EMAIL, LANDLINE, channelReady, emailReady, whatsappReady, whatsappUrl } from "@/lib/contact";
 import { kg, wholesaleGroups, wholesaleProducts, type WholesaleGroup } from "@/lib/wholesale";
 
 type Line = { key: number; product: string; quantity: string; custom: string };
 type Details = { name: string; business: string; city: string; phone: string; message: string };
 type Channel = "whatsapp" | "email";
+type Outcome = Channel | "unavailable";
 
 const CUSTOM = "custom";
 const emptyLine = (key: number): Line => ({ key, product: "", quantity: "", custom: "" });
@@ -64,7 +65,7 @@ export default function EnquiryForm() {
   const [details, setDetails] = useState<Details>({ name: "", business: "", city: "", phone: "", message: "" });
   const [lines, setLines] = useState<Line[]>([emptyLine(0)]);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState<Channel | null>(null);
+  const [outcome, setOutcome] = useState<Outcome | null>(null);
   const fieldId = (name: string) => `${id}-${name}`;
   const errorProps = (name: string, hint?: string) => {
     const described = [hint, errors[name] && fieldId(`${name}-error`)].filter(Boolean).join(" ");
@@ -77,11 +78,13 @@ export default function EnquiryForm() {
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(null);
+    setOutcome(null);
     const found = validate(details, lines);
     setErrors(found);
     const first = Object.keys(found)[0];
     if (first) { document.getElementById(fieldId(first))?.focus(); return; }
+    // No WhatsApp number or email yet: open nothing, keep the details and point to the landline.
+    if (!channelReady) { setOutcome("unavailable"); return; }
     const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
     const channel: Channel = submitter?.value === "email" || !whatsappReady ? "email" : "whatsapp";
     const text = compose(details, lines);
@@ -92,7 +95,7 @@ export default function EnquiryForm() {
     } else {
       window.location.href = `mailto:${ENQUIRY_EMAIL}?subject=${encodeURIComponent(`Wholesale enquiry from ${details.business.trim()}`)}&body=${encodeURIComponent(text)}`;
     }
-    setSent(channel);
+    setOutcome(channel);
   }
 
   const textField = (name: Exclude<keyof Details, "message">, label: string, attrs: Record<string, string>) => (
@@ -107,7 +110,7 @@ export default function EnquiryForm() {
     <form className="enquiry" noValidate onSubmit={submit} aria-labelledby={fieldId("title")}>
       <div className="enquiry-intro">
         <h3 id={fieldId("title")}>Send an enquiry</h3>
-        <p>Fill this in and we will open {whatsappReady ? "WhatsApp" : "your email app"} with your enquiry ready to send. Nothing is stored on this website.</p>
+        <p>{channelReady ? `Fill this in and we will open ${whatsappReady ? "WhatsApp" : "your email app"} with your enquiry ready to send.` : "Tell us what you would like to order."} Nothing is stored on this website.</p>
       </div>
       <div className="enquiry-fields">
         {textField("name", "Your name", { autoComplete: "name" })}
@@ -158,10 +161,13 @@ export default function EnquiryForm() {
         <textarea id={fieldId("message")} rows={4} maxLength={1000} value={details.message} onChange={event => setDetail("message", event.target.value)} />
       </div>
       <div className="enquiry-actions">
-        <button className="button primary" type="submit" value={whatsappReady ? "whatsapp" : "email"}>{whatsappReady ? "Send on WhatsApp" : "Send by email"} <span aria-hidden="true">↗</span></button>
+        <button className="button primary" type="submit" value={whatsappReady ? "whatsapp" : "email"}>{whatsappReady ? "Send on WhatsApp" : emailReady ? "Send by email" : "Send enquiry"} <span aria-hidden="true">↗</span></button>
         {whatsappReady && emailReady && <button className="enquiry-alt" type="submit" value="email">Send by email instead</button>}
       </div>
-      <p className="enquiry-status" role="status">{sent && `${sent === "whatsapp" ? "WhatsApp" : "Your email app"} should now be open with your enquiry ready to send. If nothing opened, call ${LANDLINE.display}, ${LANDLINE.hours}.`}</p>
+      <p className="enquiry-status" role="status">
+        {outcome === "unavailable" && <>Online enquiries are launching soon. Please call <a href={`tel:${LANDLINE.tel}`}>{LANDLINE.display}</a>, {LANDLINE.hours}.</>}
+        {(outcome === "whatsapp" || outcome === "email") && `${outcome === "whatsapp" ? "WhatsApp" : "Your email app"} should now be open with your enquiry ready to send. If nothing opened, call ${LANDLINE.display}, ${LANDLINE.hours}.`}
+      </p>
     </form>
   );
 }

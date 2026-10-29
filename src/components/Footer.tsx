@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { emailReady, formReady, whatsappReady } from "@/lib/contact";
+import { channelReady, emailReady, formReady, whatsappReady } from "@/lib/contact";
 
 // The notice follows the contact switches so it always describes what the site actually does.
 // Before adding the Meta Pixel or any analytics, update this notice and add a consent banner first.
@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="privacy-copy">
             <h2>Privacy notice</h2>
             <p>This website presents RK Group and its brands. It has no accounts, payments or newsletters, and it does not store any personal information you enter.</p>
-            <p>Wholesale enquiries are made directly with RK Group by {channelList}.{formReady && " The enquiry form on this website does not send or keep anything itself. It prepares your message and opens WhatsApp or your email app, and you decide whether to send it."}{whatsappReady && " Messages sent through WhatsApp are also covered by WhatsApp’s own privacy terms."}</p>
+            <p>Wholesale enquiries are made directly with RK Group by {channelList}.{formReady && " The enquiry form on this website does not send or keep anything itself."}{formReady && channelReady && " It prepares your message and opens WhatsApp or your email app, and you decide whether to send it."}{whatsappReady && " Messages sent through WhatsApp are also covered by WhatsApp’s own privacy terms."}</p>
             <p>RK Group does not currently use non-essential cookies, advertising trackers or analytics on this website. The hosting provider may process basic technical information, such as an IP address, browser type and request time, to deliver and secure the website.</p>
             <p>If analytics, advertising or other data-collection tools are introduced, this notice will be updated and consent controls will be shown before any non-essential technology is used.</p>
             <p className="privacy-date">Last updated: 29 October 2026</p>
