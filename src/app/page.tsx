@@ -8,6 +8,8 @@ import JsonLd from "@/components/JsonLd";
 import { siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
+import { brandInstagram } from "@/lib/social";
+import SocialIcon from "@/components/SocialIcon";
 
 
 const companies = [
@@ -72,7 +74,7 @@ export default function HomePage() {
           {brands.map((brand, index) => (
             <article className={`brand-showcase ${brand.className}`} id={brand.className} key={brand.name}>
               <div className="brand-copy">
-                <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p></div>
+                <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p>{brandInstagram[brand.slug] && <a className="brand-instagram" href={brandInstagram[brand.slug]} target="_blank" rel="noopener noreferrer" aria-label={`${brand.fullName} on Instagram (opens in a new tab)`}><SocialIcon network="Instagram" size={17} /></a>}</div>
                 <h3>{brand.fullName}</h3>
                 <p className="brand-description">{brand.copy}</p>
                 {brand.claims && <ul className="brand-claims" aria-label={`${brand.name} product claims`}>{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>}

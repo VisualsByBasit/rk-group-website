@@ -11,6 +11,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { brands } from "@/lib/brands";
 import { siteUrl } from "@/lib/site";
 import { LANDLINE, WHATSAPP_NUMBER, whatsappReady } from "@/lib/contact";
+import { leaders, leaderPath } from "@/lib/leaders";
+import { brandInstagram, rkGroupSocial } from "@/lib/social";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -47,18 +49,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: siteUrl,
     logo: `${siteUrl}/assets/rk-group-logo.png`,
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
-    employee: [
-      { "@type": "Person", "@id": `${siteUrl}/leadership/sheikh-khalid-islam/#person`, name: "Sheikh Khalid Islam", jobTitle: "Chairman", url: `${siteUrl}/leadership/sheikh-khalid-islam/` },
-      { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
-      { "@type": "Person", name: "Sheikh Atif Islam", jobTitle: "Director" },
-      { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
-      { "@type": "Person", name: "Abdul Haseeb", jobTitle: "Chief Financial Officer (CFO)" },
-    ],
+    employee: leaders.filter(leader => leader.rkRole).map(leader => ({ "@type": "Person", "@id": `${siteUrl}${leaderPath(leader)}#person`, name: leader.name, jobTitle: leader.jobTitle, url: `${siteUrl}${leaderPath(leader)}` })),
+    sameAs: rkGroupSocial.map(link => link.href),
     contactPoint: [
       { "@type": "ContactPoint", contactType: "sales", telephone: LANDLINE.tel, areaServed: "PK", hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "18:00" } },
       ...(whatsappReady ? [{ "@type": "ContactPoint", contactType: "sales", name: "WhatsApp", telephone: `+${WHATSAPP_NUMBER}`, url: `https://wa.me/${WHATSAPP_NUMBER}`, areaServed: "PK" }] : []),
     ],
-    brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/` })),
+    brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/`, ...(brandInstagram[brand.slug] && { sameAs: [brandInstagram[brand.slug]] }) })),
   };
   return <html lang="en"><body id="top"><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /><WhatsAppButton /></body></html>;
 }

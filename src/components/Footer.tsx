@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import SocialIcon from "./SocialIcon";
+import { rkGroupSocial } from "@/lib/social";
 import { channelReady, emailReady, formReady, whatsappReady } from "@/lib/contact";
 
 // The notice follows the contact switches so it always describes what the site actually does.
@@ -11,7 +13,9 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell footer-top">
-        <div><Logo light /><p>Generations of enterprise.<br />A future built with purpose.</p></div>
+        <div><Logo light /><p>Generations of enterprise.<br />A future built with purpose.</p>
+          <div className="footer-social"><p id="footer-follow">Follow RK Group</p><ul aria-labelledby="footer-follow">{rkGroupSocial.map(link => <li key={link.network}><a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`RK Group on ${link.network} (opens in a new tab)`}><SocialIcon network={link.network} /></a></li>)}</ul></div>
+        </div>
         <nav className="footer-nav" aria-label="Footer navigation"><Link href="/#story">Our story</Link><Link href="/#leadership">Our leadership</Link><Link href="/#brands">Our brands</Link><Link href="/#distributors">Wholesale</Link><Link href="/#portfolio">Our companies</Link></nav>
         <a className="back-top" href="#top">Back to top <span>↑</span></a>
       </div>
