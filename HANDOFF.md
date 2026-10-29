@@ -155,6 +155,10 @@ Update the footer privacy notice: enquiries are sent by the visitor through What
 
 Add a `contactPoint` to the Organization JSON-LD: `contactType: "sales"`, the landline, `areaServed: "PK"`, opening hours Mo-Sa 10:00-18:00. Add the WhatsApp number once it is live.
 
+### 2i. Site name in Google (WebSite JSON-LD)
+
+Add WebSite JSON-LD on the homepage only, with `name: "RK Group of Industries"`, `alternateName: "RK Group"` and `url` set to the homepage, so Google shows that as the site name instead of the domain. Link it to the Organization with `publisher`.
+
 ### Finish Task 2
 
 Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px and 390px (homepage, a ghee brand page, nimco, macaroni, chairman page, WhatsApp popover open), taste-skill inspector on `out/` with every FAIL fixed. Send screenshots to Abdulbasit for approval, then merge.
