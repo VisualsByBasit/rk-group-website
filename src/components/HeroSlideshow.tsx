@@ -100,7 +100,7 @@ export default function HeroSlideshow() {
   const destinations = ["#story", "#brand-acp", "#brand-islamabad", "#brand-dilpasand", "#brand-deewan", "#brand-kashmir", "#brand-nimco", "#brand-gulberg"];
 
   return (
-    <section className={`hero hero--${slide.theme}`} id="top" aria-roledescription="carousel" aria-label="RK Group and its brands" onFocusCapture={() => setPaused(true)}>
+    <section className={`hero hero--${slide.theme}`} aria-roledescription="carousel" aria-label="RK Group and its brands" onFocusCapture={() => setPaused(true)}>
       <div className="hero-slides">
         {slides.map((item, index) => (
           <div className={`hero-slide${index > 0 ? " hero-slide--product" : ""}${index === active ? " is-active" : ""}`} aria-hidden={index !== active} key={item.name}>

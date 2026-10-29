@@ -441,3 +441,22 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .standards-list article { min-height: 0; padding-block: 28px; }
   .standards-list h3 { margin-top: 24px; }
 }
+
+/* Brand and leadership pages share the corporate site's typography and palette. */
+.brand-page-link { display: inline-block; margin: 1rem 0; text-decoration: underline; text-underline-offset: .25em; }
+.detail-page { padding-top: 130px; padding-bottom: 90px; }
+.detail-breadcrumb { margin-bottom: 32px; font-size: .9rem; }
+.detail-page h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.08; max-width: 1000px; margin: 20px 0 28px; }
+.detail-intro { max-width: 780px; font-size: 1.2rem; line-height: 1.8; }
+.detail-page .biography-sources a { color: var(--green); }
+.detail-product { position: relative; height: clamp(240px, 45vw, 540px); margin: 40px 0; background: #f4f2eb; border-radius: 20px; }
+.detail-product img { object-fit: contain; padding: 24px; }
+.detail-portrait { position: relative; width: min(100%, 560px); aspect-ratio: 4 / 5; margin: 40px 0; }
+.detail-portrait img { object-fit: cover; border-radius: 20px; }
+.detail-copy { max-width: 780px; line-height: 1.85; margin: 40px 0; }
+.detail-copy h2, .detail-related h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; margin: 32px 0 18px; }
+.detail-copy p { margin: 18px 0; }
+.detail-copy ul { padding-left: 24px; }
+.detail-copy a, .detail-breadcrumb a, .detail-related a { text-decoration: underline; text-underline-offset: .2em; }
+.detail-related { border-top: 1px solid #d9d7cf; padding-top: 24px; }
+.detail-related a { display: inline-block; margin: 10px 24px 10px 0; }

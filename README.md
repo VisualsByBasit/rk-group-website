@@ -1,6 +1,6 @@
 # RK Group website
 
-Premium, responsive single-page corporate website for RK Group. The site is built with Next.js and TypeScript and exports to static HTML for straightforward deployment.
+Premium, responsive corporate website for RK Group. The site is built with Next.js and TypeScript and exports to static HTML for straightforward deployment.
 
 ## Local development
 
@@ -30,9 +30,9 @@ To connect Google Search Console:
 3. Copy only the verification token into the deployment environment variable `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`.
 4. Rebuild and deploy the site.
 5. Verify ownership in Search Console.
-6. Submit `https://rkgroupofindustries.vercel.app/sitemap.xml`.
+6. Submit `https://rkgroupofindustries.com/sitemap.xml`.
 
-The production URL defaults to `https://rkgroupofindustries.vercel.app`. Set `NEXT_PUBLIC_SITE_URL` before rebuilding when moving to a custom domain; canonical metadata, structured data, robots and the sitemap use this value.
+The production origin is fixed in `src/lib/site.ts` so obsolete deployment environment variables cannot override canonical URLs. Brand and chairman pages are statically exported and included in the sitemap.
 
 After deployment, test the live URL with Google Rich Results Test, Facebook Sharing Debugger and LinkedIn Post Inspector.
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const leaders = [
@@ -57,6 +58,7 @@ export default function Leadership() {
           <div className="chairman-body">
             <p className="eyebrow light"><span /> Chairman · RK Group & CEO · KK Group</p>
             <h3>Sheikh<br />Khalid Islam</h3>
+            <Link className="brand-page-link" href="/leadership/sheikh-khalid-islam/">View Sheikh Khalid Islam’s profile ↗</Link>
             <p className="chairman-intro">Guiding the Group.<br />Building for generations.</p>
             <p>A Pakistani industrialist with deep roots in edible oil and banaspati ghee manufacturing, Sheikh Khalid Islam leads RK Group and KK Group. His work connects manufacturing in Mirpur, Azad Jammu & Kashmir, with industry representation and business leadership in Islamabad.</p>
             <ul className="credential-pills chairman-credentials" aria-label="Chairman roles and memberships">
