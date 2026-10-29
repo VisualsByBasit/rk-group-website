@@ -513,3 +513,39 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .wholesale-ranges li { grid-template-columns: 36px 1fr; }
   .wholesale-ranges h4 { font-size: 24px; }
 }
+
+/* Wholesale enquiry form. Only rendered once the form is switched on in src/lib/contact.ts. */
+.enquiry { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px 72px; margin-top: 88px; padding-top: 56px; border-top: 1px solid var(--line); }
+.enquiry > :not(.enquiry-intro) { grid-column: 2; }
+.enquiry-intro { grid-row: span 5; }
+.enquiry-intro h3 { margin: 0 0 16px; font-size: clamp(32px, 3.4vw, 44px); line-height: 1.08; }
+.enquiry-intro p { max-width: 360px; margin: 0; color: #555b54; font-size: 15px; line-height: 1.75; }
+.enquiry-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
+.enquiry-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.enquiry-field label { font-size: 13px; font-weight: 500; }
+.enquiry-field label span { color: var(--muted); font-weight: 400; }
+.enquiry-field input, .enquiry-field select, .enquiry-field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid #a9aca3; border-radius: 0; background: white; color: var(--ink); font: 400 15px "IBM Plex Sans", Arial, sans-serif; }
+.enquiry-field select:disabled { background: var(--cream); color: #5f625c; }
+.enquiry-field textarea { resize: vertical; }
+.enquiry-field [aria-invalid="true"] { border-color: #a3261b; box-shadow: inset 0 0 0 1px #a3261b; }
+.enquiry-error { margin: 0; color: #a3261b; font-size: 13px; line-height: 1.5; }
+.enquiry-hint { margin: 0; color: #555b54; font-size: 13px; line-height: 1.5; }
+.enquiry-lines { display: grid; gap: 16px; }
+.enquiry-line { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin: 0; padding: 22px 22px 24px; border: 1px solid var(--line); background: rgba(255,255,255,.6); }
+.enquiry-line legend { padding: 0 8px; margin-left: -8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.enquiry-remove, .enquiry-add, .enquiry-alt { justify-self: start; padding: 10px 0; border: 0; background: transparent; color: var(--green); font: 500 13px "IBM Plex Sans", Arial, sans-serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.enquiry-remove { grid-column: 1 / -1; }
+.enquiry-add { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 6px; }
+.enquiry-add span { margin-left: 10px; color: #8a6830; }
+.enquiry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.enquiry-actions .button { border: 0; cursor: pointer; font-family: inherit; }
+.enquiry-status { min-height: 1.5em; margin: 0; color: var(--green); font-size: 14px; line-height: 1.6; }
+@media (max-width: 960px) {
+  .enquiry { grid-template-columns: 1fr; margin-top: 64px; }
+  .enquiry > :not(.enquiry-intro) { grid-column: auto; }
+  .enquiry-intro { grid-row: auto; }
+}
+@media (max-width: 720px) {
+  .enquiry-fields, .enquiry-line { grid-template-columns: 1fr; }
+  .enquiry-line { padding: 18px 16px 20px; }
+}

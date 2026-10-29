@@ -1,4 +1,5 @@
-import { LANDLINE } from "@/lib/contact";
+import EnquiryForm from "./EnquiryForm";
+import { LANDLINE, formReady } from "@/lib/contact";
 import { kg, wholesaleGroups } from "@/lib/wholesale";
 
 const { ghee, bags } = wholesaleGroups;
@@ -47,6 +48,7 @@ export default function Wholesale() {
           </div>
         </div>
       </div>
+      {formReady && <div className="shell"><EnquiryForm /></div>}
     </section>
   );
 }
