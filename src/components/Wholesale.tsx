@@ -13,7 +13,7 @@ const ranges = [
 
 const terms = [
   ["Wholesale only", "We supply the trade and do not take retail orders."],
-  ["No published prices", "Pickup details and other terms are agreed once you get in touch."],
+  ["No published prices", "Rates are shared when you get in touch, along with pickup details and other terms."],
   ["Cash at pickup", "Payment is made in cash, on the spot, when you collect."],
   ["Your own transport", "You collect your order from our factories in Mirpur, Azad Kashmir."],
 ];
