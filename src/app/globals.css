@@ -489,3 +489,27 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (prefers-reduced-motion: reduce) {
   .wa-panel { animation: none; }
 }
+
+/* Wholesale and distribution. */
+.wholesale { background: var(--paper); border-top: 1px solid var(--line); }
+.wholesale-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: start; }
+.wholesale-label { margin: 0 0 8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.wholesale-ranges { list-style: none; margin: 0; padding: 0; }
+.wholesale-ranges li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.wholesale-ranges li > span { padding-top: 6px; font-size: 11px; color: #8a6830; font-variant-numeric: tabular-nums; }
+.wholesale-ranges h4 { margin: 0 0 4px; font: 500 28px/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.035em; }
+.wholesale-ranges p { margin: 0; max-width: 520px; color: #555b54; font-size: 15px; line-height: 1.75; }
+.wholesale-ranges .wholesale-brands { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
+.wholesale-terms { margin: 0; }
+.wholesale-terms div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.wholesale-terms dt { margin-bottom: 4px; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.wholesale-terms dd { margin: 0; color: #555b54; font-size: 15px; line-height: 1.7; }
+.wholesale-call { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
+.wholesale-call p { margin: 0; color: var(--muted); font-size: 14px; }
+@media (max-width: 960px) {
+  .wholesale-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 720px) {
+  .wholesale-ranges li { grid-template-columns: 36px 1fr; }
+  .wholesale-ranges h4 { font-size: 24px; }
+}

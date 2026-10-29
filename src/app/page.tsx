@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
+import Wholesale from "@/components/Wholesale";
 
 import { brands } from "@/lib/brands";
 
@@ -82,6 +83,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Wholesale />
 
       <section className="portfolio section-pad" id="portfolio">
         <div className="shell portfolio-intro">

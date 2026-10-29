@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import Logo from "./Logo";
 
-const links = [["/#story", "Story"], ["/#leadership", "Leadership"], ["/#brands", "Brands"], ["/#portfolio", "Companies"], ["/#standards", "Standards"]] as const;
+const links = [["/#story", "Story"], ["/#leadership", "Leadership"], ["/#brands", "Brands"], ["/#distributors", "Wholesale"], ["/#portfolio", "Companies"], ["/#standards", "Standards"]] as const;
 
 export default function Header() {
   const menu = useRef<HTMLDetailsElement>(null);
