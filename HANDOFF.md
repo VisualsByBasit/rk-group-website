@@ -172,6 +172,10 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - RK Group email: set `ENQUIRY_EMAIL`, flip `ENQUIRY_FORM_LIVE`.
 - Kashmir Tea wholesale terms, if it joins the distributor programme.
 
+## Ideas to ask Saim about after delivery (do not build now)
+
+- Search visibility for the directors' names (e.g. "Sheikh Saim Khalid"): currently only the homepage leadership section and Organization JSON-LD mention them. Options to propose: dedicated profile pages like the chairman's, and/or adding `sameAs` links to their real social profiles in the Person JSON-LD. Abdulbasit prefers **not** to add separate pages unless Saim asks for them.
+
 ## Out of scope for now
 
 - Meta ads setup (separate work; distributor Leads campaign planned).
