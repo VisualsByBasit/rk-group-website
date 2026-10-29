@@ -175,6 +175,9 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 ## Ideas to ask Saim about after delivery (do not build now)
 
 - Search visibility for the directors' names (e.g. "Sheikh Saim Khalid"): currently only the homepage leadership section and Organization JSON-LD mention them. Options to propose: dedicated profile pages like the chairman's, and/or adding `sameAs` links to their real social profiles in the Person JSON-LD. Abdulbasit prefers **not** to add separate pages unless Saim asks for them.
+- Profile pages for **every** leader (not only the chairman), each with Person JSON-LD and `sameAs` links to real profiles. Helps name searches for each person.
+- Deeper product pages: per-brand pages exist; consider per-product pages (e.g. each Nimco mix, each ghee pack) **only** if each can carry real content (photos, sizes, ingredients, storage). Thin near-duplicate pages can hurt SEO.
+- Redesign the detail pages (brand and chairman pages). They are currently plain text on a white background; give them the homepage's visual quality (hero image or colour field per brand, portrait treatment, stronger layout) while keeping the same type and palette.
 
 ## Out of scope for now
 
