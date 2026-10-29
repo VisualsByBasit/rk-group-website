@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { brands } from "@/lib/brands";
 import { siteUrl } from "@/lib/site";
+import { LANDLINE, WHATSAPP_NUMBER, whatsappReady } from "@/lib/contact";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,6 +53,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       { "@type": "Person", name: "Sheikh Atif Islam", jobTitle: "Director" },
       { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
       { "@type": "Person", name: "Abdul Haseeb", jobTitle: "Chief Financial Officer (CFO)" },
+    ],
+    contactPoint: [
+      { "@type": "ContactPoint", contactType: "sales", telephone: LANDLINE.tel, areaServed: "PK", hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "18:00" } },
+      ...(whatsappReady ? [{ "@type": "ContactPoint", contactType: "sales", name: "WhatsApp", telephone: `+${WHATSAPP_NUMBER}`, url: `https://wa.me/${WHATSAPP_NUMBER}`, areaServed: "PK" }] : []),
     ],
     brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/` })),
   };
