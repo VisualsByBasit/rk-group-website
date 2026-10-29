@@ -7,8 +7,10 @@ import "@fontsource/ibm-plex-sans/500.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { brands } from "@/lib/brands";
 import { siteUrl } from "@/lib/site";
+import { LANDLINE, WHATSAPP_NUMBER, whatsappReady } from "@/lib/contact";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
     url: "/",
-    siteName: "RK Group",
+    siteName: "RK Group of Industries",
     title: "RK Group of Industries | Food & Edible Oils in Pakistan",
     description: "Generations of enterprise across food, manufacturing, energy and infrastructure.",
     images: [{ url: "/assets/hero/islamabad.webp", width: 1792, height: 1024, alt: "RK Group in Islamabad, Pakistan" }],
@@ -52,7 +54,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
       { "@type": "Person", name: "Abdul Haseeb", jobTitle: "Chief Financial Officer (CFO)" },
     ],
+    contactPoint: [
+      { "@type": "ContactPoint", contactType: "sales", telephone: LANDLINE.tel, areaServed: "PK", hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "18:00" } },
+      ...(whatsappReady ? [{ "@type": "ContactPoint", contactType: "sales", name: "WhatsApp", telephone: `+${WHATSAPP_NUMBER}`, url: `https://wa.me/${WHATSAPP_NUMBER}`, areaServed: "PK" }] : []),
+    ],
     brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/` })),
   };
-  return <html lang="en"><body id="top"><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /></body></html>;
+  return <html lang="en"><body id="top"><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /><WhatsAppButton /></body></html>;
 }

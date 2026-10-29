@@ -3,6 +3,9 @@ import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
+import Wholesale from "@/components/Wholesale";
+import JsonLd from "@/components/JsonLd";
+import { siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
 
@@ -26,6 +29,8 @@ const companies = [
 export default function HomePage() {
   return (
     <>
+      {/* Tells Google which name to show for the site in search results instead of the domain. */}
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "RK Group of Industries", alternateName: "RK Group", url: `${siteUrl}/`, publisher: { "@id": `${siteUrl}/#organization` } }} />
       <HeroSlideshow />
 
       <div className="group-ribbon"><div className="shell"><span>Generations of enterprise <b>Since 1953</b></span><span>Food & edible oils</span><span>Manufacturing</span><span>Energy</span><span>Infrastructure</span></div></div>
@@ -70,10 +75,12 @@ export default function HomePage() {
                 <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p></div>
                 <h3>{brand.fullName}</h3>
                 <p className="brand-description">{brand.copy}</p>
+                {brand.claims && <ul className="brand-claims" aria-label={`${brand.name} product claims`}>{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>}
                 <Link className="brand-page-link" href={`/brands/${brand.slug}/`}>Explore {brand.fullName} <span aria-hidden="true">↗</span></Link>
                 <div className="format-list" aria-label={`${brand.name} product formats`}>
                   {brand.formats.map(format => <span key={format}>{format}</span>)}
                 </div>
+                {brand.sizes && <dl className="size-list" aria-label={`${brand.name} pack sizes`}>{brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value}</dd></div>)}</dl>}
               </div>
               <div className="brand-visual">
                 <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
@@ -82,6 +89,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Wholesale />
 
       <section className="portfolio section-pad" id="portfolio">
         <div className="shell portfolio-intro">

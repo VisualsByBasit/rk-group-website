@@ -11,7 +11,7 @@
   --green: #0e3a2c;
   --cream: #f1ede4;
   --paper: #faf8f2;
-  --muted: #6e716b;
+  --muted: #676a64;
   --line: rgba(11,12,11,.15);
 }
 
@@ -38,7 +38,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .desktop-nav a { position: relative; padding: 10px 0; }
 .desktop-nav a::after { content: ""; position: absolute; height: 2px; left: 0; right: 100%; bottom: 2px; background: var(--orange); transition: right .25s ease; }
 .desktop-nav a:hover::after { right: 0; }
-.desktop-nav a:last-child { border: 1px solid var(--line); padding: 11px 18px; }
 .mobile-menu { display: none; }
 
 .hero { --hero-accent: var(--orange); --hero-position: center; min-height: calc(100svh - 74px); color: white; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--ink); transition: background-color .6s ease; }
@@ -460,3 +459,154 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .detail-copy a, .detail-breadcrumb a, .detail-related a { text-decoration: underline; text-underline-offset: .2em; }
 .detail-related { border-top: 1px solid #d9d7cf; padding-top: 24px; }
 .detail-related a { display: inline-block; margin: 10px 24px 10px 0; }
+
+/* Floating WhatsApp button. On phones the hero controls stop short of it; the footer leaves room so nothing ends up hidden beneath it. */
+/* #1a9e4b is a slightly deeper WhatsApp green: white icon 3.48:1, button 3.28:1 on the page and 5.71:1 on the footer. */
+.wa-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; display: grid; place-items: center; width: 56px; height: 56px; padding: 0; border: 0; border-radius: 50%; background: #1a9e4b; color: white; box-shadow: 0 8px 22px rgba(26,158,75,.38), 0 2px 6px rgba(11,12,11,.12); cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.wa-float:hover { background: #168f45; transform: translateY(-3px); box-shadow: 0 14px 32px rgba(26,158,75,.5), 0 4px 10px rgba(11,12,11,.14); }
+.wa-float:active { transform: translateY(0) scale(.95); box-shadow: 0 4px 12px rgba(26,158,75,.4); transition-duration: .08s; }
+.wa-float:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+/* Thin pulse ring every four seconds. It is an outline only and ignores the pointer, so it never hides what is beneath it. */
+.wa-float::after { content: ""; position: absolute; inset: 0; border: 2px solid #1a9e4b; border-radius: 50%; opacity: 0; pointer-events: none; animation: wa-pulse 4s ease-out 1.5s infinite; }
+.wa-float[aria-expanded="true"]::after { animation: none; }
+@keyframes wa-pulse { 0% { opacity: .55; transform: scale(1); } 35% { opacity: 0; transform: scale(1.4); } 100% { opacity: 0; transform: scale(1.4); } }
+.wa-panel { position: fixed; z-index: 46; right: 24px; bottom: 92px; width: min(320px, calc(100vw - 30px)); padding: 20px 22px 22px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 22px 60px rgba(11,12,11,.22); animation: wa-in .18s ease-out; }
+.wa-panel[hidden] { display: none; }
+.wa-panel:focus { outline: none; }
+.wa-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.wa-panel-title { margin: 0; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; }
+.wa-close { display: grid; place-items: center; width: 36px; height: 36px; margin: -6px -8px 0 0; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.wa-close:hover { background: var(--cream); }
+.wa-panel p { margin: 0 0 16px; font-size: 14px; line-height: 1.65; }
+.wa-panel p a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.wa-call { display: inline-block; padding: 11px 18px; background: var(--green); color: white; font-size: 13px; }
+.wa-call:hover { background: #154d3b; }
+.site-footer { padding-bottom: 104px; }
+.scroll-cue { right: 104px; }
+@keyframes wa-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 720px) {
+  .wa-float { right: 15px; bottom: 16px; width: 52px; height: 52px; }
+  .wa-panel { right: 15px; bottom: 80px; }
+  .site-footer { padding-bottom: 96px; }
+  .hero-controls { right: 82px; }
+  .hero-dots { min-width: 0; gap: 2px; }
+  .hero-dots button { flex: 1 1 0; min-width: 0; width: auto; max-width: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-panel { animation: none; }
+  .wa-float::after { animation: none; display: none; }
+  .wa-float:hover, .wa-float:active { transform: none; }
+}
+
+/* Wholesale and distribution. */
+.wholesale { background: var(--paper); border-top: 1px solid var(--line); }
+.wholesale-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: start; }
+.wholesale-label { margin: 0 0 8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.wholesale-ranges { list-style: none; margin: 0; padding: 0; }
+.wholesale-ranges li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.wholesale-ranges li > span { padding-top: 6px; font-size: 11px; color: #8a6830; font-variant-numeric: tabular-nums; }
+.wholesale-ranges h4 { margin: 0 0 4px; font: 500 28px/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.035em; }
+.wholesale-ranges p { margin: 0; max-width: 520px; color: #555b54; font-size: 15px; line-height: 1.75; }
+.wholesale-ranges .wholesale-brands { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
+.wholesale-terms { margin: 0; }
+.wholesale-terms div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.wholesale-terms dt { margin-bottom: 4px; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.wholesale-terms dd { margin: 0; color: #555b54; font-size: 15px; line-height: 1.7; }
+.wholesale-call { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
+.wholesale-call p { margin: 0; color: var(--muted); font-size: 14px; }
+@media (max-width: 960px) {
+  .wholesale-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 720px) {
+  .wholesale-ranges li { grid-template-columns: 36px 1fr; }
+  .wholesale-ranges h4 { font-size: 24px; }
+}
+
+/* Wholesale enquiry form. Only rendered once the form is switched on in src/lib/contact.ts. */
+.enquiry { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px 72px; margin-top: 88px; padding-top: 56px; border-top: 1px solid var(--line); }
+.enquiry > :not(.enquiry-intro) { grid-column: 2; }
+.enquiry-intro { grid-row: span 5; }
+.enquiry-intro h3 { margin: 0 0 16px; font-size: clamp(32px, 3.4vw, 44px); line-height: 1.08; }
+.enquiry-intro p { max-width: 360px; margin: 0; color: #555b54; font-size: 15px; line-height: 1.75; }
+.enquiry-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; }
+.enquiry-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.enquiry-field label { font-size: 13px; font-weight: 500; }
+.enquiry-field label span { color: var(--muted); font-weight: 400; }
+.enquiry-field input, .enquiry-field select, .enquiry-field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid #a9aca3; border-radius: 0; background: white; color: var(--ink); font: 400 15px "IBM Plex Sans", Arial, sans-serif; }
+.enquiry-field select:disabled { background: var(--cream); color: #5f625c; }
+.enquiry-field textarea { resize: vertical; }
+.enquiry-field [aria-invalid="true"] { border-color: #a3261b; box-shadow: inset 0 0 0 1px #a3261b; }
+.enquiry-error { margin: 0; color: #a3261b; font-size: 13px; line-height: 1.5; }
+.enquiry-hint { margin: 0; color: #555b54; font-size: 13px; line-height: 1.5; }
+.enquiry-lines { display: grid; gap: 16px; }
+.enquiry-line { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin: 0; padding: 22px 22px 24px; border: 1px solid var(--line); background: rgba(255,255,255,.6); }
+.enquiry-line legend { padding: 0 8px; margin-left: -8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.enquiry-remove, .enquiry-add, .enquiry-alt { justify-self: start; padding: 10px 0; border: 0; background: transparent; color: var(--green); font: 500 13px "IBM Plex Sans", Arial, sans-serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.enquiry-remove { grid-column: 1 / -1; }
+.enquiry-add { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 6px; }
+.enquiry-add span { margin-left: 10px; color: #8a6830; }
+.enquiry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.enquiry-actions .button { border: 0; cursor: pointer; font-family: inherit; }
+.enquiry-status { min-height: 1.5em; margin: 0; color: var(--green); font-size: 14px; line-height: 1.6; }
+@media (max-width: 960px) {
+  .enquiry { grid-template-columns: 1fr; margin-top: 64px; }
+  .enquiry > :not(.enquiry-intro) { grid-column: auto; }
+  .enquiry-intro { grid-row: auto; }
+}
+@media (max-width: 720px) {
+  .enquiry-fields, .enquiry-line { grid-template-columns: 1fr; }
+  .enquiry-line { padding: 18px 16px 20px; }
+}
+
+/* Approved product claims and pack sizes, on the homepage brand blocks and brand pages. */
+.brand-claims, .detail-claims { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 0; padding: 0; list-style: none; }
+.brand-claims li, .detail-claims li { position: relative; padding-left: 14px; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.brand-claims li::before, .detail-claims li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.detail-claims { margin: -8px 0 8px; }
+.detail-claims li { font-size: 15px; }
+.detail-claims li::before { background: var(--orange); }
+.size-list { display: grid; gap: 10px; margin: 22px 0 0; padding-top: 18px; border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 28%, transparent); }
+.size-list div { display: grid; grid-template-columns: minmax(110px, .9fr) 1.6fr; gap: 14px; align-items: baseline; }
+.size-list dt { font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; }
+.size-list dd { margin: 0; font-size: 13px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.size-list--detail { max-width: 620px; padding-top: 0; border-top: 0; gap: 0; }
+.size-list--detail div { padding: 14px 0; border-bottom: 1px solid #d9d7cf; grid-template-columns: minmax(150px, .8fr) 1.4fr; }
+.size-list--detail dt { font-size: 11px; color: #555b54; }
+.size-list--detail dd { font-size: 16px; }
+@media (max-width: 430px) {
+  .size-list div, .size-list--detail div { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Contrast fixes (WCAG AA 4.5:1 for small text, 3:1 for large), kept as close to the original colours as possible. */
+.brand-gulberg .brand-meta span { opacity: .78; }
+.brand-nimco .brand-meta span { opacity: .72; }
+.wholesale h2 em { color: #8a6830; }
+.privacy-copy .privacy-date { color: #a4afa6; }
+/* Narrow phones: eight dots cannot keep a 24px tap target beside the arrows, so show the slide count instead. */
+@media (max-width: 460px) {
+  .hero-dots { display: none; }
+  .hero-count { display: inline; margin-right: auto; }
+}
+.enquiry-status a { white-space: nowrap; color: var(--green); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Header call to action: the only emphasised item in the header. */
+.header-actions { display: flex; align-items: center; gap: 30px; }
+.header-cta { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 600; white-space: nowrap; box-shadow: 0 6px 18px rgba(205,165,104,.38); transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.header-cta:hover { background: #b8904f; transform: translateY(-1px); box-shadow: 0 10px 26px rgba(160,120,60,.42); }
+.header-cta:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+.header-cta--menu { display: none; }
+@media (min-width: 961px) and (max-width: 1180px) {
+  .header-actions { gap: 22px; }
+  .desktop-nav { gap: 20px; }
+}
+@media (max-width: 960px) {
+  .header-actions { gap: 18px; }
+  .header-cta--menu { display: flex; width: 100%; padding: 14px 16px; }
+}
+@media (max-width: 960px) {
+  .header-actions > .header-cta { padding: 10px 14px; font-size: 12px; box-shadow: 0 4px 12px rgba(205,165,104,.34); }
+}
+/* Below 440px the compact button would crowd the logo, so it lives at the top of the menu only. */
+@media (max-width: 439px) {
+  .header-actions > .header-cta { display: none; }
+}
