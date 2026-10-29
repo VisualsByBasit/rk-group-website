@@ -204,6 +204,7 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - Approval of the leadership pages (Task 4) before merging.
 
 **Ideas to propose**
+- Facebook page: set a username (e.g. `facebook.com/rkgroupofindustries`) and a proper cover photo. Then update the Facebook URL in `src/lib/social.ts` (currently `https://www.facebook.com/profile.php?id=61595048216359`). Only the RK Group Facebook page is used; the Islamabad Macaroni Facebook page is being disconnected.
 - Deeper product pages (per mix or per pack) only once real content exists (photos, ingredients, storage); thin near-duplicate pages can hurt SEO.
 - Kashmir Tea joining the wholesale programme.
 - Meta ads: a distributor Leads campaign (budget and payment card to be decided).
