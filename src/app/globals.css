@@ -447,11 +447,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .detail-breadcrumb { margin-bottom: 32px; font-size: .9rem; }
 .detail-page h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.08; max-width: 1000px; margin: 20px 0 28px; }
 .detail-intro { max-width: 780px; font-size: 1.2rem; line-height: 1.8; }
-.detail-page .biography-sources a { color: var(--green); }
 .detail-product { position: relative; height: clamp(240px, 45vw, 540px); margin: 40px 0; background: #f4f2eb; border-radius: 20px; }
 .detail-product img { object-fit: contain; padding: 24px; }
-.detail-portrait { position: relative; width: min(100%, 560px); aspect-ratio: 4 / 5; margin: 40px 0; }
-.detail-portrait img { object-fit: cover; border-radius: 20px; }
 .detail-copy { max-width: 780px; line-height: 1.85; margin: 40px 0; }
 .detail-copy h2, .detail-related h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.2; margin: 32px 0 18px; }
 .detail-copy p { margin: 18px 0; }
@@ -609,4 +606,84 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 /* Below 440px the compact button would crowd the logo, so it lives at the top of the menu only. */
 @media (max-width: 439px) {
   .header-actions > .header-cta { display: none; }
+}
+
+/* Leadership profile pages. The hero continues the homepage leadership band; the portrait hangs into the body,
+   with the person's record directly beneath it and the biography alongside. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.profile-hero { position: relative; background: #112b24; color: white; padding: 34px 0 0; }
+.profile-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 40px; font-size: 13px; color: #c0c9c1; }
+.profile-breadcrumb a { color: #e3c692; text-decoration: underline; text-underline-offset: 3px; }
+.profile-breadcrumb span[aria-hidden] { color: #7f9187; }
+.profile-hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.profile-portrait { position: relative; aspect-ratio: 4 / 5; margin-bottom: -120px; z-index: 1; background: #192721; border: 1px solid #cda56845; border-bottom: 3px solid var(--orange); }
+.profile-portrait img { object-fit: cover; object-position: 50% 18%; }
+.profile-portrait--sheikh-abdul-islam img { object-position: 50% top; }
+/* Saim's portrait is full length; crop towards the upper body as the homepage card does. */
+.profile-portrait.profile-portrait--sheikh-saim-khalid { overflow: hidden; }
+.profile-portrait.profile-portrait--sheikh-saim-khalid img { transform: scale(1.45); transform-origin: 52% 22%; }
+.profile-hero-body { padding: 24px 0 150px; }
+.profile-hero-body h1 { font-size: clamp(52px, 6.4vw, 96px); line-height: .98; letter-spacing: -.05em; margin: 26px 0 28px; }
+.profile-statement { max-width: 560px; margin: 0 0 30px; font: 400 clamp(21px, 2vw, 27px)/1.4 Georgia, serif; color: #dec498; text-wrap: pretty; }
+.profile-roles { margin: 0; }
+.profile-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; padding-bottom: 110px; }
+.profile-story { grid-column: 2; grid-row: 1; padding-top: 72px; max-width: 720px; }
+.profile-story h2 { margin: 0 0 26px; font-size: clamp(30px, 3vw, 42px); line-height: 1.1; }
+.profile-story h3 { margin: 40px 0 12px; font-size: 22px; line-height: 1.25; letter-spacing: -.02em; }
+.profile-story p { margin: 0 0 18px; color: #3f453f; font-size: 17px; line-height: 1.8; }
+.profile-story .profile-lead { color: var(--ink); font-size: clamp(19px, 1.6vw, 22px); line-height: 1.65; }
+.profile-sources { margin-top: 36px !important; padding-top: 22px; border-top: 1px solid var(--line); font-size: 15px !important; }
+.profile-sources a, .profile-record a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.profile-milestones { margin-top: 56px; }
+.profile-milestones ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.profile-milestones li { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.profile-milestones li > span { padding-top: 3px; font: 500 15px "Space Grotesk", Arial, sans-serif; color: #8a6830; font-variant-numeric: tabular-nums; }
+.profile-milestones h3 { margin: 0 0 6px; font-size: 19px; }
+.profile-milestones li p { margin: 0; font-size: 15px; line-height: 1.7; }
+.profile-story .profile-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
+.profile-record { grid-column: 1; grid-row: 1; margin-top: 160px; position: sticky; top: 104px; }
+.profile-record h2 { margin: 0 0 6px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.profile-record h3 { margin: 30px 0 6px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.record-list { list-style: none; margin: 0; padding: 0; }
+.record-list li { display: grid; grid-template-columns: 40px 1fr; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); font: 500 18px/1.35 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.record-list li > span { font: 500 11px "IBM Plex Sans", Arial, sans-serif; letter-spacing: .08em; color: #8a6830; font-variant-numeric: tabular-nums; }
+.record-list--plain li { grid-template-columns: 1fr; font: 400 15px/1.5 "IBM Plex Sans", Arial, sans-serif; letter-spacing: 0; }
+.profile-back { display: inline-flex; gap: 10px; margin-top: 34px; padding: 12px 0; border-bottom: 1px solid var(--ink); font-size: 14px; font-weight: 500; }
+.profile-back span { color: #8a6830; }
+.profile-others { background: var(--cream); border-top: 1px solid var(--line); padding: 96px 0 104px; }
+.profile-others-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 40px; }
+.profile-others-head h2 { margin: 22px 0 0; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.05; }
+.profile-others-head .brand-page-link { margin: 0; }
+.profile-others-grid { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; }
+.profile-others-grid a { display: flex; flex-direction: column; height: 100%; }
+.profile-others-portrait { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #d8d8d0; border-bottom: 2px solid var(--orange); }
+.profile-others-portrait img { object-fit: cover; object-position: 50% 18%; transition: transform .5s ease; }
+.profile-others-portrait.profile-portrait--sheikh-saim-khalid img { transform: scale(2); transform-origin: 52% 28%; }
+.profile-others-grid a:hover img { transform: scale(1.03); }
+.profile-others-grid a:hover .profile-portrait--sheikh-saim-khalid img { transform: scale(2.05); }
+.profile-others-label { display: block; margin: 16px 0 6px; font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: .14em; color: #6b5226; }
+.profile-others-name { font: 500 19px/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.profile-others-grid a:hover .profile-others-name { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1100px) {
+  .profile-others-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 18px; }
+}
+@media (max-width: 860px) {
+  .profile-hero { padding-top: 22px; }
+  .profile-breadcrumb { margin-bottom: 22px; }
+  .profile-hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .profile-portrait { margin-bottom: 0; aspect-ratio: 4 / 4.4; }
+  .profile-hero-body { padding: 34px 0 52px; }
+  .profile-body { grid-template-columns: 1fr; gap: 0; padding-bottom: 72px; }
+  .profile-story, .profile-record { grid-column: 1; grid-row: auto; }
+  .profile-story { padding-top: 52px; }
+  .profile-record { margin-top: 40px; position: static; }
+  .profile-others { padding: 72px 0; }
+  .profile-others-head { flex-direction: column; align-items: start; }
+}
+@media (max-width: 520px) {
+  .profile-hero-body h1 { font-size: clamp(44px, 13vw, 56px); }
+  .profile-story p { font-size: 16px; }
+  .profile-milestones li { grid-template-columns: 1fr; gap: 6px; }
+  .profile-others-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px; }
+  .profile-others-name { font-size: 17px; }
 }
