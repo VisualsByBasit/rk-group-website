@@ -13,7 +13,7 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 - After each update, give a short **"What's done"** note with a one-line explanation of how it was implemented.
 - Keep a running **project log** (append to the log at the bottom of this file).
 - At the end, deliver a portfolio-ready writeup: tech stack, key features, what makes the work stand out.
-- Abdulbasit's local commit `7ff293f` (on `docs/handoff`) adds the skills folders to `.gitignore`. Cherry-pick it onto every branch you work on.
+- Abdulbasit's commit `ecdf8ba` (on `docs/handoff`) adds the skills folders to `.gitignore`. Cherry-pick it onto every branch you work on. (An earlier note said `7ff293f`; that was the same change before a rebase and is not on any branch.)
 
 ## Project facts
 
@@ -189,3 +189,4 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - 28 Oct 2026: Took over from ChatGPT. Reviewed SEO PR #2; build, lint, SEO checks and visual check pass. Decided: merge SEO first, then distributor features, Search Console after final deploy. Scoped wholesale-only features. Handoff written for Claude Code in VS Code.
 - 28 Oct 2026: Added confirmed business details (landline, hours, wholesale rules, cash at pickup, Mirpur factories, product sizes, approved claims). WhatsApp and form built but switched off until the number and email arrive. Folded in the AI Workforce OS audit (canonical, contrast, security headers, llms.txt) with measured contrast failures.
 - 28 Oct 2026: Gulberg added to the wholesale programme (ghee rules). Metal tins confirmed as sold; no tin specifics on the site.
+- 29 Oct 2026: Task 1 done. On the SEO branch: cherry-picked the `.gitignore` commit, retitled the chairman page "Sheikh Khalid Islam, Chairman" (the template adds "| RK Group"), set the Further reading links on the light detail page to `var(--green)` (contrast 1.54:1 to 11.91:1, homepage card unchanged), and added `.agents/` and `.claude/skills/` to the ESLint global ignores. Lint, tsc, build and `check-seo.py` (9 pages) pass. PR #2 merged into `main` by Abdulbasit (merge commit `0cc6e63`). Corrected the `.gitignore` commit hash in Working rules. Local note: pnpm and gh are not installed on this machine; checks ran from `node_modules/.bin`, and `check-seo.py` needs `PYTHONUTF8=1` on Windows.
