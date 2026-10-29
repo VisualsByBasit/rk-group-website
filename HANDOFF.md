@@ -180,12 +180,43 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - RK Group email: set `ENQUIRY_EMAIL`. The form then sends by email with no other change (it is already visible).
 - Kashmir Tea wholesale terms, if it joins the distributor programme.
 
-## Ideas to ask Saim about after delivery (do not build now)
+## Task 4 - Leadership profile pages and detail page design (branch `feat/leadership-pages`, do not merge until Saim approves)
 
-- Search visibility for the directors' names (e.g. "Sheikh Saim Khalid"): currently only the homepage leadership section and Organization JSON-LD mention them. Options to propose: dedicated profile pages like the chairman's, and/or adding `sameAs` links to their real social profiles in the Person JSON-LD. Abdulbasit prefers **not** to add separate pages unless Saim asks for them.
-- Profile pages for **every** leader (not only the chairman), each with Person JSON-LD and `sameAs` links to real profiles. Helps name searches for each person.
-- Deeper product pages: per-brand pages exist; consider per-product pages (e.g. each Nimco mix, each ghee pack) **only** if each can carry real content (photos, sizes, ingredients, storage). Thin near-duplicate pages can hurt SEO.
-- Redesign the detail pages (brand and chairman pages). They are currently plain text on a white background; give them the homepage's visual quality (hero image or colour field per brand, portrait treatment, stronger layout) while keeping the same type and palette.
+Abdulbasit decided to build these now and show Saim before merging. Full brief is in the chat; summary:
+
+- A profile page for every leader shown in the homepage leadership section, at `/leadership/<slug>/`, using only the existing published bios. Chairman page moves to the same template.
+- One shared, well-designed detail template (portrait treatment, strong layout, matching the homepage's quality, same type and palette). Brand pages get the same design upgrade if time allows.
+- Person JSON-LD per leader linked to the Organization; `sameAs` only for profile links Abdulbasit provides. Sitemap, check-seo.py and llms.txt updated.
+
+## Talking points for Saim (Abdulbasit raises these; nothing to build)
+
+**Hosting and ownership**
+- Vercel's free Hobby plan is for non-commercial personal use only; RK Group's site is commercial. Options: (1) Vercel Pro, $20 per developer seat per month plus tax, billed in USD; (2) move to a free host that allows commercial use, e.g. Cloudflare Pages (about an hour of work, headers move to a `_headers` file); (3) Hostinger hosting (not recommended, manual uploads).
+- Likely outcome: Saim prefers no hassle, so the site may stay on Abdulbasit's GitHub and Vercel accounts, with Saim paying the monthly hosting fee. On Pro the price is per seat, not per project; usage is shared across Abdulbasit's projects (set a Spend Management limit). A new developer deploying to that team may need their own seat.
+- Agree in writing (WhatsApp is enough): hosting stays on Abdulbasit's account and RK pays the fee; the **domain stays in RK Group's Hostinger account**; repo and Vercel project are transferred on request or with a month's notice if Abdulbasit stops working with them.
+- Search Console, Hostinger DNS and the Meta Business account should be owned by RK Group, with Abdulbasit added as a user.
+- Abdulbasit leaves the job on 5 November 2026; RK may keep him on remotely for development.
+- The site will be in Abdulbasit's portfolio.
+
+**Still needed from Saim**
+- The separate WhatsApp number and the RK Group email (the form and button switch on with one line each).
+- Profile links (Instagram, Facebook, LinkedIn) for leaders who want them linked from their pages.
+- Approval of the leadership pages (Task 4) before merging.
+
+**Ideas to propose**
+- Deeper product pages (per mix or per pack) only once real content exists (photos, ingredients, storage); thin near-duplicate pages can hurt SEO.
+- Kashmir Tea joining the wholesale programme.
+- Meta ads: a distributor Leads campaign (budget and payment card to be decided).
+
+## Task 5 - Handover (before 5 November 2026)
+
+- One clear README and an editing guide (contact switches, contact details, brands and sizes, wholesale rules, leaders, privacy notice).
+- Consolidate `AUDIT_BASELINE.md`, `REQUIREMENTS_AND_GAPS.md`, `PRIVACY_TECH_AUDIT.md`, `SEO_ROLLOUT.md` and this file into `docs/`.
+- Delete stale branches after checking nothing is needed (`codex/rk-group-premium-redesign`, `codex/rk-single-page-redesign`, `phase-1-redesign`, merged feature branches).
+- Update Next.js to the latest patched 16.x and re-test.
+- One command for all checks, and a GitHub Action that runs it on PRs.
+- Add branch protection on `main` (block force pushes and deletion) after the handover.
+- Settle ownership per the talking points above.
 
 ## Out of scope for now
 
@@ -201,3 +232,4 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - 29 Oct 2026: Task 2 decisions: custom bag orders in multiples of 25 kg, ghee any amount from 250 kg; Gulberg gets the ghee carton configurations; Premium Classic Mix in Nimco sizes only; macaroni shown as "Retail pack: 400 g"; "Deewan" everywhere in visible text. Added 2i (WebSite JSON-LD for the Google site name).
 - 29 Oct 2026: Task 2 built on `feat/wholesale-distribution` (12 commits, not merged). 2a to 2i done; Deewan spelling fixed site-wide. WhatsApp button and form tested with the switches on, committed with both off. Also fixed: hero Pause control ran off screen at 375px (dots now shrink, and below 460px the slide count replaces the dots for 24px tap targets); homepage og:site_name aligned to "RK Group of Industries"; privacy date contrast. Lint, tsc, build, check-seo.py and axe-core (WCAG 2.2 AA, 9 pages, 1440 and 390) pass; CSP tested locally with no violations. Taste-skill inspector FAILs are all house-style rules that conflict with the design rule (eyebrows, numbering, gradients, lines, small labels), so left as is (Abdulbasit confirmed).
 - 29 Oct 2026: Abdulbasit approved Task 2 with changes. Wholesale terms now say "Rates are shared when you get in touch, along with pickup details and other terms." Taste-skill FAILs stay; "Elbow only" stays in the form only. Form shown now with a launching-soon message until WhatsApp or email is ready; privacy notice says the form sends and keeps nothing. Header gets a gold "Become a Distributor" button to /#distributors (Standards is now a plain link); on phones it is full width at the top of the menu, plus a compact version beside the menu icon from 440px up (it crowds the logo below that). WhatsApp button now uses a deeper WhatsApp green #1a9e4b (white icon 3.48:1; #25d366 is only 1.98:1) with shadow, hover lift, press effect and a pulse ring every 4s, off under reduced motion; popover unchanged. Lint, tsc, build, check-seo.py, axe-core (9 pages, 1440 and 390) and local CSP test pass. Not merged; Abdulbasit opens the PR and merges.
+- 29 Oct 2026: Task 2 merged by Abdulbasit. Added Task 4 (leadership pages and detail design, build now, merge after Saim approves), talking points for Saim (hosting, ownership, Vercel plan, still-needed items) and Task 5 (handover before 5 November).
