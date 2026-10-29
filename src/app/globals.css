@@ -549,3 +549,22 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .enquiry-fields, .enquiry-line { grid-template-columns: 1fr; }
   .enquiry-line { padding: 18px 16px 20px; }
 }
+
+/* Approved product claims and pack sizes, on the homepage brand blocks and brand pages. */
+.brand-claims, .detail-claims { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 0; padding: 0; list-style: none; }
+.brand-claims li, .detail-claims li { position: relative; padding-left: 14px; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.brand-claims li::before, .detail-claims li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.detail-claims { margin: -8px 0 8px; }
+.detail-claims li { font-size: 15px; }
+.detail-claims li::before { background: var(--orange); }
+.size-list { display: grid; gap: 10px; margin: 22px 0 0; padding-top: 18px; border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 28%, transparent); }
+.size-list div { display: grid; grid-template-columns: minmax(110px, .9fr) 1.6fr; gap: 14px; align-items: baseline; }
+.size-list dt { font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; }
+.size-list dd { margin: 0; font-size: 13px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.size-list--detail { max-width: 620px; padding-top: 0; border-top: 0; gap: 0; }
+.size-list--detail div { padding: 14px 0; border-bottom: 1px solid #d9d7cf; grid-template-columns: minmax(150px, .8fr) 1.4fr; }
+.size-list--detail dt { font-size: 11px; color: #555b54; }
+.size-list--detail dd { font-size: 16px; }
+@media (max-width: 430px) {
+  .size-list div, .size-list--detail div { grid-template-columns: 1fr; gap: 2px; }
+}
