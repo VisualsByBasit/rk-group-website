@@ -45,10 +45,10 @@ const slides = [
     theme: "dilpasand",
   },
   {
-    name: "Dewan",
+    name: "Deewan",
     image: "/assets/brand-lineups/deewan-no-tub.webp",
-    alt: "Dewan Banaspati Ghee tins, pouches and cartons",
-    eyebrow: "Dewan Banaspati Ghee",
+    alt: "Deewan Banaspati Ghee tins, pouches and cartons",
+    eyebrow: "Deewan Banaspati Ghee",
     title: "A pantry essential.",
     emphasis: "Ready for every recipe.",
     description: "A distinctive banaspati range built around dependable performance in everyday family cooking.",
