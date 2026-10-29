@@ -30,7 +30,7 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 - **Payment:** cash, paid on the spot at pickup.
 - **Pickup:** the buyer collects the order with their own transport. Factories are in **Mirpur, Azad Kashmir**. Exact pickup details and any other terms are discussed after the buyer gets in touch.
 - **Landline:** 051-4449011 (`tel:+92514449011`). Hours: **Monday to Saturday, 10am to 6pm**.
-- A **separate WhatsApp number** and an **RK Group email** are coming later. Until then the WhatsApp button and the enquiry form are built but switched off (see Task 2).
+- A **separate WhatsApp number** and an **RK Group email** are coming later. Until then the WhatsApp button shows a launching-soon popover, and the enquiry form is visible but asks visitors to call instead of sending (see Task 2).
 - **Gulberg is part of the wholesale programme** (same rules as the other ghee brands). **Kashmir Tea** stays on the site but is **not** part of distributor enquiries yet.
 
 ### Wholesale rules (for the distributor section and form)
@@ -112,7 +112,9 @@ Switching either feature on later must be a one-line change here.
 - Primary action now: **Call 051-4449011** (tap to call), with the hours shown next to it.
 - The enquiry form (below), rendered only when `ENQUIRY_FORM_LIVE` is true.
 
-### 2d. Enquiry form (built and tested now, switched off)
+### 2d. Enquiry form (visible now; sends once a channel is ready)
+
+- **Update 29 Oct 2026:** the form is shown now (`ENQUIRY_FORM_LIVE = true`). With no WhatsApp number or email, a valid submit opens nothing, keeps the details and shows "Online enquiries are launching soon. Please call 051-4449011, Monday to Saturday, 10am to 6pm." with a tap-to-call link. The Call button in the section stays.
 
 - Fields: name, business name, city, phone, product (ACP, Dilpasand, Deewan, Gulberg, Islamabad Nimco, Islamabad Macaroni - Elbow), quantity (options change with the product: 250/500/1000 kg/custom for ghee, 25/50/100 kg/custom for nimco and macaroni; custom validated against that product's minimum, and in multiples of 25 kg for nimco and macaroni), optional message.
 - Allow more than one product line per enquiry if it stays simple; otherwise one product per enquiry.
@@ -175,7 +177,7 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 ## Later (when Abdulbasit sends them)
 
 - WhatsApp number: set `WHATSAPP_NUMBER`, flip `WHATSAPP_LIVE`, add it to `contactPoint`.
-- RK Group email: set `ENQUIRY_EMAIL`, flip `ENQUIRY_FORM_LIVE`.
+- RK Group email: set `ENQUIRY_EMAIL`. The form then sends by email with no other change (it is already visible).
 - Kashmir Tea wholesale terms, if it joins the distributor programme.
 
 ## Ideas to ask Saim about after delivery (do not build now)
@@ -197,4 +199,5 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - 28 Oct 2026: Gulberg added to the wholesale programme (ghee rules). Metal tins confirmed as sold; no tin specifics on the site.
 - 29 Oct 2026: Task 1 done. On the SEO branch: cherry-picked the `.gitignore` commit, retitled the chairman page "Sheikh Khalid Islam, Chairman" (the template adds "| RK Group"), set the Further reading links on the light detail page to `var(--green)` (contrast 1.54:1 to 11.91:1, homepage card unchanged), and added `.agents/` and `.claude/skills/` to the ESLint global ignores. Lint, tsc, build and `check-seo.py` (9 pages) pass. PR #2 merged into `main` by Abdulbasit (merge commit `0cc6e63`). Corrected the `.gitignore` commit hash in Working rules. Local note: pnpm and gh are not installed on this machine; checks ran from `node_modules/.bin`, and `check-seo.py` needs `PYTHONUTF8=1` on Windows.
 - 29 Oct 2026: Task 2 decisions: custom bag orders in multiples of 25 kg, ghee any amount from 250 kg; Gulberg gets the ghee carton configurations; Premium Classic Mix in Nimco sizes only; macaroni shown as "Retail pack: 400 g"; "Deewan" everywhere in visible text. Added 2i (WebSite JSON-LD for the Google site name).
-- 29 Oct 2026: Task 2 built on `feat/wholesale-distribution` (12 commits, not merged). 2a to 2i done; Deewan spelling fixed site-wide. WhatsApp button and form tested with the switches on, committed with both off. Also fixed: hero Pause control ran off screen at 375px (dots now shrink, and below 460px the slide count replaces the dots for 24px tap targets); homepage og:site_name aligned to "RK Group of Industries"; privacy date contrast. Lint, tsc, build, check-seo.py and axe-core (WCAG 2.2 AA, 9 pages, 1440 and 390) pass; CSP tested locally with no violations. Taste-skill inspector FAILs are all house-style rules that conflict with the design rule (eyebrows, numbering, gradients, lines, small labels), so left as is pending Abdulbasit's call.
+- 29 Oct 2026: Task 2 built on `feat/wholesale-distribution` (12 commits, not merged). 2a to 2i done; Deewan spelling fixed site-wide. WhatsApp button and form tested with the switches on, committed with both off. Also fixed: hero Pause control ran off screen at 375px (dots now shrink, and below 460px the slide count replaces the dots for 24px tap targets); homepage og:site_name aligned to "RK Group of Industries"; privacy date contrast. Lint, tsc, build, check-seo.py and axe-core (WCAG 2.2 AA, 9 pages, 1440 and 390) pass; CSP tested locally with no violations. Taste-skill inspector FAILs are all house-style rules that conflict with the design rule (eyebrows, numbering, gradients, lines, small labels), so left as is (Abdulbasit confirmed).
+- 29 Oct 2026: Abdulbasit approved Task 2 with changes. Wholesale terms now say "Rates are shared when you get in touch, along with pickup details and other terms." Taste-skill FAILs stay; "Elbow only" stays in the form only. Form shown now with a launching-soon message until WhatsApp or email is ready; privacy notice says the form sends and keeps nothing. Header gets a gold "Become a Distributor" button to /#distributors (Standards is now a plain link); on phones it is full width at the top of the menu, plus a compact version beside the menu icon from 440px up (it crowds the logo below that). WhatsApp button now uses a deeper WhatsApp green #1a9e4b (white icon 3.48:1; #25d366 is only 1.98:1) with shadow, hover lift, press effect and a pulse ring every 4s, off under reduced motion; popover unchanged. Lint, tsc, build, check-seo.py, axe-core (9 pages, 1440 and 390) and local CSP test pass. Not merged; Abdulbasit opens the PR and merges.
