@@ -460,3 +460,32 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .detail-copy a, .detail-breadcrumb a, .detail-related a { text-decoration: underline; text-underline-offset: .2em; }
 .detail-related { border-top: 1px solid #d9d7cf; padding-top: 24px; }
 .detail-related a { display: inline-block; margin: 10px 24px 10px 0; }
+
+/* Floating WhatsApp button. On phones the hero controls stop short of it; the footer leaves room so nothing ends up hidden beneath it. */
+.wa-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; display: grid; place-items: center; width: 56px; height: 56px; padding: 0; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: var(--green); color: white; box-shadow: 0 12px 32px rgba(11,12,11,.24); cursor: pointer; transition: background-color .2s ease; }
+.wa-float:hover { background: #154d3b; }
+.wa-panel { position: fixed; z-index: 46; right: 24px; bottom: 92px; width: min(320px, calc(100vw - 30px)); padding: 20px 22px 22px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 22px 60px rgba(11,12,11,.22); animation: wa-in .18s ease-out; }
+.wa-panel[hidden] { display: none; }
+.wa-panel:focus { outline: none; }
+.wa-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.wa-panel-title { margin: 0; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; }
+.wa-close { display: grid; place-items: center; width: 36px; height: 36px; margin: -6px -8px 0 0; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.wa-close:hover { background: var(--cream); }
+.wa-panel p { margin: 0 0 16px; font-size: 14px; line-height: 1.65; }
+.wa-panel p a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.wa-call { display: inline-block; padding: 11px 18px; background: var(--green); color: white; font-size: 13px; }
+.wa-call:hover { background: #154d3b; }
+.site-footer { padding-bottom: 104px; }
+.scroll-cue { right: 104px; }
+@keyframes wa-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 720px) {
+  .wa-float { right: 15px; bottom: 16px; width: 52px; height: 52px; }
+  .wa-panel { right: 15px; bottom: 80px; }
+  .site-footer { padding-bottom: 96px; }
+  .hero-controls { right: 82px; }
+  .hero-dots { min-width: 0; gap: 2px; }
+  .hero-dots button { flex: 1 1 0; min-width: 0; width: auto; max-width: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-panel { animation: none; }
+}
