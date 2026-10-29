@@ -11,7 +11,7 @@
   --green: #0e3a2c;
   --cream: #f1ede4;
   --paper: #faf8f2;
-  --muted: #6e716b;
+  --muted: #676a64;
   --line: rgba(11,12,11,.15);
 }
 
@@ -567,4 +567,15 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .size-list--detail dd { font-size: 16px; }
 @media (max-width: 430px) {
   .size-list div, .size-list--detail div { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Contrast fixes (WCAG AA 4.5:1 for small text, 3:1 for large), kept as close to the original colours as possible. */
+.brand-gulberg .brand-meta span { opacity: .78; }
+.brand-nimco .brand-meta span { opacity: .72; }
+.wholesale h2 em { color: #8a6830; }
+.privacy-copy .privacy-date { color: #a4afa6; }
+/* Narrow phones: eight dots cannot keep a 24px tap target beside the arrows, so show the slide count instead. */
+@media (max-width: 460px) {
+  .hero-dots { display: none; }
+  .hero-count { display: inline; margin-right: auto; }
 }
