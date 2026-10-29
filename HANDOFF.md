@@ -37,26 +37,28 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 
 | Products | Wholesale unit | Order options | Minimum |
 | --- | --- | --- | --- |
-| ACP, Dilpasand, Dewan, Gulberg (banaspati ghee) | Cartons | 250 kg, 500 kg, 1000 kg, custom | 250 kg |
+| ACP, Dilpasand, Deewan, Gulberg (banaspati ghee) | Cartons | 250 kg, 500 kg, 1000 kg, custom | 250 kg |
 | Islamabad Nimco | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
 | Islamabad Macaroni | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
 
 - Do not convert kg into carton counts; RK Group rounds orders to whole cartons themselves.
+- **Custom amounts:** ghee is any amount of 250 kg or more (no multiple rule, since it packs in 900 g and 1 kg packets). Nimco and Macaroni must be multiples of 25 kg, minimum 25 kg, because 25 kg bags are the only wholesale packaging. Show the hint "Supplied in 25 kg bags, order in multiples of 25 kg" under their quantity field.
+- **Spelling:** use "Deewan" in all visible text. The URL `/brands/deewan-banaspati/` stays; internal CSS class names may keep "dewan".
 - **In the form and enquiry copy only:** Islamabad Macaroni is currently available in **Elbow** only (other shapes are in production). Do **not** say this on the homepage or brand pages; those keep the six shapes as listed.
 
 ### Product sizes (homepage product info, also brand pages)
 
 These are product information only. They do **not** appear in the enquiry form.
 
-- **Ghee cartons:** 1 kg x 5 and 1 kg x 16 packs per carton; 900 g x 5 and 900 g x 16 packs per carton.
+- **Ghee cartons (ACP, Dilpasand, Deewan, Gulberg):** 1 kg x 5 and 1 kg x 16 packs per carton; 900 g x 5 and 900 g x 16 packs per carton.
 - **Ghee retail packs:**
   - ACP: 1 kg, 900 g, 450 g
   - Dilpasand: 1 kg, 900 g, 450 g, 225 g
-  - Dewan: 1 kg, 900 g, 450 g, 225 g
-- **Islamabad Nimco** (Classic Mix, Special Mix, Chatpata Mix): 25 g, 35 g, 100 g, 200 g. **Premium Classic Mix** stand-up pouch: 200 g, 400 g. Wholesale: 25 kg bag.
-- **Islamabad Macaroni:** Elbow 400 g retail pack. Wholesale: 25 kg bag.
+  - Deewan: 1 kg, 900 g, 450 g, 225 g
+- **Islamabad Nimco** (Classic Mix, Special Mix, Chatpata Mix): 25 g, 35 g, 100 g, 200 g. **Premium Classic Mix** stand-up pouch: 200 g, 400 g (in the sizes only, not the format chips or brand copy). Wholesale: 25 kg bag.
+- **Islamabad Macaroni:** written as "Retail pack: 400 g" (do not name Elbow outside the form). Keep "Elbows" in the format chips. Wholesale: 25 kg bag.
 - **Metal tins** are still sold. Keep "Metal tins" in the existing `formats` lists, but add no tin sizes or tin terms; those are agreed between buyer and seller.
-- Gulberg and Kashmir Tea sizes: leave exactly as they are (Gulberg: 900 g pouches, trade cartons).
+- Gulberg: keep its existing formats (900 g pouches, trade cartons) and add the ghee carton configurations above. Kashmir Tea sizes: leave exactly as they are.
 
 ### Product claims (approved)
 
@@ -112,7 +114,7 @@ Switching either feature on later must be a one-line change here.
 
 ### 2d. Enquiry form (built and tested now, switched off)
 
-- Fields: name, business name, city, phone, product (ACP, Dilpasand, Dewan, Gulberg, Islamabad Nimco, Islamabad Macaroni - Elbow), quantity (options change with the product: 250/500/1000 kg/custom for ghee, 25/50/100 kg/custom for nimco and macaroni; custom validated against that product's minimum), optional message.
+- Fields: name, business name, city, phone, product (ACP, Dilpasand, Deewan, Gulberg, Islamabad Nimco, Islamabad Macaroni - Elbow), quantity (options change with the product: 250/500/1000 kg/custom for ghee, 25/50/100 kg/custom for nimco and macaroni; custom validated against that product's minimum, and in multiples of 25 kg for nimco and macaroni), optional message.
 - Allow more than one product line per enquiry if it stays simple; otherwise one product per enquiry.
 - Submit formats everything into a message and opens WhatsApp (when `WHATSAPP_LIVE`), with a `mailto:` fallback when `ENQUIRY_EMAIL` is set. The site stores nothing.
 - Labels on every field, inline errors tied with `aria-describedby`, keyboard usable, works at 390px.
@@ -122,7 +124,7 @@ Switching either feature on later must be a one-line change here.
 
 - Add the sizes from "Product sizes" above to each brand's block on the homepage and to its brand page. Ghee shows retail packs and carton configurations; Nimco shows its mixes and pack sizes; Macaroni shows its retail pack and keeps the six shapes.
 - Add the approved claims for Macaroni and Nimco.
-- A "Wholesale enquiries" link to `/#distributors` on each eligible brand page (ACP, Dilpasand, Dewan, Gulberg, Nimco, Macaroni). Not on Kashmir Tea.
+- A "Wholesale enquiries" link to `/#distributors` on each eligible brand page (ACP, Dilpasand, Deewan, Gulberg, Nimco, Macaroni). Not on Kashmir Tea.
 
 ### 2f. Audit fixes (from an AI Workforce OS scan of the live site, plus a contrast scan on the SEO branch)
 
@@ -194,3 +196,4 @@ Build, lint, `check-seo.py`, axe-core contrast, Playwright screenshots at 1440px
 - 28 Oct 2026: Added confirmed business details (landline, hours, wholesale rules, cash at pickup, Mirpur factories, product sizes, approved claims). WhatsApp and form built but switched off until the number and email arrive. Folded in the AI Workforce OS audit (canonical, contrast, security headers, llms.txt) with measured contrast failures.
 - 28 Oct 2026: Gulberg added to the wholesale programme (ghee rules). Metal tins confirmed as sold; no tin specifics on the site.
 - 29 Oct 2026: Task 1 done. On the SEO branch: cherry-picked the `.gitignore` commit, retitled the chairman page "Sheikh Khalid Islam, Chairman" (the template adds "| RK Group"), set the Further reading links on the light detail page to `var(--green)` (contrast 1.54:1 to 11.91:1, homepage card unchanged), and added `.agents/` and `.claude/skills/` to the ESLint global ignores. Lint, tsc, build and `check-seo.py` (9 pages) pass. PR #2 merged into `main` by Abdulbasit (merge commit `0cc6e63`). Corrected the `.gitignore` commit hash in Working rules. Local note: pnpm and gh are not installed on this machine; checks ran from `node_modules/.bin`, and `check-seo.py` needs `PYTHONUTF8=1` on Windows.
+- 29 Oct 2026: Task 2 decisions: custom bag orders in multiples of 25 kg, ghee any amount from 250 kg; Gulberg gets the ghee carton configurations; Premium Classic Mix in Nimco sizes only; macaroni shown as "Retail pack: 400 g"; "Deewan" everywhere in visible text. Added 2i (WebSite JSON-LD for the Google site name).
