@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
     url: "/",
-    siteName: "RK Group",
+    siteName: "RK Group of Industries",
     title: "RK Group of Industries | Food & Edible Oils in Pakistan",
     description: "Generations of enterprise across food, manufacturing, energy and infrastructure.",
     images: [{ url: "/assets/hero/islamabad.webp", width: 1792, height: 1024, alt: "RK Group in Islamabad, Pakistan" }],

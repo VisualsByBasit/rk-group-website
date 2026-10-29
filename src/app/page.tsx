@@ -4,6 +4,8 @@ import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
 import Wholesale from "@/components/Wholesale";
+import JsonLd from "@/components/JsonLd";
+import { siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
 
@@ -27,6 +29,8 @@ const companies = [
 export default function HomePage() {
   return (
     <>
+      {/* Tells Google which name to show for the site in search results instead of the domain. */}
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "RK Group of Industries", alternateName: "RK Group", url: `${siteUrl}/`, publisher: { "@id": `${siteUrl}/#organization` } }} />
       <HeroSlideshow />
 
       <div className="group-ribbon"><div className="shell"><span>Generations of enterprise <b>Since 1953</b></span><span>Food & edible oils</span><span>Manufacturing</span><span>Energy</span><span>Infrastructure</span></div></div>
