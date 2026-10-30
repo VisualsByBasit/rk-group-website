@@ -4,7 +4,7 @@ import { useId, useRef, useState, useSyncExternalStore, type FormEvent } from "r
 import { ENQUIRY_EMAIL, LANDLINE, channelReady, emailReady, whatsappReady, whatsappUrl } from "@/lib/contact";
 import { bagRules, kg, orderHints, orderProducts } from "@/lib/orders";
 
-type Packaging = "bags" | "branded";
+type Packaging = "bags" | "retail";
 type Line = { key: number; product: string; packaging: Packaging; amount: string; custom: string; pack: string; quantity: string; unit: "cartons" | "kg" };
 type Details = { name: string; business: string; city: string; phone: string; message: string };
 type Channel = "whatsapp" | "email";
@@ -60,9 +60,9 @@ function validate(details: Details, lines: Line[]) {
 }
 
 function describeLine(line: Line) {
-  if (usesBags(line)) return `25 kg bags, ${kg(Number(line.amount === CUSTOM ? line.custom : line.amount))}`;
+  if (usesBags(line)) return `25 kg bulk bags, ${kg(Number(line.amount === CUSTOM ? line.custom : line.amount))}`;
   const quantity = line.unit === "kg" ? kg(Number(line.quantity)) : `${line.quantity} ${line.quantity === "1" ? "carton" : "cartons"}`;
-  return `${productById(line.product)?.kind === "ghee" ? `${line.pack} pouches` : `branded retail packs, ${line.pack}`}, ${quantity}`;
+  return `${productById(line.product)?.kind === "ghee" ? `${line.pack} pouches` : `retail packs, ${line.pack}`}, ${quantity}`;
 }
 
 function compose(details: Details, lines: Line[]) {
@@ -152,7 +152,7 @@ function EnquiryFields({ brand }: { brand: string }) {
         {lines.map((line, index) => {
           const product = productById(line.product);
           const bags = usesBags(line);
-          const hint = !product ? undefined : product.kind === "ghee" ? orderHints.ghee : bags ? orderHints.bags : orderHints.branded;
+          const hint = !product ? undefined : product.kind === "ghee" ? orderHints.ghee : bags ? orderHints.bags : orderHints.retail;
           const hintId = hint ? fieldId(`hint-${line.key}`) : undefined;
           const hintText = hint && <p className="enquiry-hint" id={hintId}>{hint}</p>;
           return (
@@ -169,7 +169,7 @@ function EnquiryFields({ brand }: { brand: string }) {
               {product?.kind === "bagged" && (
                 <fieldset className="enquiry-packaging">
                   <legend>Packaging</legend>
-                  {([["bags", "25 kg bags"], ["branded", "Branded retail packs"]] as const).map(([value, label]) => (
+                  {([["bags", "25 kg bulk bags"], ["retail", "Retail packs"]] as const).map(([value, label]) => (
                     <label key={value}><input type="radio" name={fieldId(`packaging-${line.key}`)} value={value} checked={line.packaging === value} onChange={() => { updateLine(line.key, { packaging: value }); clearError(...lineFields(line.key).slice(1)); }} /> {label}</label>
                   ))}
                 </fieldset>

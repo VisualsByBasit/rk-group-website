@@ -1,16 +1,19 @@
 import EnquiryForm from "./EnquiryForm";
 import { LANDLINE, formReady } from "@/lib/contact";
+import { collectionLine, orderProducts, orderSummary, paymentLine, ratesLine } from "@/lib/orders";
+
+const summaryFor = (id: string) => orderSummary(orderProducts.find(product => product.id === id)!);
 
 const ranges = [
-  { name: "Banaspati ghee", copy: "ACP, Dilpasand, Deewan and Gulberg. Pouches in cartons, any quantity." },
-  { name: "Islamabad Nimco", copy: "25 kg bags, or branded retail packs by the carton." },
-  { name: "Islamabad Macaroni", copy: "25 kg bags, or branded 400 g packs by the carton." },
+  { name: "Banaspati ghee", copy: `ACP, Dilpasand, Deewan and Gulberg. ${summaryFor("acp")}` },
+  { name: "Islamabad Nimco", copy: summaryFor("nimco") },
+  { name: "Islamabad Macaroni", copy: summaryFor("macaroni") },
 ];
 
 const terms = [
-  ["No published prices", "Rates depend on the size of your order. Larger orders get better rates, agreed when you get in touch."],
-  ["Cash at pickup", "Payment is made in cash, on the spot, when you collect."],
-  ["Collection", "Collect with your own transport from Islamabad or Mirpur, or an agreed spot arranged after we talk."],
+  ["No published prices", ratesLine],
+  ["Cash at pickup", paymentLine],
+  ["Collection", collectionLine],
 ];
 
 export default function OrderSection() {
@@ -19,8 +22,8 @@ export default function OrderSection() {
       {/* Older links to this section use the previous anchor. */}
       <span id="distributors" />
       <div className="shell section-heading brands-heading">
-        <div><p className="eyebrow"><span /> Orders</p><h2 id="order-title">Order direct,<br /><em>in bulk or by the pack.</em></h2></div>
-        <p>Order RK Group brands direct, in 25 kg bags or by the carton.</p>
+        <div><p className="eyebrow"><span /> Orders</p><h2 id="order-title">Order direct,<br /><em>in bags or by the carton.</em></h2></div>
+        <p>Order RK Group brands direct, in 25 kg bulk bags or by the carton.</p>
       </div>
       <div className="shell order-grid">
         <div>
