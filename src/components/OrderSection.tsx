@@ -18,25 +18,10 @@ const terms = [
   ["Collection", collectionLine],
 ];
 
-const OPTION = "c" as "a" | "b" | "c"; // review only: the chosen option stays and the others are removed
 const intro = "Order RK Group brands direct, in 25 kg bulk bags or by the carton.";
 const orderable = brands.filter(brand => brand.orderId);
 
 function OrderTop() {
-  if (OPTION === "a") return (
-    <div className="order-top order-top--a">
-      <div className="shell">
-        <div><p className="eyebrow light"><span /> Orders</p><h2 id="order-title">Order from the source.</h2></div>
-        <div><p>{intro}</p><p>{ratesLine}</p><a className="button primary" href={`tel:${LANDLINE.tel}`}>Call {LANDLINE.display} <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </div>
-  );
-  if (OPTION === "b") return (
-    <div className="order-top order-top--b">
-      <div className="order-top-strip" aria-hidden="true">{orderable.filter(brand => ["acp", "macaroni", "nimco"].includes(brand.orderId!)).map(brand => <span key={brand.slug}><Image src={brand.lineup} alt="" fill sizes="(max-width: 720px) 34vw, 34vw" /></span>)}</div>
-      <div className="shell"><p className="eyebrow light"><span /> Orders</p><h2 id="order-title">From our mills<br />to your shelves.</h2><p>{intro}</p></div>
-    </div>
-  );
   return (
     <div className="order-top order-top--c">
       <div className="shell">

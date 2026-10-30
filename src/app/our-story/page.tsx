@@ -15,8 +15,7 @@ const former = leaderBySlug("sheikh-abdul-islam")!;
 const chairman = leaderBySlug("sheikh-khalid-islam")!;
 const laterMilestones = [
   ["January 2014", "Mirpur Oil & Ghee Mills (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
-  ["July 2014", "Salam Oil & Ghee Mills (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
-  ["February 2016", "AA Foods (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
+  ["February 2016", "AA Foods (Pvt) Ltd", "Established."],
 ] as const;
 const pioneers = [
   ["A.C.P Oil Mills", "The first ghee, cooking oil and soap manufacturer in Industrial Area, Islamabad."],
