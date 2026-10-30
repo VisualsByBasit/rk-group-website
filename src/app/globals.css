@@ -665,13 +665,12 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-order:hover { transform: translateY(-1px); }
 .brand-islamabad .brand-order { background: #f7edce; color: var(--ink); }
 
-/* RK and KK lockup: both marks at the same height, the text between them. Plate images carry 22px of padding per 338px of mark. */
+/* RK and KK lockup: both marks at the same letter height, the text between them. Plate images carry 10% padding, so they render at 1.2 times the mark height. */
 .brand-lockup { --mark: 34px; display: flex; align-items: center; gap: 11px; flex: none; }
-.brand-lockup img { display: block; width: auto; height: calc(var(--mark) * 1.13); margin-inline: -3px; }
-.brand-lockup img:last-child { height: calc(var(--mark) * 1.21); margin-inline: -4px; }
+.brand-lockup img { display: block; width: auto; height: calc(var(--mark) * 1.2); margin-inline: -3px; }
 .lockup-text { font: 500 15px/1.1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; white-space: nowrap; }
 .brand-lockup--light { color: white; }
-.brand-lockup--light img, .brand-lockup--light img:last-child { height: 30px; margin-inline: 0; }
+.brand-lockup--light img { height: 30px; margin-inline: 0; }
 @media (max-width: 559px) {
   .site-header .brand-lockup { --mark: 30px; gap: 7px; }
   .site-header .lockup-text { font-size: 11px; line-height: 1.12; }

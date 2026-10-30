@@ -8,8 +8,12 @@ import sharp from "sharp";
 const PLATE = "#fbfaf6"; // same as .site-header
 const assets = path.join("public", "assets");
 
-for (const [source, output] of [["rk-mark.png", "rk-mark-plate.png"], ["kk-group-mark.png", "kk-group-mark-plate.png"]]) {
-  await sharp(path.join(assets, source)).extend({ top: 22, bottom: 22, left: 26, right: 26, background: PLATE }).flatten({ background: PLATE }).png({ compressionLevel: 9 }).toFile(path.join(assets, output));
+// Each mark is trimmed to its letters and padded by 10% of their height, so both plates can share one CSS height.
+for (const [source, output] of [["rk-mark.png", "rk-mark-plate.png"], ["kk-group-mark-bold.png", "kk-group-mark-plate.png"]]) {
+  const { data, info } = await sharp(path.join(assets, source)).trim({ threshold: 40 }).png().toBuffer({ resolveWithObject: true });
+  const pad = Math.round(info.height * 0.1);
+  const plate = await sharp(data).extend({ top: pad, bottom: pad, left: pad, right: pad, background: PLATE }).flatten({ background: PLATE }).png({ compressionLevel: 9 }).toFile(path.join(assets, output));
+  console.log(output, `${plate.width}x${plate.height}`);
 }
 
 // The menu icon gets the same treatment: two lines drawn into a light plate.
