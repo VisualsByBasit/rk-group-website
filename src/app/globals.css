@@ -1007,9 +1007,42 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-range--shapes .brand-range-intro > p:last-child { max-width: 620px; }
 .shape-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
 .shape-row li { display: flex; flex-direction: column; min-width: 0; }
-.shape-row img { display: block; width: 100%; height: auto; aspect-ratio: 204 / 370; object-fit: cover; border-bottom: 2px solid var(--orange); }
+.shape-row img { display: block; width: 100%; height: auto; aspect-ratio: 166 / 324; object-fit: contain; border-bottom: 2px solid var(--orange); }
 .shape-row span { margin-top: 12px; font: 500 clamp(17px, 1.5vw, 21px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
 @media (max-width: 720px) {
   .shape-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 10px; }
   .shape-row span { margin-top: 8px; font-size: 15px; }
+}
+
+/* Companies: polish on the original card grid. The last card fills its row so the grid always ends cleanly. */
+.company-grid { gap: 20px; }
+.company-card { min-height: 0; padding: 20px 20px 24px; transition: background .25s ease, transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.company-card:hover { box-shadow: 0 18px 40px rgba(4,16,12,.42); }
+.company-card > span { color: #c5d0c6; font-size: 11px; }
+.company-logo { height: 164px; margin: 12px 0 20px; overflow: hidden; }
+.company-logo img { padding: 16px; transition: transform .35s ease; }
+.company-card:hover .company-logo img { transform: scale(1.05); }
+.company-card h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.2; }
+.company-card:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: 20px; align-items: center; }
+.company-card:last-child > span { grid-column: 1 / -1; }
+.company-card:last-child .company-logo { margin-bottom: 0; }
+@media (max-width: 960px) {
+  .company-card:last-child { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+}
+@media (max-width: 720px) {
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .company-card { min-height: 0; padding: 12px 12px 16px; }
+  .company-card > span { font-size: 10px; }
+  .company-logo { height: 118px; margin: 8px 0 14px; }
+  .company-logo img { padding: 10px; }
+  .company-card h3 { margin-bottom: 6px; font-size: 17px; }
+  .company-card p { line-height: 1.5; letter-spacing: .1em; overflow-wrap: anywhere; }
+  .company-card:last-child { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 12px; }
+}
+@media (max-width: 360px) {
+  .company-logo { height: 100px; }
+  .company-card h3 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-card:hover, .company-card:hover .company-logo img { transform: none; }
 }

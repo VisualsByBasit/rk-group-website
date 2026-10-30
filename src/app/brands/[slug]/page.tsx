@@ -73,7 +73,7 @@ export default async function BrandPage({ params }: Props) {
       </div>
       <div className="brand-range-detail">
         {shapes
-          ? <ul className="shape-row" aria-label={`${brand.fullName} shapes`}>{shapes.map(item => <li key={item.name}><Image src={item.src} alt={`${brand.fullName} ${item.name}, jar and pack`} width={item.width} height={item.height} sizes="(max-width: 720px) 31vw, 200px" /><span>{item.name}</span></li>)}</ul>
+          ? <ul className="shape-row" aria-label={`${brand.fullName} shapes`}>{shapes.map(item => <li key={item.name}><Image src={item.src} alt={`${brand.fullName} ${item.name} 400 g pack`} width={item.width} height={item.height} sizes="(max-width: 720px) 31vw, 200px" /><span>{item.name}</span></li>)}</ul>
           : <ul className={`brand-formats${brand.sizes ? "" : " brand-formats--large"}`} aria-label={`${brand.fullName} formats`}>{brand.formats.map((format, index) => <li key={format}><span>{String(index + 1).padStart(2, "0")}</span>{format}</li>)}</ul>}
         {brand.sizes && <dl className="brand-specs">
           {brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value.split(", ").map(value => <span key={value}>{value}</span>)}</dd></div>)}
