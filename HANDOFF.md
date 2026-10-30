@@ -46,7 +46,7 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 | Islamabad Macaroni | 25 kg bags, or branded retail packs | Bags: as Nimco. Branded: 400 g packs, number of cartons. |
 
 - **On the site:** "Rates depend on the size of your order. Larger orders get better rates, agreed when you get in touch."
-- **Internal only, do not put on the site:** 25 kg bags are unbranded wholesale packaging that buyers may resell under their own brand. Branded retail packs go straight to market. Ghee uses the same packaging for wholesale and retail, and only the price differs. Rates are negotiated by order size.
+- **Internal only, do not put on the site:** 25 kg bags are Islamabad-branded bulk packs ("Bulk pack, for commercial use", made by RS Industries Pvt Ltd, Mirpur) that buyers may repack and resell in their own packaging. Branded retail packs go straight to market. Ghee uses the same packaging for wholesale and retail, and only the price differs. Rates are negotiated by order size.
 - Do not convert kg into carton counts; RK Group rounds orders to whole cartons themselves.
 - **Spelling:** use "Deewan" in all visible text. The URL `/brands/deewan-banaspati/` stays; internal CSS class names may keep "dewan".
 - **In the form only:** Islamabad Macaroni is listed as Elbow. Do **not** say this on the homepage or brand pages; those keep the six shapes as listed.
