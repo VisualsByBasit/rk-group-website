@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
+import CompanyTilt from "@/components/CompanyTilt";
 import OrderSection from "@/components/OrderSection";
 import JsonLd from "@/components/JsonLd";
 import { heroImage, siteUrl } from "@/lib/site";
@@ -106,13 +107,15 @@ export default function HomePage() {
         </div>
         <div className="shell company-grid">
           {companies.map(([name, sector, image], index) => (
-            <article className="company-card" key={name}>
+            <article className="company-card" tabIndex={0} key={name}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <div className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="220px" /></div>
               <div><h3>{name}</h3><p>{sector}</p></div>
+              <div className="company-sheen" aria-hidden="true" />
             </article>
           ))}
         </div>
+        <CompanyTilt />
       </section>
 
       <OrderSection />
