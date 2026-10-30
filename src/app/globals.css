@@ -1007,7 +1007,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-range--shapes .brand-range-intro > p:last-child { max-width: 620px; }
 .shape-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
 .shape-row li { display: flex; flex-direction: column; min-width: 0; }
-.shape-row img { display: block; width: 100%; height: auto; aspect-ratio: 166 / 324; object-fit: contain; border-bottom: 2px solid var(--orange); }
+.shape-row img { display: block; box-sizing: content-box; width: 100%; height: auto; aspect-ratio: 2 / 3; border-bottom: 2px solid var(--orange); }
 .shape-row span { margin-top: 12px; font: 500 clamp(17px, 1.5vw, 21px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
 @media (max-width: 720px) {
   .shape-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 10px; }

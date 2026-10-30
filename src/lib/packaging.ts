@@ -27,8 +27,8 @@ export const brandPackaging: Record<string, PackGroup[]> = {
 
 // Shape pictures for the brand page range section, keyed by brand slug. Names match the brand's formats.
 export type ShapeImage = { name: string; src: string; width: number; height: number };
-const shape = (name: string, width: number): ShapeImage => ({ name, src: `/assets/packaging/macaroni-pack-${name.toLowerCase()}.webp`, width, height: 324 });
+const shape = (name: string): ShapeImage => ({ name, src: `/assets/packaging/macaroni-pack-${name.toLowerCase()}.webp`, width: 640, height: 960 });
 
 export const brandShapes: Record<string, ShapeImage[]> = {
-  "islamabad-macaroni": [shape("Elbows", 172), shape("Penne", 164), shape("Fusilli", 164), shape("Shells", 160), shape("Farfalle", 168), shape("Vermicelli", 170)],
+  "islamabad-macaroni": ["Elbows", "Penne", "Fusilli", "Shells", "Farfalle", "Vermicelli"].map(shape),
 };
