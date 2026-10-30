@@ -30,10 +30,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 
 .site-header { height: 74px; background: rgba(251,250,246,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); }
 .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.brand-lockup { display: flex; align-items: center; gap: 12px; font: 500 19px "Space Grotesk"; letter-spacing: -.035em; }
-.brand-lockup img { width: 68px; height: 51px; object-fit: contain; object-position: center; }
-.brand-lockup strong { font-weight: 600; }
-.brand-lockup--light img { filter: brightness(0) invert(1); }
 .desktop-nav { display: flex; align-items: center; gap: 34px; font-size: 13px; }
 .desktop-nav a { position: relative; padding: 10px 0; }
 .desktop-nav a::after { content: ""; position: absolute; height: 2px; left: 0; right: 100%; bottom: 2px; background: var(--orange); transition: right .25s ease; }
@@ -191,8 +187,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .shell { width: min(100% - 30px, 1240px); }
   .section-pad { padding: 82px 0; }
   .site-header { height: 66px; }
-  .brand-lockup { font-size: 17px; }
-  .brand-lockup img { width: 58px; height: 43px; }
   .hero { min-height: calc(100svh - 66px); align-items: flex-end; }
   .hero { --hero-position: 66% center; }
   .hero-shade { background: linear-gradient(0deg, rgba(5,8,7,.98) 0%, rgba(5,8,7,.76) 57%, rgba(5,8,7,.18) 100%); }
@@ -711,7 +705,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 
 /* Packaging choice and quantity row in the enquiry form. */
 .enquiry-packaging { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 24px; min-width: 0; margin: 0; padding: 0; border: 0; }
-.enquiry-packaging legend { margin-bottom: 8px; padding: 0; font-size: 13px; font-weight: 500; }
+.enquiry-line .enquiry-packaging legend { margin: 0 0 8px; padding: 0; font: 500 13px "IBM Plex Sans", Arial, sans-serif; letter-spacing: 0; text-transform: none; color: var(--ink); }
 .enquiry-packaging label { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: 15px; cursor: pointer; }
 .enquiry-packaging input { width: 18px; height: 18px; margin: 0; accent-color: var(--green); }
 .enquiry-quantity { display: flex; gap: 8px; }
@@ -723,3 +717,18 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-order { display: inline-flex; align-items: center; padding: 11px 16px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; transition: transform .2s ease; }
 .brand-order:hover { transform: translateY(-1px); }
 .brand-islamabad .brand-order { background: #f7edce; color: var(--ink); }
+
+/* RK and KK lockup: both marks at the same height, the text between them. */
+.brand-lockup { --mark: 34px; display: flex; align-items: center; gap: 11px; flex: none; }
+.brand-lockup img { display: block; width: auto; height: var(--mark); }
+.lockup-text { font: 500 15px/1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; white-space: nowrap; }
+.lockup-kk { display: block; }
+/* The KK mark's black letters and white box do not survive inverting, so on dark it keeps its colours on a light pill. */
+.brand-lockup--light { color: white; }
+.brand-lockup--light .lockup-rk { filter: brightness(0) invert(1); }
+.brand-lockup--light .lockup-kk { padding: 5px 9px; background: #fbfaf6; border-radius: 6px; }
+.brand-lockup--light img { height: 30px; }
+@media (max-width: 559px) {
+  .site-header .lockup-text { display: none; }
+  .site-header .brand-lockup { --mark: 30px; }
+}
