@@ -803,7 +803,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .pack-row-images--2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .pack-row-text h3, .pack-strip-head h3 { margin: 0; font-size: clamp(28px, 3vw, 42px); line-height: 1.08; }
 .pack-sizes { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 18px 0 0; padding: 0; list-style: none; }
-.pack-sizes li { font: 500 clamp(22px, 2vw, 28px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; color: #8a6830; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pack-sizes li { font: 500 clamp(22px, 2vw, 28px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; color: #795e32; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pack-strip { margin-top: 72px; padding-top: 72px; border-top: 1px solid var(--line); }
 .pack-strip-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; margin-bottom: 28px; }
 .pack-strip-head .pack-sizes { margin: 0; }
