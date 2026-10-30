@@ -8,25 +8,11 @@ import JsonLd from "@/components/JsonLd";
 import { siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
+import { companies } from "@/lib/companies";
+import { leaderBySlug, leaderImage, leaderPath } from "@/lib/leaders";
 import { brandInstagram } from "@/lib/social";
 import SocialIcon from "@/components/SocialIcon";
-
-
-const companies = [
-  ["AA Foods", "Food processing", "aa-foods.webp"],
-  ["Al-Khalid Flour Mills", "Flour & grain milling", "al-khalid-flour.webp"],
-  ["Basila Industries", "Manufacturing", "basila-industries.webp"],
-  ["Brother Oil & Ghee", "Edible oils", "brother-oil.webp"],
-  ["Islamabad Chemical", "Industrial solutions", "islamabad-chemical.webp"],
-  ["Kam Foods", "Food products", "kam-foods.webp"],
-  ["Karco", "Consumer products", "karco.webp"],
-  ["KF Food Complex", "Food production", "kf-food-complex.webp"],
-  ["Khyber Green Energy", "Renewable energy", "khyber-green-energy.webp"],
-  ["KKR Oil & Ghee Mills", "Edible oils", "kkr-oil.webp"],
-  ["Noor Industries", "Manufacturing", "noor-industries.webp"],
-  ["Salam Food Industries", "Food production", "salam-food.webp"],
-  ["Pak Tameerat", "Infrastructure", "pak-tameerat.webp"],
-] as const;
+const former = leaderBySlug("sheikh-abdul-islam")!;
 
 export default function HomePage() {
   return (
@@ -77,19 +63,31 @@ export default function HomePage() {
           <div className="story-copy">
             <p>RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade. Sheikh Abdul Islam joined the business in 1965 and expanded into wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
             <p>From ACP Oil Mills in 1989 and Al-Khalid Flour Mills in 1996 to a wider portfolio of food, edible-oil, manufacturing, energy and infrastructure businesses, the Group has grown through practical ambition and long-term thinking.</p>
-            <div className="fact-row">
-              <div><strong>1953</strong><span>Origins in trade</span></div>
-              <div><strong>1989</strong><span>ACP Oil Mills</span></div>
-              <div><strong>13</strong><span>Portfolio companies</span></div>
-            </div>
+            <Link className="brand-page-link" href="/our-story/">Read the full story ↗</Link>
           </div>
         </div>
+        <dl className="shell story-figures">
+          <div><dt>Origins in trade</dt><dd>1953</dd></div>
+          <div><dt>ACP Oil Mills</dt><dd>1989</dd></div>
+          <div><dt>Portfolio companies</dt><dd>13</dd></div>
+        </dl>
         <ol className="shell heritage-timeline" aria-label="RK Group milestones">
           <li><span>1953</span><h3>The first chapter</h3><p>A family enterprise begins in the sugar trade.</p></li>
+          <li><span>1965</span><h3>Into wheat and ghee</h3><p>Sheikh Abdul Islam joins and expands the business.</p></li>
           <li><span>1989</span><h3>A foundation in industry</h3><p>ACP Oil Mills marks a new era in edible oils.</p></li>
           <li><span>1996</span><h3>Expanding the essentials</h3><p>Al-Khalid Flour Mills joins the family of businesses.</p></li>
           <li><span>Today</span><h3>A broader horizon</h3><p>13 companies, connected by a shared commitment to progress.</p></li>
         </ol>
+        <div className="shell story-visuals">
+          <Link className="story-portrait" href={leaderPath(former)}>
+            <Image src={leaderImage(former)} alt="" fill sizes="(max-width: 860px) 100vw, 480px" />
+            <span><b>1965</b>{former.name}</span>
+          </Link>
+          <div className="story-mosaic">
+            {companies.map(([name, , image]) => <span className="story-mosaic-logo" key={name}><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="120px" /></span>)}
+            <a className="story-mosaic-caption" href="#portfolio"><b>Today</b>13 companies <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </section>
 
       <section className="portfolio section-pad" id="portfolio">

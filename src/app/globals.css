@@ -86,10 +86,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .story-copy { padding: 46px; background: rgba(255,255,255,.75); border: 1px solid rgba(11,12,11,.1); border-radius: 22px; box-shadow: 0 24px 70px rgba(29,34,29,.08); backdrop-filter: blur(12px); }
 .story-copy > p { font-size: 17px; line-height: 1.85; color: #555b54; }
 .story-copy > p:first-child { color: var(--ink); font-size: 19px; }
-.fact-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 42px; }
-.fact-row div { display: flex; flex-direction: column; gap: 5px; padding: 20px 16px; background: var(--cream); border-radius: 12px; }
-.fact-row strong { font: 500 34px "Space Grotesk"; letter-spacing: -.05em; color: var(--orange); }
-.fact-row span { font-size: 10px; text-transform: uppercase; letter-spacing: .11em; color: var(--muted); }
 
 .leadership { position: relative; overflow: hidden; background: radial-gradient(circle at 85% 10%, rgba(237,136,24,.12), transparent 27%), radial-gradient(circle at 12% 72%, rgba(25,99,73,.22), transparent 30%), var(--charcoal); color: white; }
 .leadership::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 54px 54px; pointer-events: none; }
@@ -201,9 +197,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .hero-step { width: 32px; height: 32px; flex: 0 0 32px; }
   .hero-pause { flex: 0 0 auto; }
   .story h2, .section-heading h2, .portfolio-intro h2, .standards h2 { font-size: clamp(39px,11vw,54px); }
-  .fact-row { gap: 8px; }
-  .fact-row strong { font-size: 27px; }
-  .fact-row span { font-size: 8px; }
   .brands-heading, .portfolio-intro { grid-template-columns: 1fr; gap: 28px; }
   .brands-heading > p, .portfolio-intro > p { justify-self: start; }
   .story-copy { padding: 30px 24px; }
@@ -245,8 +238,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .group-ribbon b { display: block; color: #fff; font-size: 16px; font-weight: 400; letter-spacing: .04em; margin-top: 7px; }
 .story { background: var(--paper); }
 .story-copy { border: 0; border-radius: 0; background: transparent; padding: 18px 0 0; box-shadow: none; }
-.fact-row div { border-radius: 0; border-top: 1px solid #cdbfa8; padding-inline: 0; background: transparent; }
-.fact-row strong { color: #806239; }
 .heritage-timeline { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0; margin-top: 80px; margin-bottom: 0; }
 .heritage-timeline li { position: relative; border-top: 1px solid #cdbfa8; padding: 30px 30px 0 0; }
 .heritage-timeline li::before { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #97784b; top: -4px; left: 0; }
@@ -821,4 +812,86 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 @media (max-width: 520px) {
   .brand-specs dd { display: grid; grid-template-columns: repeat(2, max-content); gap: 8px 28px; }
+}
+
+/* Homepage story: large figures, a gold timeline, then the portrait and the company logos. */
+.story-copy .brand-page-link { margin-top: 8px; }
+.story-figures { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); margin-top: 88px; margin-bottom: 0; }
+.story-figures div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 12px; padding-top: 22px; border-top: 3px solid var(--orange); }
+.story-figures dd { margin: 0; font: 500 clamp(44px, 10vw, 148px)/.92 "Space Grotesk", Arial, sans-serif; letter-spacing: -.05em; color: #795e32; font-variant-numeric: tabular-nums; }
+.story-figures dt { font-size: 13px; font-weight: 500; color: var(--ink); }
+.heritage-timeline { position: relative; z-index: 1; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 72px; }
+.heritage-timeline li { padding-top: 26px; border-top: 2px solid var(--orange); }
+.heritage-timeline li::before { width: 13px; height: 13px; top: -8px; background: var(--orange); box-shadow: 0 0 0 4px var(--paper); }
+.heritage-timeline span { font: 500 clamp(32px, 3.4vw, 46px)/1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.04em; color: #795e32; }
+.heritage-timeline p { color: #3f453f; font-size: 14px; }
+.story-visuals { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 16px; margin-top: 64px; }
+.story-portrait { position: relative; display: block; min-height: 360px; overflow: hidden; background: #192721; color: white; }
+.story-portrait img { object-fit: cover; object-position: 50% 12%; transition: transform .5s ease; }
+.story-portrait:hover img { transform: scale(1.02); }
+.story-portrait::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(0deg, rgba(17,43,36,.94) 8%, rgba(17,43,36,0) 100%); }
+.story-portrait > span { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 18px; font: 500 20px/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.story-portrait b, .story-mosaic-caption b { display: block; margin-bottom: 4px; font-size: 13px; font-weight: 500; letter-spacing: 0; color: #e3c692; }
+.story-mosaic { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.story-mosaic-logo { position: relative; display: block; min-height: 116px; background: white; border: 1px solid var(--line); }
+.story-mosaic-logo img { object-fit: contain; padding: 14px; }
+.story-mosaic-caption { grid-column: span 2; display: flex; flex-direction: column; justify-content: center; padding: 14px 18px; background: #112b24; color: white; font: 500 22px/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.story-mosaic-caption span { color: #e3c692; }
+@media (max-width: 900px) {
+  .heritage-timeline { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 52px; padding-left: 8px; }
+  .heritage-timeline li { padding: 0 0 26px 26px; border-top: 0; border-left: 2px solid var(--orange); }
+  .heritage-timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .heritage-timeline li::before { top: 8px; left: -8px; }
+  .heritage-timeline h3 { margin: 8px 0 4px; font-size: 18px; }
+  .heritage-timeline p { max-width: none; }
+  .story-figures { margin-top: 56px; }
+  .story-visuals { grid-template-columns: minmax(0, 1fr); margin-top: 44px; }
+  .story-portrait { min-height: 0; aspect-ratio: 5 / 3.6; }
+  .story-mosaic { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .story-mosaic-logo { min-height: 76px; }
+  .story-mosaic-logo img { padding: 9px; }
+  .story-mosaic-caption { grid-column: span 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-portrait:hover img { transform: none; }
+}
+
+/* Our story page. */
+.profile-portrait--story img { object-position: 62% 50%; }
+.chapters { padding-block: 40px 56px; }
+.chapter { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 5vw, 72px); padding-block: 64px; border-bottom: 1px solid var(--line); }
+.chapter:last-child { border-bottom: 0; }
+.chapter-year { position: sticky; top: 104px; align-self: start; margin: 0; font: 500 clamp(56px, 7vw, 104px)/.95 "Space Grotesk", Arial, sans-serif; letter-spacing: -.05em; color: #795e32; font-variant-numeric: tabular-nums; }
+.chapter-year span { display: block; margin-top: 8px; font-size: .32em; letter-spacing: -.02em; }
+.chapter-body { max-width: 760px; min-width: 0; }
+.chapter-body h2 { margin: 0 0 22px; font-size: clamp(30px, 3vw, 42px); line-height: 1.1; }
+.chapter-body p { margin: 0 0 20px; font-size: 18px; line-height: 1.8; }
+.chapter-body .profile-lead { font-size: clamp(19px, 1.6vw, 22px); line-height: 1.65; }
+.chapter-body .profile-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
+.chapter-split { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.chapter-portrait { margin: 0; }
+.chapter-portrait img { display: block; width: 100%; height: auto; border-bottom: 3px solid var(--orange); }
+.chapter-portrait figcaption { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.story-companies { padding: 88px 0 96px; background: var(--cream); }
+.story-companies h2 { margin: 22px 0 40px; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.05; }
+.story-companies ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 18px; margin: 0; padding: 0; list-style: none; }
+.story-companies li { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.story-companies li.story-companies-close { grid-column: span 3; justify-content: center; padding: 20px 28px; background: #112b24; color: white; font: 500 clamp(20px, 2vw, 28px)/1.25 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.story-companies strong { font: 500 18px/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.story-companies li > span:last-child { color: #3f453f; font-size: 13px; }
+.story-company-logo { position: relative; display: block; height: 120px; margin-bottom: 10px; background: white; border-bottom: 2px solid var(--orange); }
+.story-company-logo img { object-fit: contain; padding: 18px; }
+.story-next { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding-block: 64px; }
+.story-next a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 2px solid var(--orange); font: 500 clamp(22px, 2.4vw, 32px)/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; }
+@media (max-width: 860px) {
+  .chapter { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 44px; }
+  .chapter-year { position: static; }
+  .chapter-split { grid-template-columns: minmax(0, 1fr); }
+  .story-companies { padding: 64px 0 72px; }
+  .story-companies ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .story-company-logo { height: 92px; }
+  .story-company-logo img { padding: 12px; }
+  .story-companies strong { font-size: 16px; }
+  .story-companies li.story-companies-close { grid-column: span 1; padding: 14px; font-size: 16px; }
+  .story-next { grid-template-columns: minmax(0, 1fr); padding-block: 44px; }
 }

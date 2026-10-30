@@ -29,7 +29,7 @@ class Page(HTMLParser):
         if tag=='title':self.intitle=False
 
 urls=[x.text for x in ET.parse(ROOT/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-EXPECTED=15  # homepage, 7 brand pages, 7 leadership pages
+EXPECTED=16  # homepage, story page, 7 brand pages, 7 leadership pages
 assert len(urls)==EXPECTED and len(set(urls))==EXPECTED, urls
 pages={}
 for url in urls:
@@ -44,6 +44,9 @@ for url in urls:
     assert len(p.ids)==len(set(p.ids)), (path,'duplicate IDs')
     assert 'rkgroupofindustries.vercel.app' not in text, path
     assert len(p.titles)==1 and p.titles[0].strip(), (path,'title')
+    if path=='/our-story/':
+        types={n.get('@type') for s in p.schemas for n in s.get('@graph',[s])}
+        assert {'AboutPage','BreadcrumbList'}<=types, (path,types)
     if path.startswith('/leadership/'):
         types={n.get('@type') for s in p.schemas for n in s.get('@graph',[s])}
         assert {'Person','ProfilePage','BreadcrumbList'}<=types, (path,types)
