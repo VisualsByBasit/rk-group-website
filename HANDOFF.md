@@ -199,6 +199,7 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - Likely outcome: Saim prefers no hassle, so the site may stay on Abdulbasit's GitHub and Vercel accounts, with Saim paying the monthly hosting fee. On Pro the price is per seat, not per project; usage is shared across Abdulbasit's projects (set a Spend Management limit). A new developer deploying to that team may need their own seat.
 - Agree in writing (WhatsApp is enough): hosting stays on Abdulbasit's account and RK pays the fee; the **domain stays in RK Group's Hostinger account**; repo and Vercel project are transferred on request or with a month's notice if Abdulbasit stops working with them.
 - Search Console, Hostinger DNS and the Meta Business account should be owned by RK Group, with Abdulbasit added as a user.
+- Domain status: `rkgroupofindustries.com` is already registered in a Hostinger account under RK Group's own email (set up by Abdulbasit). Hand the login over to Saim (or a password manager) before leaving.
 - Abdulbasit leaves the job on 5 November 2026; RK may keep him on remotely for development.
 - The site will be in Abdulbasit's portfolio.
 
@@ -212,6 +213,20 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - Deeper product pages (per mix or per pack) only once real content exists (photos, ingredients, storage); thin near-duplicate pages can hurt SEO.
 - Kashmir Tea joining the wholesale programme.
 - Meta ads: a distributor Leads campaign (budget and payment card to be decided).
+
+## Task 6 - Legal pages, contact page and analytics (after the mobile pass, before merging)
+
+- **`/privacy/` page** replacing the short footer notice as the main policy (footer keeps a short summary and links to it): what the enquiry form collects (name, business, city, phone, order details), that the site itself stores nothing, that enquiries go to RK Group by WhatsApp, email or phone once those channels are live and are used only to handle the order, how to ask for details to be deleted (landline), cookies and analytics used, last updated date. Plain language. Not legal advice: Pakistan has no dedicated data protection law yet (the PDP Bill is still pending), so write it to good-practice standards.
+- **`/ordering-terms/` page**: rates depend on order size and are agreed on enquiry; no prices published; orders are confirmed only after RK Group speaks with the buyer; cash on the spot at collection; buyer collects with own transport from Islamabad or Mirpur, or an agreed spot; product and packaging images are for illustration and may differ slightly from the products supplied. Link it from the order section and the form.
+- **`/contact/` page**: landline and hours, the order section link, social links. Addresses for Islamabad and Mirpur only once Saim confirms them (do not invent). Add LocalBusiness/Organization `address` only when confirmed.
+- **Analytics**: Vercel Web Analytics (cookieless, needs the Pro plan) with custom events on Place an Order clicks, brand-block Order clicks, form submit attempts and Call clicks. If the site stays on Hobby or moves host, use Cloudflare Web Analytics instead. Update the CSP for the analytics script and endpoint, and test on the preview. No cookie banner needed while analytics stay cookieless.
+- **Not now**: Google Analytics 4 or the Meta Pixel. Either one needs a cookie consent banner and a privacy page update first.
+- Add all new pages to the sitemap, `check-seo.py`, `llms.txt` and the footer.
+
+## After launch (outside the code)
+
+- Google Search Console (Task 3).
+- Google Business Profile for RK Group (Islamabad office and Mirpur factory), once Saim confirms addresses and who owns the Google account.
 
 ## Task 5 - Handover (before 5 November 2026)
 
@@ -243,3 +258,4 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - 30 Oct 2026: Part A, B and C of Saim's review on `feat/leadership-pages` (not merged): option B hero on all seven leader pages with the statement in Space Grotesk; orders replace wholesale-only, with the new form rules, shorter order section, order buttons on homepage brand blocks that preselect the brand, and the homepage reordered; RK and KK logo lockup with the KK mark on a light pill in the footer. Thin leader bios gain a paragraph on their profile pages only, from facts already on the site. `assets/kk-logo` deleted once its files were committed. The unreviewed brand template is on the local-only branch `wip/brand-template`, to restore in Part D. Lint, tsc, build, check-seo.py, axe-core (15 pages, 1440 and 390, plus form states) and the local CSP test pass; no em dashes. Waiting for Abdulbasit's approval at the checkpoint.
 - 30 Oct 2026: Checkpoint approved by Abdulbasit. Heading and wording updated. Part D1: brand template restored from `wip/brand-template` onto `feat/leadership-pages` and updated to the current ordering rules; ACP and Kashmir Tea sent for approval before reviewing the other five. All checks pass. Not merged.
 - 30 Oct 2026: Part D built on `feat/leadership-pages` (not merged; Saim to see the preview first). Brand template on all seven pages, reviewed, with two-column cards on phones. Packaging galleries on Nimco and Macaroni from `public/assets/packaging`, data in `src/lib/packaging.ts`; `assets/packaging` deleted once committed; images only, no pack text copied. Homepage Story redesigned, `/our-story/` added with AboutPage and BreadcrumbList. Branded 404 at `src/app/not-found.tsx`. 1200x630 share images in `public/share`, regenerate with `node scripts/make-share-images.mjs`; `check-seo.py` now also requires og:image, its size, alt text and file. Lint, tsc, build, check-seo.py (16 pages), axe-core (17 pages including the 404, at 1440 and 390), local CSP test and the web-design-guidelines review pass; no em dashes. Taste-skill inspector run on all 17 pages: real findings fixed (tablet margin on brand heroes, empty side of the 404, name text-shadow); remaining FAILs are house-style rules left as agreed, plus the requested button shadows and the sticky header passing the privacy heading. Awaiting Abdulbasit's approval of the Nimco, Macaroni, Story and our-story screenshots.
+- 30 Oct 2026: Added Task 6 (privacy page, ordering terms, contact page, cookieless analytics) and the Google Business Profile follow-up. Domain confirmed in a Hostinger account under RK Group's email.
