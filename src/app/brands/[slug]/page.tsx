@@ -7,7 +7,9 @@ import { pageMetadata } from "@/lib/metadata";
 import { LANDLINE } from "@/lib/contact";
 import { collectionLine, orderProducts, orderSummary, paymentLine, ratesLine } from "@/lib/orders";
 import JsonLd from "@/components/JsonLd";
+import PackagingSection from "@/components/PackagingSection";
 import SocialIcon from "@/components/SocialIcon";
+import { brandPackaging } from "@/lib/packaging";
 import { brandInstagram } from "@/lib/social";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -75,6 +77,8 @@ export default async function BrandPage({ params }: Props) {
         </dl>}
       </div>
     </section>
+
+    {brandPackaging[brand.slug] && <PackagingSection groups={brandPackaging[brand.slug]} />}
 
     {product && <section className="brand-order-band" aria-labelledby="order-title">
       <div className="shell brand-order-band-inner">

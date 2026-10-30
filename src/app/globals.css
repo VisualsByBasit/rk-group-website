@@ -782,9 +782,43 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (max-width: 520px) {
   .brand-formats--large { grid-template-columns: 1fr; }
   .brand-formats--large li:nth-child(odd) { padding-right: 0; }
-  .brand-others-grid { grid-template-columns: 1fr; gap: 28px; }
+  .brand-others-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+  .profile-others-label { font-size: 8px; letter-spacing: .12em; }
+  .profile-others-portrait { aspect-ratio: 1; }
   .brand-hero h1 { font-size: clamp(42px, 12vw, 54px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-others-grid a:hover img { transform: none; }
+}
+
+/* Packaging galleries: a lead pack, a strip of mixes and the bulk bag, each composed differently. */
+.packaging { padding: 96px 0 104px; background: var(--cream); }
+.packaging > .shell > h2 { margin: 22px 0 56px; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.05; }
+.pack-image { margin: 0; }
+.pack-image img { display: block; width: 100%; height: auto; border-bottom: 2px solid var(--orange); }
+.pack-image figcaption { margin-top: 12px; font: 500 16px "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.pack-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.pack-row--bulk { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: 72px; padding-top: 72px; border-top: 1px solid var(--line); }
+.pack-row--bulk .pack-row-images { order: 2; }
+.pack-row-images--2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pack-row-text h3, .pack-strip-head h3 { margin: 0; font-size: clamp(28px, 3vw, 42px); line-height: 1.08; }
+.pack-sizes { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 18px 0 0; padding: 0; list-style: none; }
+.pack-sizes li { font: 500 clamp(22px, 2vw, 28px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.03em; color: #8a6830; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pack-strip { margin-top: 72px; padding-top: 72px; border-top: 1px solid var(--line); }
+.pack-strip-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; margin-bottom: 28px; }
+.pack-strip-head .pack-sizes { margin: 0; }
+.pack-strip-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) {
+  .packaging { padding: 72px 0; }
+  .packaging > .shell > h2 { margin-bottom: 36px; }
+  .pack-row, .pack-row--bulk { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .pack-row--bulk, .pack-strip { margin-top: 52px; padding-top: 52px; }
+  .pack-row-images, .pack-row--bulk .pack-row-images { order: 2; }
+}
+@media (max-width: 720px) {
+  .pack-strip-row { display: flex; gap: 12px; margin-inline: -15px; padding: 0 15px 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 15px; }
+  .pack-strip-row .pack-image { flex: 0 0 78%; scroll-snap-align: start; }
+}
+@media (max-width: 520px) {
+  .brand-specs dd { display: grid; grid-template-columns: repeat(2, max-content); gap: 8px 28px; }
 }
