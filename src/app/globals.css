@@ -1050,7 +1050,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 /* Companies 3D hover. --tilt-max is the one setting for tilt strength; CompanyTilt.tsx feeds in --tx, --ty, --mx and --my. */
 .company-grid { --tilt-max: 7deg; }
 .company-sheen { display: none; }
-.company-card:focus-visible { border-color: rgba(237,136,24,.5); box-shadow: 0 22px 44px rgba(4,16,12,.5); transform: translateY(-4px); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .company-card { transform-style: preserve-3d; transition: background .3s ease, border-color .3s ease, box-shadow .45s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
   /* The hit area reaches below the card so the lift cannot pull it out from under the pointer. */
@@ -1062,7 +1061,4 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .company-sheen { display: block; position: absolute; inset: 0; overflow: hidden; border-radius: inherit; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
   .company-sheen::after { content: ""; position: absolute; top: 0; left: 0; width: 380px; height: 380px; background: radial-gradient(circle, rgba(255,255,255,.15), rgba(255,255,255,0) 66%); transform: translate(calc(var(--mx, 0px) - 190px), calc(var(--my, 0px) - 190px)); }
   .company-card.is-tilting .company-sheen { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .company-card:focus-visible { transform: none; }
 }

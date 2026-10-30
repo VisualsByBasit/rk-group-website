@@ -107,7 +107,7 @@ export default function HomePage() {
         </div>
         <div className="shell company-grid">
           {companies.map(([name, sector, image], index) => (
-            <article className="company-card" tabIndex={0} key={name}>
+            <article className="company-card" key={name}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <div className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="220px" /></div>
               <div><h3>{name}</h3><p>{sector}</p></div>
