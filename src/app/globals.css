@@ -495,28 +495,27 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .wa-float:hover, .wa-float:active { transform: none; }
 }
 
-/* Wholesale and distribution. */
-.wholesale { background: var(--paper); border-top: 1px solid var(--line); }
-.wholesale-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: start; }
-.wholesale-label { margin: 0 0 8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
-.wholesale-ranges { list-style: none; margin: 0; padding: 0; }
-.wholesale-ranges li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-.wholesale-ranges li > span { padding-top: 6px; font-size: 11px; color: #8a6830; font-variant-numeric: tabular-nums; }
-.wholesale-ranges h4 { margin: 0 0 4px; font: 500 28px/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.035em; }
-.wholesale-ranges p { margin: 0; max-width: 520px; color: #555b54; font-size: 15px; line-height: 1.75; }
-.wholesale-ranges .wholesale-brands { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
-.wholesale-terms { margin: 0; }
-.wholesale-terms div { padding: 20px 0; border-bottom: 1px solid var(--line); }
-.wholesale-terms dt { margin-bottom: 4px; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
-.wholesale-terms dd { margin: 0; color: #555b54; font-size: 15px; line-height: 1.7; }
-.wholesale-call { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
-.wholesale-call p { margin: 0; color: var(--muted); font-size: 14px; }
+/* Order section. */
+.order-section { background: var(--paper); border-top: 1px solid var(--line); }
+.order-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: start; }
+.order-label { margin: 0 0 8px; font: 500 10px "IBM Plex Sans", Arial, sans-serif; text-transform: uppercase; letter-spacing: .21em; color: var(--muted); }
+.order-ranges { list-style: none; margin: 0; padding: 0; }
+.order-ranges li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.order-ranges li > span { padding-top: 6px; font-size: 11px; color: #8a6830; font-variant-numeric: tabular-nums; }
+.order-ranges h4 { margin: 0 0 4px; font: 500 28px/1.15 "Space Grotesk", Arial, sans-serif; letter-spacing: -.035em; }
+.order-ranges p { margin: 0; max-width: 520px; color: #555b54; font-size: 15px; line-height: 1.75; }
+.order-terms { margin: 0; }
+.order-terms div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.order-terms dt { margin-bottom: 4px; font: 500 18px "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.order-terms dd { margin: 0; color: #555b54; font-size: 15px; line-height: 1.7; }
+.order-call { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
+.order-call p { margin: 0; color: var(--muted); font-size: 14px; }
 @media (max-width: 960px) {
-  .wholesale-grid { grid-template-columns: 1fr; gap: 48px; }
+  .order-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 @media (max-width: 720px) {
-  .wholesale-ranges li { grid-template-columns: 36px 1fr; }
-  .wholesale-ranges h4 { font-size: 24px; }
+  .order-ranges li { grid-template-columns: 36px 1fr; }
+  .order-ranges h4 { font-size: 24px; }
 }
 
 /* Wholesale enquiry form. Only rendered once the form is switched on in src/lib/contact.ts. */
@@ -577,7 +576,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 /* Contrast fixes (WCAG AA 4.5:1 for small text, 3:1 for large), kept as close to the original colours as possible. */
 .brand-gulberg .brand-meta span { opacity: .78; }
 .brand-nimco .brand-meta span { opacity: .72; }
-.wholesale h2 em { color: #8a6830; }
+.order-section h2 em { color: #8a6830; }
 .privacy-copy .privacy-date { color: #a4afa6; }
 /* Narrow phones: eight dots cannot keep a 24px tap target beside the arrows, so show the slide count instead. */
 @media (max-width: 460px) {
@@ -709,3 +708,18 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .profile-others-grid a:hover img { transform: none; }
   .profile-others-grid a:hover .profile-portrait--sheikh-saim-khalid img { transform: scale(2); }
 }
+
+/* Packaging choice and quantity row in the enquiry form. */
+.enquiry-packaging { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 24px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.enquiry-packaging legend { margin-bottom: 8px; padding: 0; font-size: 13px; font-weight: 500; }
+.enquiry-packaging label { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: 15px; cursor: pointer; }
+.enquiry-packaging input { width: 18px; height: 18px; margin: 0; accent-color: var(--green); }
+.enquiry-quantity { display: flex; gap: 8px; }
+.enquiry-quantity input { min-width: 0; flex: 1; }
+.enquiry-quantity select { width: 110px; flex: none; }
+/* Order button on the homepage brand blocks. */
+.brand-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin: 1rem 0; }
+.brand-actions .brand-page-link { margin: 0; }
+.brand-order { display: inline-flex; align-items: center; padding: 11px 16px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; transition: transform .2s ease; }
+.brand-order:hover { transform: translateY(-1px); }
+.brand-islamabad .brand-order { background: #f7edce; color: var(--ink); }

@@ -18,6 +18,7 @@ export type Leader = {
   summary: string[]; // the paragraph(s) shown on the homepage card
   credentials: Credential[]; // roles, memberships and qualifications, as the homepage pills show them
   bio: BioSection[]; // the "More about" content
+  pageBio?: string[]; // extra paragraphs for the profile page only; use facts already on the site
   milestones?: Milestone[];
   milestonesNote?: string;
   sources?: { label: string; href: string }[]; // further reading
@@ -119,6 +120,7 @@ export const leaders: Leader[] = [
     summary: ["Carrying a family tradition of enterprise into its next chapter, with a focus on enduring relationships, thoughtful progress and the values established over generations."],
     credentials: [{ text: "Director, RK Group", kind: "primary" }, { text: "Director, KK Group", kind: "primary" }],
     bio: [{ paragraphs: ["As Director of RK Group and KK Group, Sheikh Saim Khalid represents the next generation of a family enterprise shaped by resilience, ambition and long-term thinking. With respect for the reputation built by earlier generations, his presence reinforces the Group’s commitment to continuity and thoughtful growth."] }],
+    pageBio: ["His directorships connect him with a Group whose roots reach back to 1953, when a family enterprise began in the sugar trade. RK Group now brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure."],
     seo: { title: "Sheikh Saim Khalid, Director of RK Group", description: "Sheikh Saim Khalid is Director of RK Group and KK Group, representing the next generation of a family enterprise built on continuity and thoughtful growth." },
     home: { variant: "team", detailLabel: "More about Saim", portraitClass: "saim" },
   },
@@ -139,6 +141,7 @@ export const leaders: Leader[] = [
       { text: "Member, Khyber Chamber of Commerce", kind: "secondary" },
     ],
     bio: [{ paragraphs: ["Alongside his directorships at RK Group and KK Group, Sheikh Atif Islam is a member of the Pakistan Vanaspati Manufacturers Association (PVMA), Mirpur Chamber of Commerce and Khyber Chamber of Commerce. These affiliations connect his business roles with industry and regional business communities."] }],
+    pageBio: ["RK Group brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure. Its edible-oil businesses include Brother Oil & Ghee and KKR Oil & Ghee Mills, and its brand family includes ACP, Dilpasand, Deewan and Gulberg."],
     seo: { title: "Sheikh Atif Islam, Director of RK Group", description: "Sheikh Atif Islam is Director of RK Group and KK Group and a member of PVMA and the Mirpur and Khyber chambers of commerce." },
     home: { variant: "team", detailLabel: "More about Atif", portraitClass: "atif" },
   },
@@ -159,6 +162,7 @@ export const leaders: Leader[] = [
       { text: "Member, Islamabad Chamber of Commerce", kind: "secondary" },
     ],
     bio: [{ paragraphs: ["Raja Abubakar Farooq holds a degree in law and serves as Director of both RK Group and KK Group. A member of the Mirpur Chamber of Commerce and Islamabad Chamber of Commerce, he maintains connections across the regional business community. He is the son of Raja Muhammad Farooq."] }],
+    pageBio: ["His directorships connect him with a Group of 13 companies across food, edible oils, manufacturing, energy and infrastructure. His father, Raja Muhammad Farooq, twice served as Senior Vice Chairman of PVMA."],
     seo: { title: "Raja Abubakar Farooq, Director of RK Group", description: "Raja Abubakar Farooq is a law graduate, Director of RK Group and KK Group, and a member of the Mirpur and Islamabad chambers of commerce." },
     home: { variant: "team", detailLabel: "More about Abubakar", portraitClass: "abubakar" },
   },
@@ -176,6 +180,7 @@ export const leaders: Leader[] = [
       "His appointments span both groups, placing him within the senior leadership of each organisation. As CFO, he represents the finance function alongside the chairmanship and directorships that shape the groups’ business direction.",
       "His profile reflects the role of financial leadership within a wider enterprise: connecting the financial side of the business with the broader priorities of its leadership.",
     ] }],
+    pageBio: ["RK Group brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure, while KK Group’s history takes in edible oils, flour milling, petroleum retail and bottled water."],
     profiles: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/abdul-haseeb-19447ba6/" }],
     seo: { title: "Abdul Haseeb, CFO of RK Group", description: "Abdul Haseeb is Chief Financial Officer of RK Group and KK Group, bringing a financial perspective to the leadership of both organisations." },
     home: { variant: "finance", detailLabel: "More about Abdul Haseeb" },

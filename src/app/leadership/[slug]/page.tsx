@@ -58,6 +58,7 @@ export default async function LeaderPage({ params }: Props) {
           {section.heading && <h3>{section.heading}</h3>}
           {section.paragraphs.map((paragraph, paragraphIndex) => <p className={!leader.intro && index === 0 && paragraphIndex === 0 ? "profile-lead" : undefined} key={paragraph}>{paragraph}</p>)}
         </Fragment>)}
+        {leader.pageBio?.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
         {leader.milestones && <section className="profile-milestones" aria-labelledby="milestones-title">
           <h2 id="milestones-title">KK Group history and group concerns</h2>
           <ol>{leader.milestones.map(milestone => <li key={milestone.title}><span>{milestone.when}</span><div><h3>{milestone.title}</h3><p>{milestone.copy}</p></div></li>)}</ol>

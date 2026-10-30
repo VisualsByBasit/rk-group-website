@@ -3,7 +3,7 @@ import Image from "next/image";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
-import Wholesale from "@/components/Wholesale";
+import OrderSection from "@/components/OrderSection";
 import JsonLd from "@/components/JsonLd";
 import { siteUrl } from "@/lib/site";
 
@@ -37,6 +37,36 @@ export default function HomePage() {
 
       <div className="group-ribbon"><div className="shell"><span>Generations of enterprise <b>Since 1953</b></span><span>Food & edible oils</span><span>Manufacturing</span><span>Energy</span><span>Infrastructure</span></div></div>
 
+      <section className="brands section-pad" id="brands">
+        <div className="shell section-heading brands-heading">
+          <div><p className="eyebrow"><span /> Brand family</p><h2>Made for real life.<br />Built to be remembered.</h2></div>
+          <p>Seven distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
+        </div>
+        <nav className="shell brand-directory" aria-label="Explore our brands">{brands.map(brand => <a key={brand.name} href={`#${brand.className}`}>{brand.name}<span aria-hidden="true">↗</span></a>)}</nav>
+        <div className="shell brand-stack">
+          {brands.map((brand, index) => (
+            <article className={`brand-showcase ${brand.className}`} id={brand.className} key={brand.name}>
+              <div className="brand-copy">
+                <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p>{brandInstagram[brand.slug] && <a className="brand-instagram" href={brandInstagram[brand.slug]} target="_blank" rel="noopener noreferrer" aria-label={`${brand.fullName} on Instagram (opens in a new tab)`}><SocialIcon network="Instagram" size={17} /></a>}</div>
+                <h3>{brand.fullName}</h3>
+                <p className="brand-description">{brand.copy}</p>
+                {brand.claims && <ul className="brand-claims" aria-label={`${brand.name} product claims`}>{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>}
+                <div className="brand-actions"><Link className="brand-page-link" href={`/brands/${brand.slug}/`}>Explore {brand.fullName} <span aria-hidden="true">↗</span></Link>{brand.orderId && <a className="brand-order" href={`/?brand=${brand.orderId}#order-form`}>Place an Order<span className="visually-hidden">: {brand.fullName}</span></a>}</div>
+                <div className="format-list" aria-label={`${brand.name} product formats`}>
+                  {brand.formats.map(format => <span key={format}>{format}</span>)}
+                </div>
+                {brand.sizes && <dl className="size-list" aria-label={`${brand.name} pack sizes`}>{brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value}</dd></div>)}</dl>}
+              </div>
+              <div className="brand-visual">
+                <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <Leadership />
+
       <section className="story section-pad" id="story">
         <div className="shell story-grid">
           <div className="story-heading">
@@ -62,38 +92,6 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <Leadership />
-
-      <section className="brands section-pad" id="brands">
-        <div className="shell section-heading brands-heading">
-          <div><p className="eyebrow"><span /> Brand family</p><h2>Made for real life.<br />Built to be remembered.</h2></div>
-          <p>Seven distinctive names, presented through the products and formats that carry them into homes and kitchens.</p>
-        </div>
-        <nav className="shell brand-directory" aria-label="Explore our brands">{brands.map(brand => <a key={brand.name} href={`#${brand.className}`}>{brand.name}<span aria-hidden="true">↗</span></a>)}</nav>
-        <div className="shell brand-stack">
-          {brands.map((brand, index) => (
-            <article className={`brand-showcase ${brand.className}`} id={brand.className} key={brand.name}>
-              <div className="brand-copy">
-                <div className="brand-meta"><span>0{index + 1}</span><p>{brand.category}</p>{brandInstagram[brand.slug] && <a className="brand-instagram" href={brandInstagram[brand.slug]} target="_blank" rel="noopener noreferrer" aria-label={`${brand.fullName} on Instagram (opens in a new tab)`}><SocialIcon network="Instagram" size={17} /></a>}</div>
-                <h3>{brand.fullName}</h3>
-                <p className="brand-description">{brand.copy}</p>
-                {brand.claims && <ul className="brand-claims" aria-label={`${brand.name} product claims`}>{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>}
-                <Link className="brand-page-link" href={`/brands/${brand.slug}/`}>Explore {brand.fullName} <span aria-hidden="true">↗</span></Link>
-                <div className="format-list" aria-label={`${brand.name} product formats`}>
-                  {brand.formats.map(format => <span key={format}>{format}</span>)}
-                </div>
-                {brand.sizes && <dl className="size-list" aria-label={`${brand.name} pack sizes`}>{brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value}</dd></div>)}</dl>}
-              </div>
-              <div className="brand-visual">
-                <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <Wholesale />
-
       <section className="portfolio section-pad" id="portfolio">
         <div className="shell portfolio-intro">
           <div><p className="eyebrow light"><span /> The wider portfolio</p><h2>One group.<br /><em>Many capabilities.</em></h2></div>
@@ -109,6 +107,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <OrderSection />
 
       <Standards />
     </>
