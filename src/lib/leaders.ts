@@ -54,6 +54,7 @@ export const leaders: Leader[] = [
       { heading: "Supporting domestic production", paragraphs: ["He has advocated policies that support local manufacturers and encourage farmers to grow sunflower, canola and soybean. In public comments in 2024, he called for changes to the taxation of commercial imports and incentives for domestic oilseed cultivation to reduce dependence on imported seeds."] },
       { heading: "Supply-chain resilience", paragraphs: ["In May 2026, he joined PVMA leadership and industry representatives in discussions on raw-material availability, taxation, regulation, and the freight and transportation costs affecting ghee and cooking-oil producers."] },
     ],
+    pageBio: ["He has represented the edible oil industry in discussions with government and regulators on food security, taxation, digital invoicing, freight costs and industrial policy."],
     sources: [
       { label: "PVMA member directory", href: "https://pvma.com.pk/wp-content/uploads/2022/05/PVMA-General-Body-List-.pdf" },
       { label: "PVMA election", href: "https://www.dawn.com/news/1862447/vanaspati-manufacturers-body-elected" },

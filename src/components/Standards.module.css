@@ -42,7 +42,7 @@
   .cards { gap: 16px; }
   .card { padding: 30px 22px 20px; }
   .cardTop { gap: 8px; }
-  .cardTop > span { font-size: 9px; }
+  .cardTop > span { font-size: 10px; }
 }
 @media (max-width: 720px) {
   .section::before { inset: 12px; }
@@ -55,5 +55,5 @@
   .card:nth-child(2) { margin-top: 0; }
   .note { margin-top: 30px; }
   .card h3 { font-size: 31px; }
-  .signature { font-size: 9px; gap: 12px; margin-top: 32px; }
+  .signature { font-size: 10px; gap: 12px; margin-top: 32px; }
 }

@@ -8,11 +8,22 @@ import { siteUrl } from "@/lib/site";
 
 const path = "/our-story/";
 const title = "Our Story, from 1953 to Today";
-const description = "RK Group’s roots reach back to a family enterprise in the sugar trade in 1953. Today the Group brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure.";
+const description = "RK Group’s roots reach back to a family enterprise trading sugar in Lahore in 1953. Today the Group brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure.";
 export const metadata = pageMetadata(title, description, path, "/share/our-story.jpg", "Islamabad at sunset, with the Faisal Mosque and the Margalla Hills");
 
 const former = leaderBySlug("sheikh-abdul-islam")!;
 const chairman = leaderBySlug("sheikh-khalid-islam")!;
+const laterMilestones = [
+  ["January 2014", "Mirpur Oil & Ghee Mills (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
+  ["July 2014", "Salam Oil & Ghee Mills (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
+  ["February 2016", "AA Foods (Pvt) Ltd", "Established for ghee, cooking oil and soap."],
+] as const;
+const pioneers = [
+  ["A.C.P Oil Mills", "The first ghee, cooking oil and soap manufacturer in Industrial Area, Islamabad."],
+  ["Al-Khalid Flour Mills", "The first flour mill in Lawrencepur, District Attock."],
+  ["A.C.P Petroleum", "The first petrol pump on Saidpur Road, Rawalpindi."],
+  ["KK Oil & Ghee Mills", "The first ghee, cooking oil and soap manufacturer in Lawrencepur, District Attock."],
+] as const;
 const nextLinks = [["/#brands", "Our brands"], ["/#leadership", "Our leadership"], ["/#order", "Place an Order"]] as const;
 
 export default function StoryPage() {
@@ -40,7 +51,7 @@ export default function StoryPage() {
         <p className="chapter-year">1953</p>
         <div className="chapter-body">
           <h2 id="chapter-1953">The first chapter</h2>
-          <p className="profile-lead">RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade.</p>
+          <p className="profile-lead">RK Group’s roots reach back to 1953, when a family enterprise began in Lahore with bulk trading of sugar.</p>
         </div>
       </section>
 
@@ -69,14 +80,41 @@ export default function StoryPage() {
         </div>
       </section>
 
+      <section className="chapter" aria-labelledby="chapter-pioneers">
+        <p className="chapter-year chapter-year--word">Firsts</p>
+        <div className="chapter-body">
+          <h2 id="chapter-pioneers">Pioneers in their localities</h2>
+          <ul className="pioneers">{pioneers.map(([name, copy]) => <li key={name}><strong>{name}</strong><span>{copy}</span></li>)}</ul>
+        </div>
+      </section>
+
+      <section className="chapter" aria-labelledby="chapter-growth">
+        <p className="chapter-year">Growth</p>
+        <div className="chapter-body">
+          <h2 id="chapter-growth">Growing the Group</h2>
+          <div className="chapter-split">
+            <div>
+              <p className="profile-lead">Sheikh Khalid Islam, Chairman of RK Group and CEO of KK Group, grew the Group into the 13 companies it is today.</p>
+              <p>He serves as Chief Executive of Kashmir Oil & Ghee Mills (Pvt.) Ltd. and Mirpur Oil & Ghee Mills (Pvt.) Ltd., both based in Mirpur, AJK, with corporate operations in Islamabad.</p>
+              <p>He served as Vice Chairman of PVMA in 2017–2018 and was elected Vice Chairman for 2024–2026, and his industry service includes representation through the Federation of Pakistan Chambers of Commerce and Industry.</p>
+              <p>He has represented the edible oil industry in discussions with government and regulators on food security, taxation, digital invoicing, freight costs and industrial policy.</p>
+              <Link className="brand-page-link" href={leaderPath(chairman)}>View {chairman.name}’s profile ↗</Link>
+            </div>
+            <figure className="chapter-portrait"><Image src={leaderImage(chairman)} alt={chairman.imageAlt} width={1100} height={1332} sizes="(max-width: 860px) 100vw, 340px" /><figcaption>{chairman.name}, Chairman, RK Group</figcaption></figure>
+          </div>
+          <div className="profile-milestones chapter-later">
+            <ol>{laterMilestones.map(([when, name, copy]) => <li key={name}><span>{when}</span><div><h3>{name}</h3><p>{copy}</p></div></li>)}</ol>
+          </div>
+        </div>
+      </section>
+
       <section className="chapter" aria-labelledby="chapter-today">
         <p className="chapter-year">Today</p>
         <div className="chapter-body">
           <h2 id="chapter-today">A broader horizon</h2>
           <p className="profile-lead">From ACP Oil Mills in 1989 and Al-Khalid Flour Mills in 1996 to a wider portfolio of food, edible-oil, manufacturing, energy and infrastructure businesses, the Group has grown through practical ambition and long-term thinking.</p>
           <p>Led by Chairman Sheikh Khalid Islam, our leadership connects generations of enterprise with the ambition to build lasting value.</p>
-          <p>Sheikh Khalid Islam served as Vice Chairman of PVMA in 2017–2018 and was elected Vice Chairman for 2024–2026, and his industry service includes representation through the Federation of Pakistan Chambers of Commerce and Industry.</p>
-          <Link className="brand-page-link" href={leaderPath(chairman)}>View {chairman.name}’s profile ↗</Link>
+          <p>The Group regularly imports raw materials such as palm olein and tin sheet, and exports vegetable ghee to Afghanistan.</p>
         </div>
       </section>
     </div>

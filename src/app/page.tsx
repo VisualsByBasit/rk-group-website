@@ -8,11 +8,14 @@ import JsonLd from "@/components/JsonLd";
 import { siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
-import { companies } from "@/lib/companies";
+import { companyGroups } from "@/lib/companies";
 import { leaderBySlug, leaderImage, leaderPath } from "@/lib/leaders";
 import { brandInstagram } from "@/lib/social";
 import SocialIcon from "@/components/SocialIcon";
-const former = leaderBySlug("sheikh-abdul-islam")!;
+const storyPeople = [
+  [leaderBySlug("sheikh-abdul-islam")!, "From 1965", "Joined in 1965 and built the business into wheat, ghee and then manufacturing."],
+  [leaderBySlug("sheikh-khalid-islam")!, "Growth and today", "As Chairman, grew the Group into the 13 companies it is today."],
+] as const;
 
 export default function HomePage() {
   return (
@@ -61,7 +64,7 @@ export default function HomePage() {
             <p className="section-note">A family enterprise shaped by patient growth, practical ambition and an enduring commitment to the essentials people rely on.</p>
           </div>
           <div className="story-copy">
-            <p>RK Group’s roots reach back to 1953, when a family enterprise began in the sugar trade. Sheikh Abdul Islam joined the business in 1965 and expanded into wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
+            <p>RK Group’s roots reach back to 1953, when a family enterprise began in Lahore with bulk trading of sugar. Sheikh Abdul Islam joined the business in 1965 and expanded into trading wheat and ghee, laying the foundation for a diversified group serving essential sectors of Pakistan’s economy.</p>
             <p>From ACP Oil Mills in 1989 and Al-Khalid Flour Mills in 1996 to a wider portfolio of food, edible-oil, manufacturing, energy and infrastructure businesses, the Group has grown through practical ambition and long-term thinking.</p>
             <Link className="brand-page-link" href="/our-story/">Read the full story ↗</Link>
           </div>
@@ -72,22 +75,26 @@ export default function HomePage() {
           <div><dt>Portfolio companies</dt><dd>13</dd></div>
         </dl>
         <ol className="shell heritage-timeline" aria-label="RK Group milestones">
-          <li><span>1953</span><h3>The first chapter</h3><p>A family enterprise begins in the sugar trade.</p></li>
-          <li><span>1965</span><h3>Into wheat and ghee</h3><p>Sheikh Abdul Islam joins and expands the business.</p></li>
+          <li><span>1953</span><h3>The first chapter</h3><p>A family enterprise begins in Lahore with bulk trading of sugar.</p></li>
+          <li><span>1965</span><h3>Into wheat and ghee</h3><p>Sheikh Abdul Islam joins and expands into trading wheat and ghee.</p></li>
           <li><span>1989</span><h3>A foundation in industry</h3><p>ACP Oil Mills marks a new era in edible oils.</p></li>
           <li><span>1996</span><h3>Expanding the essentials</h3><p>Al-Khalid Flour Mills joins the family of businesses.</p></li>
+          <li><span>Growth</span><h3>A growing Group</h3><p>Sheikh Khalid Islam, as Chairman, grows the Group.</p></li>
           <li><span>Today</span><h3>A broader horizon</h3><p>13 companies, connected by a shared commitment to progress.</p></li>
         </ol>
-        <div className="shell story-visuals">
-          <Link className="story-portrait" href={leaderPath(former)}>
-            <Image src={leaderImage(former)} alt="" fill sizes="(max-width: 860px) 100vw, 480px" />
-            <span><b>1965</b>{former.name}</span>
-          </Link>
-          <div className="story-mosaic">
-            {companies.map(([name, , image]) => <span className="story-mosaic-logo" key={name}><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="120px" /></span>)}
-            <a className="story-mosaic-caption" href="#portfolio"><b>Today</b>13 companies <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
+        <ul className="shell story-people">
+          {storyPeople.map(([leader, when, line]) => (
+            <li key={leader.slug}>
+              <span className="story-person-portrait"><Image src={leaderImage(leader)} alt={leader.imageAlt} fill sizes="(max-width: 720px) 40vw, 260px" /></span>
+              <div>
+                <p className="story-person-when">{when}</p>
+                <h3>{leader.name}</h3>
+                <p>{line}</p>
+                <Link className="brand-page-link" href={leaderPath(leader)}>View profile<span className="visually-hidden">: {leader.name}</span> <span aria-hidden="true">↗</span></Link>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="portfolio section-pad" id="portfolio">
@@ -95,13 +102,20 @@ export default function HomePage() {
           <div><p className="eyebrow light"><span /> The wider portfolio</p><h2>One group.<br /><em>Many capabilities.</em></h2></div>
           <p>RK Group’s operating companies connect consumer needs with industrial capability, from food and grain to energy, manufacturing and infrastructure.</p>
         </div>
-        <div className="shell company-grid">
-          {companies.map(([name, sector, image], index) => (
-            <article className="company-card" key={name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="220px" /></div>
-              <div><h3>{name}</h3><p>{sector}</p></div>
-            </article>
+        <div className="shell company-groups">
+          {companyGroups.map(group => (
+            <section className={`company-group company-group--${group.companies.length}`} aria-label={`${group.title} companies`} key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.companies.map(([name, sector, image]) => (
+                  <li key={name}>
+                    <span className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="(max-width: 720px) 45vw, 240px" /></span>
+                    <strong>{name}</strong>
+                    <span>{sector}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
         </div>
       </section>

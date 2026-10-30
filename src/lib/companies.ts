@@ -14,3 +14,16 @@ export const companies = [
   ["Salam Food Industries", "Food production", "salam-food.webp"],
   ["Pak Tameerat", "Infrastructure", "pak-tameerat.webp"],
 ] as const;
+
+// Groups use the sector labels above; each company still shows its own label.
+const groups = [
+  { title: "Food", sectors: ["Food processing", "Flour & grain milling", "Food products", "Food production"] },
+  { title: "Edible oils", sectors: ["Edible oils"] },
+  { title: "Manufacturing", sectors: ["Manufacturing"] },
+  { title: "Industrial solutions", sectors: ["Industrial solutions"] },
+  { title: "Consumer products", sectors: ["Consumer products"] },
+  { title: "Renewable energy", sectors: ["Renewable energy"] },
+  { title: "Infrastructure", sectors: ["Infrastructure"] },
+];
+
+export const companyGroups = groups.map(group => ({ title: group.title, companies: companies.filter(([, sector]) => group.sectors.includes(sector)) }));
