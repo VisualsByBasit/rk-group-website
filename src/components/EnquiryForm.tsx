@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { ENQUIRY_EMAIL, LANDLINE, channelReady, emailReady, whatsappReady, whatsappUrl } from "@/lib/contact";
 import { bagRules, kg, orderHints, orderProducts } from "@/lib/orders";
 
@@ -112,11 +114,12 @@ function EnquiryFields({ brand }: { brand: string }) {
     const found = validate(details, lines);
     setErrors(found);
     const first = Object.keys(found)[0];
-    if (first) { document.getElementById(fieldId(first))?.focus(); return; }
+    if (first) { trackEvent("Form submit attempt", { result: "invalid" }); document.getElementById(fieldId(first))?.focus(); return; }
     // No WhatsApp number or email yet: open nothing, keep the details and point to the landline.
-    if (!channelReady) { setOutcome("unavailable"); return; }
+    if (!channelReady) { trackEvent("Form submit attempt", { result: "valid", channel: "none" }); setOutcome("unavailable"); return; }
     const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
     const channel: Channel = submitter?.value === "email" || !whatsappReady ? "email" : "whatsapp";
+    trackEvent("Form submit attempt", { result: "valid", channel });
     const text = compose(details, lines);
     if (channel === "whatsapp") {
       const url = whatsappUrl(text);
@@ -140,7 +143,7 @@ function EnquiryFields({ brand }: { brand: string }) {
     <form className="enquiry" id="order-form" noValidate onSubmit={submit} aria-labelledby={fieldId("title")}>
       <div className="enquiry-intro">
         <h3 id={fieldId("title")}>Send an enquiry</h3>
-        <p>{channelReady ? `Fill this in and we will open ${whatsappReady ? "WhatsApp" : "your email app"} with your enquiry ready to send.` : "Tell us what you would like to order."} Nothing is stored on this website.</p>
+        <p>{channelReady ? `Fill this in and we will open ${whatsappReady ? "WhatsApp" : "your email app"} with your enquiry ready to send.` : "Tell us what you would like to order."} Nothing is stored on this website. See the <Link href="/ordering-terms/">ordering terms</Link>.</p>
       </div>
       <div className="enquiry-fields">
         {textField("name", "Your name", { autoComplete: "name" })}

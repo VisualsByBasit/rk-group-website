@@ -4,7 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import { companies } from "@/lib/companies";
 import { leaderBySlug, leaderImage, leaderPath } from "@/lib/leaders";
 import { pageMetadata } from "@/lib/metadata";
-import { siteUrl } from "@/lib/site";
+import { heroImage, siteUrl } from "@/lib/site";
 
 const path = "/our-story/";
 const title = "Our Story, from 1953 to Today";
@@ -29,7 +29,7 @@ export default function StoryPage() {
   const url = `${siteUrl}${path}`;
   return <article className="story-page">
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
-      { "@type": "AboutPage", "@id": `${url}#webpage`, url, name: title, description, about: { "@id": `${siteUrl}/#organization` }, isPartOf: { "@id": `${siteUrl}/#website` }, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "AboutPage", "@id": `${url}#webpage`, url, name: title, description, about: { "@id": `${siteUrl}/#organization` }, primaryImageOfPage: heroImage, isPartOf: { "@id": `${siteUrl}/#website` }, publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "RK Group", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: "Our story", item: url }] },
     ] }} />
 
@@ -127,7 +127,7 @@ export default function StoryPage() {
     </section>
 
     <nav className="story-next shell" aria-label="Explore RK Group">
-      {nextLinks.map(([href, label]) => <Link href={href} key={href}>{label} <span aria-hidden="true">↗</span></Link>)}
+      {nextLinks.map(([href, label]) => <Link href={href} key={href} {...(href === "/#order" && { "data-track": "Place an Order", "data-where": "our story" })}>{label} <span aria-hidden="true">↗</span></Link>)}
     </nav>
   </article>;
 }

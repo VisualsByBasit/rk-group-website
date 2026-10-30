@@ -7,5 +7,5 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Omit lastModified rather than reporting every rebuild as a content change.
-  return ["/", "/our-story/", ...brands.map(brand => `/brands/${brand.slug}/`), ...leaders.map(leaderPath)].map(path => ({ url: `${siteUrl}${path}` }));
+  return ["/", "/our-story/", "/contact/", "/ordering-terms/", "/privacy/", ...brands.map(brand => `/brands/${brand.slug}/`), ...leaders.map(leaderPath)].map(path => ({ url: `${siteUrl}${path}` }));
 }

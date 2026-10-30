@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { brands } from "@/lib/brands";
-import { siteUrl } from "@/lib/site";
+import { pageImage, siteUrl } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { LANDLINE } from "@/lib/contact";
 import { collectionLine, orderProducts, orderSummary, paymentLine, ratesLine } from "@/lib/orders";
@@ -34,7 +34,7 @@ export default async function BrandPage({ params }: Props) {
   const url = `${siteUrl}/brands/${brand.slug}/`;
   const instagram = brandInstagram[brand.slug];
   const product = orderProducts.find(item => item.id === brand.orderId);
-  const orderLink = product && <a className="brand-cta" href={`/?brand=${product.id}#order-form`}>Place an Order <span aria-hidden="true">↗</span><span className="visually-hidden">: {brand.fullName}</span></a>;
+  const orderLink = product && <a className="brand-cta" href={`/?brand=${product.id}#order-form`} data-track="Place an Order" data-where={`brand page, ${product.id}`}>Place an Order <span aria-hidden="true">↗</span><span className="visually-hidden">: {brand.fullName}</span></a>;
   const number = String(brands.indexOf(brand) + 1).padStart(2, "0");
   const others = brands.filter(other => other.slug !== brand.slug);
   const tone = darkFields.has(brand.className) ? " brand-hero--light-text" : "";
@@ -42,7 +42,7 @@ export default async function BrandPage({ params }: Props) {
   return <article className="brand-page">
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
       { "@type": "Brand", "@id": `${url}#brand`, name: brand.fullName, url, image: `${siteUrl}${brand.lineup}`, description: brand.copy, ...(instagram && { sameAs: [instagram] }) },
-      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: brand.fullName, about: { "@id": `${url}#brand` }, publisher: { "@id": `${siteUrl}/#organization` } },
+      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: brand.fullName, about: { "@id": `${url}#brand` }, primaryImageOfPage: pageImage(brand.lineup, brand.slug === "islamabad-macaroni" ? [1536, 1024] : [1440, 960], `${brand.fullName} product range and packaging`), publisher: { "@id": `${siteUrl}/#organization` } },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "RK Group", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: "Brands", item: `${siteUrl}/#brands` }, { "@type": "ListItem", position: 3, name: brand.fullName, item: url }] },
     ] }} />
 

@@ -5,7 +5,7 @@ import Leadership from "@/components/Leadership";
 import Standards from "@/components/Standards";
 import OrderSection from "@/components/OrderSection";
 import JsonLd from "@/components/JsonLd";
-import { siteUrl } from "@/lib/site";
+import { heroImage, siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
 import { companyGroups } from "@/lib/companies";
@@ -21,7 +21,10 @@ export default function HomePage() {
   return (
     <>
       {/* Tells Google which name to show for the site in search results instead of the domain. */}
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "RK Group of Industries", alternateName: "RK Group", url: `${siteUrl}/`, publisher: { "@id": `${siteUrl}/#organization` } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [
+        { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "RK Group of Industries", alternateName: "RK Group", url: `${siteUrl}/`, publisher: { "@id": `${siteUrl}/#organization` } },
+        { "@type": "WebPage", "@id": `${siteUrl}/#webpage`, url: `${siteUrl}/`, name: "RK Group of Industries", isPartOf: { "@id": `${siteUrl}/#website` }, about: { "@id": `${siteUrl}/#organization` }, primaryImageOfPage: heroImage },
+      ] }} />
       <HeroSlideshow />
 
       <div className="group-ribbon"><div className="shell"><span>Generations of enterprise <b>Since 1953</b></span><span>Food & edible oils</span><span>Manufacturing</span><span>Energy</span><span>Infrastructure</span></div></div>
@@ -40,7 +43,7 @@ export default function HomePage() {
                 <h3>{brand.fullName}</h3>
                 <p className="brand-description">{brand.copy}</p>
                 {brand.claims && <ul className="brand-claims" aria-label={`${brand.name} product claims`}>{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>}
-                <div className="brand-actions"><Link className="brand-page-link" href={`/brands/${brand.slug}/`}>Explore {brand.fullName} <span aria-hidden="true">↗</span></Link>{brand.orderId && <a className="brand-order" href={`/?brand=${brand.orderId}#order-form`}>Place an Order<span className="visually-hidden">: {brand.fullName}</span></a>}</div>
+                <div className="brand-actions"><Link className="brand-page-link" href={`/brands/${brand.slug}/`}>Explore {brand.fullName} <span aria-hidden="true">↗</span></Link>{brand.orderId && <a className="brand-order" href={`/?brand=${brand.orderId}#order-form`} data-track="Brand block Order click" data-brand={brand.orderId}>Place an Order<span className="visually-hidden">: {brand.fullName}</span></a>}</div>
                 <div className="format-list" aria-label={`${brand.name} product formats`}>
                   {brand.formats.map(format => <span key={format}>{format}</span>)}
                 </div>

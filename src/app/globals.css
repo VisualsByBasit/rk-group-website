@@ -142,13 +142,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .back-top { min-width: 170px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.28); padding: 12px 0; font-size: 12px; }
 .back-top span { color: var(--orange); }
 .privacy-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,.12); }
-.privacy-policy { max-width: 720px; }
-.privacy-policy summary { width: max-content; cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.72); }
-.privacy-policy summary::marker { color: var(--orange); }
-.privacy-copy { padding: 26px 0 10px; }
-.privacy-copy h2 { font-size: 28px; margin-bottom: 18px; }
-.privacy-copy p { color: rgba(255,255,255,.52); font-size: 13px; line-height: 1.7; }
-.privacy-copy .privacy-date { color: rgba(255,255,255,.34); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
 .cookie-status { font-size: 9px; text-transform: uppercase; letter-spacing: .13em; color: rgba(255,255,255,.34); text-align: right; }
 .footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.35); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; }
 
@@ -337,7 +330,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .standards-list article { background: transparent; border: 0; border-top: 1px solid #c8b89c; padding: 28px 22px 0 0; min-height: 250px; }
 .standards-list article > span { color: #84653e; font-size: 12px; }
 .standards-list h3 { margin-top: 36px; }
-.footer-top p, .privacy-copy p { color: #b8c2ba; }
+.footer-top p { color: #b8c2ba; }
 .cookie-status, .footer-bottom { color: #a4afa6; }
 
 @media (min-width: 721px) and (max-width: 1000px) {
@@ -520,7 +513,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-gulberg .brand-meta span { opacity: .78; }
 .brand-nimco .brand-meta span { opacity: .72; }
 .order-section h2 em { color: #8a6830; }
-.privacy-copy .privacy-date { color: #a4afa6; }
 /* Narrow phones: eight dots cannot keep a 24px tap target beside the arrows, so show the slide count instead. */
 @media (max-width: 460px) {
   .hero-dots { display: none; }
@@ -964,7 +956,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 
 /* Phone readability: larger tap areas on small links and no text under 10px. */
 @media (max-width: 720px) {
-  .footer-nav a, .brand-breadcrumb a, .profile-breadcrumb a, .privacy-policy summary { display: inline-block; padding-block: 5px; }
+  .footer-nav a, .brand-breadcrumb a, .profile-breadcrumb a, .privacy-summary a { display: inline-block; padding-block: 5px; }
   .brand-page-link, .brand-hero-social { padding-block: 3px; }
   .format-list span, .leader-index, .team-body .leader-index, .size-list dt, .portrait-caption, .hero-pause, .cookie-status, .footer-bottom, .group-ribbon span { font-size: 10px; }
 }
@@ -980,4 +972,46 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (max-width: 720px) {
   .biography-sources a, .profile-sources a { display: inline-block; padding-block: 4px; }
   .record-list--plain li a { display: inline-block; padding-block: 3px; }
+}
+
+/* Footer privacy summary and the terms link in the order section. */
+.privacy-summary { max-width: 700px; margin: 0; color: #b8c2ba; font-size: 13px; line-height: 1.6; }
+.privacy-summary a { color: #e3c692; text-decoration: underline; text-underline-offset: 3px; }
+.order-terms-link { margin-top: 22px; }
+.enquiry-intro a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Privacy, ordering terms and contact pages. */
+.page-hero { padding: 34px 0 72px; background: #112b24; color: white; }
+.page-hero .profile-breadcrumb { margin: 0 0 56px; }
+.page-hero h1 { margin: 0 0 18px; font-size: clamp(50px, 7vw, 104px); line-height: 1; letter-spacing: -.05em; }
+.page-hero p:not(.eyebrow) { max-width: 620px; margin: 0; color: #dec498; font: 400 clamp(19px, 1.7vw, 24px)/1.45 "Space Grotesk", Arial, sans-serif; letter-spacing: -.01em; }
+.page-sections { padding-block: 40px 88px; }
+.page-sections section { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 12px clamp(24px, 5vw, 72px); padding-block: 32px; border-bottom: 1px solid var(--line); }
+.page-sections section:last-child { border-bottom: 0; }
+.page-sections h2 { margin: 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.2; letter-spacing: -.03em; }
+.page-sections p { max-width: 720px; margin: 0 0 12px; font-size: 18px; line-height: 1.75; }
+.page-sections p:last-child { margin-bottom: 0; }
+.page-sections a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.page-sections .page-date { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px clamp(24px, 5vw, 72px); padding-block: 72px 96px; }
+.contact-grid section { padding-top: 18px; border-top: 2px solid var(--orange); }
+.contact-grid section:first-child { grid-column: span 2; }
+.contact-grid h2 { margin: 0 0 14px; font-size: clamp(22px, 2vw, 28px); line-height: 1.2; letter-spacing: -.03em; }
+.contact-grid p { margin: 0 0 18px; font-size: 18px; line-height: 1.7; }
+.contact-phone { display: inline-block; margin-bottom: 8px; font: 500 clamp(48px, 8vw, 116px)/1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.05em; color: #795e32; white-space: nowrap; }
+.contact-link { font-size: 20px; color: var(--green); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.contact-social { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 0; padding: 0; list-style: none; }
+.contact-social a { display: inline-flex; align-items: center; gap: 10px; min-height: 28px; font-size: 17px; font-weight: 500; }
+@media (max-width: 720px) {
+  .page-hero { padding: 20px 0 48px; }
+  .page-hero .profile-breadcrumb { margin-bottom: 32px; }
+  .page-hero h1 { font-size: clamp(42px, 13vw, 60px); }
+  .page-sections { padding-block: 16px 56px; }
+  .page-sections section { grid-template-columns: minmax(0, 1fr); padding-block: 24px; }
+  .page-sections p { font-size: 17px; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; padding-block: 48px 64px; }
+  .contact-grid section:first-child { grid-column: auto; }
+}
+@media (max-width: 720px) {
+  .page-sections a, .enquiry-intro a { display: inline-block; padding-block: 3px; }
 }

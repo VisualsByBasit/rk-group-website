@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { leaders, leaderBySlug, leaderImage, leaderPath } from "@/lib/leaders";
 import { pageMetadata } from "@/lib/metadata";
-import { siteUrl } from "@/lib/site";
+import { pageImage, siteUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
@@ -33,7 +33,7 @@ export default async function LeaderPage({ params }: Props) {
   return <article className="profile">
     <JsonLd data={{ "@context": "https://schema.org", "@graph": [
       { "@type": "Person", "@id": `${url}#person`, name: leader.name, ...(leader.alternateName && { alternateName: leader.alternateName }), url, image: `${siteUrl}${leaderImage(leader)}`, jobTitle: leader.jobTitle, description: leader.seo.description, ...(leader.rkRole ? { worksFor: organization } : { affiliation: organization }), ...(leader.profiles && { sameAs: leader.profiles.map(profile => profile.href) }) },
-      { "@type": "ProfilePage", "@id": `${url}#webpage`, url, name: leader.seo.title, description: leader.seo.description, mainEntity: { "@id": `${url}#person` }, isPartOf: { "@id": `${siteUrl}/#website` }, publisher: organization },
+      { "@type": "ProfilePage", "@id": `${url}#webpage`, url, name: leader.seo.title, description: leader.seo.description, mainEntity: { "@id": `${url}#person` }, primaryImageOfPage: pageImage(leaderImage(leader), leader.imageSize, leader.imageAlt), isPartOf: { "@id": `${siteUrl}/#website` }, publisher: organization },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "RK Group", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: "Leadership", item: `${siteUrl}/#leadership` }, { "@type": "ListItem", position: 3, name: leader.name, item: url }] },
     ] }} />
 

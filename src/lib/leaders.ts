@@ -9,6 +9,7 @@ export type Leader = {
   nameLines?: [string, string]; // how the homepage breaks the name over two lines
   alternateName?: string;
   image: string;
+  imageSize: [number, number];
   imageAlt: string;
   caption?: string; // portrait caption chip, only where the homepage shows one
   label: string; // eyebrow above the name
@@ -34,6 +35,7 @@ export const leaders: Leader[] = [
     nameLines: ["Sheikh", "Khalid Islam"],
     alternateName: "Khalid Islam Sheikh",
     image: "sheikh-khalid-islam.webp",
+    imageSize: [1100, 1332],
     imageAlt: "Sheikh Khalid Islam, Chairman of RK Group",
     caption: "Office of the Chairman",
     label: "Chairman · RK Group & CEO · KK Group",
@@ -69,6 +71,7 @@ export const leaders: Leader[] = [
     name: "Sheikh Abdul Islam",
     nameLines: ["Sheikh", "Abdul Islam"],
     image: "sheikh-abdul-islam.webp",
+    imageSize: [1100, 882],
     imageAlt: "Sheikh Abdul Islam, former Chairman of KK Group, in a classic suit",
     caption: "A legacy of enterprise",
     label: "Former Chairman · KK Group",
@@ -97,6 +100,7 @@ export const leaders: Leader[] = [
     slug: "raja-muhammad-farooq",
     name: "Raja Muhammad Farooq",
     image: "raja-muhammad-farooq.webp",
+    imageSize: [1000, 969],
     imageAlt: "Raja Muhammad Farooq",
     label: "Enterprise & community",
     jobTitle: "Entrepreneur and community leader",
@@ -114,6 +118,7 @@ export const leaders: Leader[] = [
     slug: "sheikh-saim-khalid",
     name: "Sheikh Saim Khalid",
     image: "sheikh-saim-khalid-suit-v2.webp",
+    imageSize: [1100, 1375],
     imageAlt: "Sheikh Saim Khalid",
     label: "Next-generation leadership",
     jobTitle: "Director",
@@ -129,6 +134,7 @@ export const leaders: Leader[] = [
     slug: "sheikh-atif-islam",
     name: "Sheikh Atif Islam",
     image: "sheikh-atif-islam.webp",
+    imageSize: [800, 1000],
     imageAlt: "Sheikh Atif Islam",
     label: "Business & industry",
     jobTitle: "Director",
@@ -150,6 +156,7 @@ export const leaders: Leader[] = [
     slug: "raja-abubakar-farooq",
     name: "Raja Abubakar Farooq",
     image: "raja-abubakar-farooq.webp",
+    imageSize: [1000, 1000],
     imageAlt: "Raja Abubakar Farooq",
     label: "Business & professional service",
     jobTitle: "Director",
@@ -171,6 +178,7 @@ export const leaders: Leader[] = [
     slug: "abdul-haseeb",
     name: "Abdul Haseeb",
     image: "abdul-haseeb.webp",
+    imageSize: [800, 1000],
     imageAlt: "Abdul Haseeb in a charcoal suit",
     label: "Finance leadership",
     jobTitle: "Chief Financial Officer (CFO)",
