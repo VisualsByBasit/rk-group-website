@@ -38,16 +38,14 @@ export default async function LeaderPage({ params }: Props) {
     ] }} />
 
     <header className="profile-hero">
-      <div className="shell">
+      <div className="shell profile-hero-inner">
         <nav className="profile-breadcrumb" aria-label="Breadcrumb"><Link href="/">RK Group</Link><span aria-hidden="true">/</span><Link href="/#leadership">Leadership</Link><span aria-hidden="true">/</span><span aria-current="page">{leader.name}</span></nav>
-        <div className="profile-hero-grid">
-          <div className={`profile-portrait profile-portrait--${leader.slug}`}><Image src={leaderImage(leader)} alt={leader.imageAlt} fill sizes="(max-width: 860px) 100vw, 42vw" preload />{leader.caption && <span className="portrait-caption">{leader.caption}</span>}</div>
-          <div className="profile-hero-body">
-            <p className="eyebrow light"><span /> {leader.label}</p>
-            <h1>{leader.name}</h1>
-            <p className="profile-statement">{leader.intro ? <>{leader.intro[0]}<br />{leader.intro[1]}</> : leader.summary[0]}</p>
-            <ul className="credential-pills profile-roles" aria-label={`${leader.name} roles`}>{roles.filter(item => item.kind === "primary").map(item => <li className="credential-pill credential-pill--primary" key={item.text}>{item.text}</li>)}</ul>
-          </div>
+        <div className={`profile-portrait profile-portrait--${leader.slug}`}><Image src={leaderImage(leader)} alt={leader.imageAlt} fill sizes="(max-width: 860px) 100vw, 42vw" preload />{leader.caption && <span className="portrait-caption">{leader.caption}</span>}</div>
+        <div className="profile-hero-body">
+          <p className="eyebrow light"><span /> {leader.label}</p>
+          <h1>{leader.name}</h1>
+          <p className="profile-statement">{leader.intro ? <>{leader.intro[0]}<br />{leader.intro[1]}</> : leader.summary[0]}</p>
+          <ul className="credential-pills profile-roles" aria-label={`${leader.name} roles`}>{roles.filter(item => item.kind === "primary").map(item => <li className="credential-pill credential-pill--primary" key={item.text}>{item.text}</li>)}</ul>
         </div>
       </div>
     </header>
