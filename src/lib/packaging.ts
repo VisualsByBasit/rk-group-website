@@ -24,3 +24,11 @@ export const brandPackaging: Record<string, PackGroup[]> = {
     { layout: "bulk", title: "25 kg bulk bag", sizes: [], images: [pack("macaroni-25kg-bulk-bag", 1448, 1086, "Islamabad Macaroni 25 kg bulk bag, front and back")] },
   ],
 };
+
+// Shape pictures for the brand page range section, keyed by brand slug. Names match the brand's formats.
+export type ShapeImage = { name: string; src: string; width: number; height: number };
+const shape = (name: string, width: number): ShapeImage => ({ name, src: `/assets/packaging/macaroni-shape-${name.toLowerCase()}.webp`, width, height: 370 });
+
+export const brandShapes: Record<string, ShapeImage[]> = {
+  "islamabad-macaroni": [shape("Elbows", 204), shape("Penne", 202), shape("Fusilli", 204), shape("Shells", 212), shape("Farfalle", 214), shape("Vermicelli", 204)],
+};

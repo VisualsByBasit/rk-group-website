@@ -9,7 +9,7 @@ import { collectionLine, orderProducts, orderSummary, paymentLine, ratesLine } f
 import JsonLd from "@/components/JsonLd";
 import PackagingSection from "@/components/PackagingSection";
 import SocialIcon from "@/components/SocialIcon";
-import { brandPackaging } from "@/lib/packaging";
+import { brandPackaging, brandShapes } from "@/lib/packaging";
 import { brandInstagram } from "@/lib/social";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -37,6 +37,7 @@ export default async function BrandPage({ params }: Props) {
   const orderLink = product && <a className="brand-cta" href={`/?brand=${product.id}#order-form`} data-track="Place an Order" data-where={`brand page, ${product.id}`}>Place an Order <span aria-hidden="true">↗</span><span className="visually-hidden">: {brand.fullName}</span></a>;
   const number = String(brands.indexOf(brand) + 1).padStart(2, "0");
   const others = brands.filter(other => other.slug !== brand.slug);
+  const shapes = brandShapes[brand.slug];
   const tone = darkFields.has(brand.className) ? " brand-hero--light-text" : "";
 
   return <article className="brand-page">
@@ -64,14 +65,16 @@ export default async function BrandPage({ params }: Props) {
       <ul className="shell">{brand.claims.map(claim => <li key={claim}>{claim}</li>)}</ul>
     </section>}
 
-    <section className="shell brand-range" aria-labelledby="range-title">
+    <section className={`shell brand-range${shapes ? " brand-range--shapes" : ""}`} aria-labelledby="range-title">
       <div className="brand-range-intro">
         <p className="eyebrow"><span /> The range</p>
         <h2 id="range-title">{brand.sizes ? "Formats and pack sizes" : "Formats"}</h2>
         <p>{brand.fullName} is part of the RK Group of Industries brand family in Pakistan. The range includes the following formats.</p>
       </div>
       <div className="brand-range-detail">
-        <ul className={`brand-formats${brand.sizes ? "" : " brand-formats--large"}`} aria-label={`${brand.fullName} formats`}>{brand.formats.map((format, index) => <li key={format}><span>{String(index + 1).padStart(2, "0")}</span>{format}</li>)}</ul>
+        {shapes
+          ? <ul className="shape-row" aria-label={`${brand.fullName} shapes`}>{shapes.map(item => <li key={item.name}><Image src={item.src} alt={`${brand.fullName} ${item.name}, jar and pack`} width={item.width} height={item.height} sizes="(max-width: 720px) 31vw, 200px" /><span>{item.name}</span></li>)}</ul>
+          : <ul className={`brand-formats${brand.sizes ? "" : " brand-formats--large"}`} aria-label={`${brand.fullName} formats`}>{brand.formats.map((format, index) => <li key={format}><span>{String(index + 1).padStart(2, "0")}</span>{format}</li>)}</ul>}
         {brand.sizes && <dl className="brand-specs">
           {brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value.split(", ").map(value => <span key={value}>{value}</span>)}</dd></div>)}
         </dl>}

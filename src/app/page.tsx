@@ -8,7 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { heroImage, siteUrl } from "@/lib/site";
 
 import { brands } from "@/lib/brands";
-import { companyGroups } from "@/lib/companies";
+import { companies } from "@/lib/companies";
 import { leaderBySlug, leaderImage, leaderPath } from "@/lib/leaders";
 import { brandInstagram } from "@/lib/social";
 import SocialIcon from "@/components/SocialIcon";
@@ -47,7 +47,6 @@ export default function HomePage() {
                 <div className="format-list" aria-label={`${brand.name} product formats`}>
                   {brand.formats.map(format => <span key={format}>{format}</span>)}
                 </div>
-                {brand.sizes && <dl className="size-list" aria-label={`${brand.name} pack sizes`}>{brand.sizes.map(size => <div key={size.label}><dt>{size.label}</dt><dd>{size.value}</dd></div>)}</dl>}
               </div>
               <div className="brand-visual">
                 <Image className="product-lineup" src={brand.lineup} alt={`${brand.name} product range`} fill sizes="(max-width: 820px) 100vw, 62vw" />
@@ -105,20 +104,13 @@ export default function HomePage() {
           <div><p className="eyebrow light"><span /> The wider portfolio</p><h2>One group.<br /><em>Many capabilities.</em></h2></div>
           <p>RK Group’s operating companies connect consumer needs with industrial capability, from food and grain to energy, manufacturing and infrastructure.</p>
         </div>
-        <div className="shell company-groups">
-          {companyGroups.map(group => (
-            <section className={`company-group company-group--${group.companies.length}`} aria-label={`${group.title} companies`} key={group.title}>
-              <h3>{group.title}</h3>
-              <ul>
-                {group.companies.map(([name, sector, image]) => (
-                  <li key={name}>
-                    <span className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="(max-width: 720px) 45vw, 240px" /></span>
-                    <strong>{name}</strong>
-                    <span>{sector}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+        <div className="shell company-grid">
+          {companies.map(([name, sector, image], index) => (
+            <article className="company-card" key={name}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div className="company-logo"><Image src={`/assets/companies/${image}`} alt={`${name} logo`} fill sizes="220px" /></div>
+              <div><h3>{name}</h3><p>{sector}</p></div>
+            </article>
           ))}
         </div>
       </section>
