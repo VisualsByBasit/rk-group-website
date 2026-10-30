@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@fontsource/space-grotesk/400.css";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/600.css";
@@ -8,9 +8,12 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SiteAnalytics from "@/components/SiteAnalytics";
 import { brands } from "@/lib/brands";
 import { siteUrl } from "@/lib/site";
 import { LANDLINE, WHATSAPP_NUMBER, whatsappReady } from "@/lib/contact";
+import { leaders, leaderImage, leaderPath } from "@/lib/leaders";
+import { brandInstagram, rkGroupSocial } from "@/lib/social";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,6 +40,8 @@ export const metadata: Metadata = {
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
 };
 
+export const viewport: Viewport = { colorScheme: "only light", themeColor: "#fbfaf6" };
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const structuredData = {
     "@context": "https://schema.org",
@@ -46,19 +51,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     alternateName: "RK Group",
     url: siteUrl,
     logo: `${siteUrl}/assets/rk-group-logo.png`,
+    image: `${siteUrl}/assets/rk-group-logo.png`,
     description: "A diversified Pakistani industrial group spanning food, edible oils, energy, chemicals, manufacturing and infrastructure.",
-    employee: [
-      { "@type": "Person", "@id": `${siteUrl}/leadership/sheikh-khalid-islam/#person`, name: "Sheikh Khalid Islam", jobTitle: "Chairman", url: `${siteUrl}/leadership/sheikh-khalid-islam/` },
-      { "@type": "Person", name: "Sheikh Saim Khalid", jobTitle: "Director" },
-      { "@type": "Person", name: "Sheikh Atif Islam", jobTitle: "Director" },
-      { "@type": "Person", name: "Raja Abubakar Farooq", jobTitle: "Director" },
-      { "@type": "Person", name: "Abdul Haseeb", jobTitle: "Chief Financial Officer (CFO)" },
-    ],
+    employee: leaders.filter(leader => leader.rkRole).map(leader => ({ "@type": "Person", "@id": `${siteUrl}${leaderPath(leader)}#person`, name: leader.name, jobTitle: leader.jobTitle, url: `${siteUrl}${leaderPath(leader)}`, image: `${siteUrl}${leaderImage(leader)}` })),
+    sameAs: rkGroupSocial.map(link => link.href),
     contactPoint: [
       { "@type": "ContactPoint", contactType: "sales", telephone: LANDLINE.tel, areaServed: "PK", hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "18:00" } },
       ...(whatsappReady ? [{ "@type": "ContactPoint", contactType: "sales", name: "WhatsApp", telephone: `+${WHATSAPP_NUMBER}`, url: `https://wa.me/${WHATSAPP_NUMBER}`, areaServed: "PK" }] : []),
     ],
-    brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/` })),
+    brand: brands.map(brand => ({ "@type": "Brand", "@id": `${siteUrl}/brands/${brand.slug}/#brand`, name: brand.fullName, url: `${siteUrl}/brands/${brand.slug}/`, image: `${siteUrl}${brand.lineup}`, ...(brandInstagram[brand.slug] && { sameAs: [brandInstagram[brand.slug]] }) })),
   };
-  return <html lang="en"><body id="top"><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /><WhatsAppButton /></body></html>;
+  return <html lang="en"><body id="top"><a className="skip-link" href="#main-content">Skip to main content</a><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} /><Header /><main id="main-content">{children}</main><Footer /><WhatsAppButton /><SiteAnalytics /></body></html>;
 }

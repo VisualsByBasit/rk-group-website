@@ -129,7 +129,7 @@ export default function HeroSlideshow() {
         <button type="button" className="hero-step" onClick={() => setActive(current => (current + 1) % slides.length)} aria-label="Next slide">→</button>
         <button type="button" className="hero-pause" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play slideshow" : "Pause slideshow"}>{paused ? "Play" : "Pause"}</button>
       </div>
-      <a className="scroll-cue" href="#story" aria-label="Scroll to our story"><span>Scroll</span><b>↓</b></a>
+      <a className="scroll-cue" href="#brands" aria-label="Scroll to our brands"><span>Scroll</span><b>↓</b></a>
     </section>
   );
 }
