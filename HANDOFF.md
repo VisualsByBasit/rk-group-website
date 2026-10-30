@@ -26,39 +26,43 @@ The finished site must be live by **29 October 2026**. Scope is fixed to the tas
 
 ## Business facts (confirmed by Abdulbasit)
 
-- RK Group sells **wholesale only** right now. No retail sales. **No prices anywhere on the site.**
+- **What is sold (updated 30 Oct 2026, from Saim's review):** the "wholesale only" position is gone. Every order is bulk, in bags or in cartons. Nothing is sold as single packs. **No prices anywhere on the site.**
 - **Payment:** cash, paid on the spot at pickup.
-- **Pickup:** the buyer collects the order with their own transport. Factories are in **Mirpur, Azad Kashmir**. Exact pickup details and any other terms are discussed after the buyer gets in touch.
+- **Pickup:** the buyer collects with their own transport from **Islamabad or Mirpur**, or an agreed spot arranged after they get in touch.
 - **Landline:** 051-4449011 (`tel:+92514449011`). Hours: **Monday to Saturday, 10am to 6pm**.
 - A **separate WhatsApp number** and an **RK Group email** are coming later. Until then the WhatsApp button shows a launching-soon popover, and the enquiry form is visible but asks visitors to call instead of sending (see Task 2).
-- **Gulberg is part of the wholesale programme** (same rules as the other ghee brands). **Kashmir Tea** stays on the site but is **not** part of distributor enquiries yet.
+- **Kashmir Tea** stays on the site but is **not** in the order form and gets no order buttons.
+- **Site wording:** the section is "Orders" at `/#order` (`/#distributors` stays as an alias), the nav item is "Order", the header button is "Place an Order", and the phone line reads "For orders and enquiries call 051-4449011". Never say anything about packaging being in progress.
+- **Homepage order:** hero, brands, leadership, story, companies, orders, standards, footer.
+- **Logos:** the header and footer use the RK and KK Group lockup (`rk-mark.png`, "Group of Industries", `kk-group-mark.png`). `rk-group-logo.png` stays for the favicon, JSON-LD and share images.
+- **Leader bios:** keep all existing text. They may only be expanded with facts already on the site. No new personal details, and no company, factory or family photos.
 
-### Wholesale rules (for the distributor section and form)
+### Ordering rules (site and form; the rules live in `src/lib/orders.ts`)
 
-| Products | Wholesale unit | Order options | Minimum |
-| --- | --- | --- | --- |
-| ACP, Dilpasand, Deewan, Gulberg (banaspati ghee) | Cartons | 250 kg, 500 kg, 1000 kg, custom | 250 kg |
-| Islamabad Nimco | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
-| Islamabad Macaroni | 25 kg bags | 25 kg, 50 kg, 100 kg, custom | 25 kg |
+| Products | Packaging | How it is ordered |
+| --- | --- | --- |
+| ACP, Dilpasand, Deewan, Gulberg (banaspati ghee) | Pouches in cartons, one packaging only | Pack size, then quantity in cartons or kg. No minimum. |
+| Islamabad Nimco | 25 kg bags, or branded retail packs | Bags: 25, 50, 100 kg or a custom multiple of 25 kg. Branded: pack size (25 g, 35 g, 100 g, 200 g, Premium Classic Mix 200 g or 400 g) and number of cartons. |
+| Islamabad Macaroni | 25 kg bags, or branded retail packs | Bags: as Nimco. Branded: 400 g packs, number of cartons. |
 
+- **On the site:** "Rates depend on the size of your order. Larger orders get better rates, agreed when you get in touch."
+- **Internal only, do not put on the site:** 25 kg bags are unbranded wholesale packaging that buyers may resell under their own brand. Branded retail packs go straight to market. Ghee uses the same packaging for wholesale and retail, and only the price differs. Rates are negotiated by order size.
 - Do not convert kg into carton counts; RK Group rounds orders to whole cartons themselves.
-- **Custom amounts:** ghee is any amount of 250 kg or more (no multiple rule, since it packs in 900 g and 1 kg packets). Nimco and Macaroni must be multiples of 25 kg, minimum 25 kg, because 25 kg bags are the only wholesale packaging. Show the hint "Supplied in 25 kg bags, order in multiples of 25 kg" under their quantity field.
 - **Spelling:** use "Deewan" in all visible text. The URL `/brands/deewan-banaspati/` stays; internal CSS class names may keep "dewan".
-- **In the form and enquiry copy only:** Islamabad Macaroni is currently available in **Elbow** only (other shapes are in production). Do **not** say this on the homepage or brand pages; those keep the six shapes as listed.
+- **In the form only:** Islamabad Macaroni is listed as Elbow. Do **not** say this on the homepage or brand pages; those keep the six shapes as listed.
 
 ### Product sizes (homepage product info, also brand pages)
-
-These are product information only. They do **not** appear in the enquiry form.
 
 - **Ghee cartons (ACP, Dilpasand, Deewan, Gulberg):** 1 kg x 5 and 1 kg x 16 packs per carton; 900 g x 5 and 900 g x 16 packs per carton.
 - **Ghee retail packs:**
   - ACP: 1 kg, 900 g, 450 g
   - Dilpasand: 1 kg, 900 g, 450 g, 225 g
   - Deewan: 1 kg, 900 g, 450 g, 225 g
+  - Gulberg: 1 kg, 900 g
 - **Islamabad Nimco** (Classic Mix, Special Mix, Chatpata Mix): 25 g, 35 g, 100 g, 200 g. **Premium Classic Mix** stand-up pouch: 200 g, 400 g (in the sizes only, not the format chips or brand copy). Wholesale: 25 kg bag.
 - **Islamabad Macaroni:** written as "Retail pack: 400 g" (do not name Elbow outside the form). Keep "Elbows" in the format chips. Wholesale: 25 kg bag.
 - **Metal tins** are still sold. Keep "Metal tins" in the existing `formats` lists, but add no tin sizes or tin terms; those are agreed between buyer and seller.
-- Gulberg: keep its existing formats (900 g pouches, trade cartons) and add the ghee carton configurations above. Kashmir Tea sizes: leave exactly as they are.
+- Gulberg formats: 1 kg pouches, 900 g pouches, trade cartons. Kashmir Tea sizes: leave exactly as they are.
 
 ### Product claims (approved)
 
@@ -236,3 +240,4 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - 29 Oct 2026: Task 2 merged by Abdulbasit. Added Task 4 (leadership pages and detail design, build now, merge after Saim approves), talking points for Saim (hosting, ownership, Vercel plan, still-needed items) and Task 5 (handover before 5 November).
 - 29 Oct 2026: Task 4 review round on `feat/leadership-pages` (`13aefa9`, pushed for preview, not merged): shared `src/lib/leaders.ts` (homepage leadership renders identically from it), one profile template at `/leadership/[slug]/`, chairman and Sheikh Saim Khalid pages only. Decided: JSON-LD `affiliation` (not `worksFor`) for Sheikh Abdul Islam and Raja Muhammad Farooq, who hold no RK role on the site; `sameAs` only for Abdul Haseeb's LinkedIn until Abdulbasit sends more profile links. Waiting for Abdulbasit's approval of the look before the other five pages.
 - 29 Oct 2026: Task 4 design approved by Abdulbasit. On `feat/leadership-pages` (pushed, not merged; Saim to see first): all seven leader pages built on the shared template (biography text now full ink at 18px), homepage cards link to them, sitemap has 15 pages, `check-seo.py` now checks 15 pages, unique titles, Person/ProfilePage/BreadcrumbList on leader pages and fails on internal links to missing pages, `llms.txt` lists the leaders. Social links added, all in `src/lib/social.ts`: RK Group Instagram and Facebook as footer icon links under "Follow RK Group" and in Organization `sameAs`; Instagram for ACP, Islamabad Macaroni and Islamabad Nimco as a "Follow on Instagram" link on their brand pages, a small icon in their homepage brand blocks and Brand `sameAs`. Other brands get none. Inline SVG icons, no third-party scripts. Lint, tsc, build, check-seo.py, axe-core (15 pages, 1440 and 390), local CSP test and the web-design-guidelines review pass; no em dashes. Still open: brand page design upgrade (scope 4, ask Abdulbasit first).
+- 30 Oct 2026: Part A, B and C of Saim's review on `feat/leadership-pages` (not merged): option B hero on all seven leader pages with the statement in Space Grotesk; orders replace wholesale-only, with the new form rules, shorter order section, order buttons on homepage brand blocks that preselect the brand, and the homepage reordered; RK and KK logo lockup with the KK mark on a light pill in the footer. Thin leader bios gain a paragraph on their profile pages only, from facts already on the site. `assets/kk-logo` deleted once its files were committed. The unreviewed brand template is on the local-only branch `wip/brand-template`, to restore in Part D. Lint, tsc, build, check-seo.py, axe-core (15 pages, 1440 and 390, plus form states) and the local CSP test pass; no em dashes. Waiting for Abdulbasit's approval at the checkpoint.
