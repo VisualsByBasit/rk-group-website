@@ -5,6 +5,8 @@
 @import "@fontsource/ibm-plex-sans/500.css";
 
 :root {
+  /* The site has one light design. This stops browsers from auto-darkening it. */
+  color-scheme: only light;
   --ink: #0b0c0b;
   --charcoal: #131714;
   --orange: #cda568;
@@ -28,7 +30,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 
-.site-header { height: 74px; background: rgba(251,250,246,.94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); }
+.site-header { height: 74px; background: #fbfaf6; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); }
 .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .desktop-nav { display: flex; align-items: center; gap: 34px; font-size: 13px; }
 .desktop-nav a { position: relative; padding: 10px 0; }
@@ -162,9 +164,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (max-width: 960px) {
   .desktop-nav { display: none; }
   .mobile-menu { display: block; position: relative; }
-  .mobile-menu summary { list-style: none; width: 34px; cursor: pointer; }
+  .mobile-menu summary { list-style: none; width: 42px; height: 32px; margin-right: -4px; background: url(/assets/menu-plate.png) center / contain no-repeat; cursor: pointer; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
-  .mobile-menu summary span { display: block; height: 1px; background: var(--ink); margin: 8px 0; }
   .mobile-menu nav { display: none; position: absolute; right: 0; top: 43px; width: 210px; padding: 20px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0,0,0,.12); flex-direction: column; gap: 16px; font-size: 14px; }
   .mobile-menu[open] nav { display: flex; }
   .story-grid, .standards-grid { grid-template-columns: 1fr; gap: 42px; }
@@ -687,19 +688,17 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-order:hover { transform: translateY(-1px); }
 .brand-islamabad .brand-order { background: #f7edce; color: var(--ink); }
 
-/* RK and KK lockup: both marks at the same height, the text between them. */
+/* RK and KK lockup: both marks at the same height, the text between them. Plate images carry 22px of padding per 338px of mark. */
 .brand-lockup { --mark: 34px; display: flex; align-items: center; gap: 11px; flex: none; }
-.brand-lockup img { display: block; width: auto; height: var(--mark); }
-.lockup-text { font: 500 15px/1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; white-space: nowrap; }
-.lockup-kk { display: block; }
-/* The KK mark's black letters and white box do not survive inverting, so on dark it keeps its colours on a light pill. */
+.brand-lockup img { display: block; width: auto; height: calc(var(--mark) * 1.13); margin-inline: -3px; }
+.brand-lockup img:last-child { height: calc(var(--mark) * 1.21); margin-inline: -4px; }
+.lockup-text { font: 500 15px/1.1 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; white-space: nowrap; }
 .brand-lockup--light { color: white; }
-.brand-lockup--light .lockup-rk { filter: brightness(0) invert(1); }
-.brand-lockup--light .lockup-kk { padding: 5px 9px; background: #fbfaf6; border-radius: 6px; }
-.brand-lockup--light img { height: 30px; }
+.brand-lockup--light img, .brand-lockup--light img:last-child { height: 30px; margin-inline: 0; }
 @media (max-width: 559px) {
-  .site-header .lockup-text { display: none; }
-  .site-header .brand-lockup { --mark: 30px; }
+  .site-header .brand-lockup { --mark: 30px; gap: 7px; }
+  .site-header .lockup-text { font-size: 11px; line-height: 1.12; }
+  .site-header .lockup-text span { display: block; }
 }
 
 /* Brand pages. The hero reuses each brand's homepage colour field (.brand-acp and so on) with the lineup full-bleed on the right. */
