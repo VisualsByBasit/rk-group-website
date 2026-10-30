@@ -23,7 +23,7 @@ async function getBrand(params: Props["params"]) {
 }
 export async function generateMetadata({ params }: Props) {
   const brand = await getBrand(params);
-  return pageMetadata(`${brand.fullName} in Pakistan`, `Explore ${brand.fullName}, part of RK Group of Industries in Pakistan. Discover its ${brand.category.toLowerCase()} range and product formats.`, `/brands/${brand.slug}/`, brand.lineup);
+  return pageMetadata(`${brand.fullName} in Pakistan`, `Explore ${brand.fullName}, part of RK Group of Industries in Pakistan. Discover its ${brand.category.toLowerCase()} range and product formats.`, `/brands/${brand.slug}/`, `/share/${brand.slug}.jpg`, `${brand.fullName} product range and packaging`);
 }
 
 // Brand fields with light text: their buttons and rules switch to the light treatment.

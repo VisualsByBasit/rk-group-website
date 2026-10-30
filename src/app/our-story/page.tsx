@@ -9,7 +9,7 @@ import { siteUrl } from "@/lib/site";
 const path = "/our-story/";
 const title = "Our Story, from 1953 to Today";
 const description = "RK Group’s roots reach back to a family enterprise in the sugar trade in 1953. Today the Group brings together 13 companies across food, edible oils, manufacturing, energy and infrastructure.";
-export const metadata = pageMetadata(title, description, path, "/assets/hero/islamabad.webp");
+export const metadata = pageMetadata(title, description, path, "/share/our-story.jpg", "Islamabad at sunset, with the Faisal Mosque and the Margalla Hills");
 
 const former = leaderBySlug("sheikh-abdul-islam")!;
 const chairman = leaderBySlug("sheikh-khalid-islam")!;

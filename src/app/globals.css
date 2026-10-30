@@ -895,3 +895,12 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .story-companies li.story-companies-close { grid-column: span 1; padding: 14px; font-size: 16px; }
   .story-next { grid-template-columns: minmax(0, 1fr); padding-block: 44px; }
 }
+
+/* Branded 404 page. */
+.not-found { display: flex; align-items: center; min-height: calc(100svh - 74px); padding-block: 72px; background: #112b24; color: white; }
+.not-found-code { margin: 18px 0 0; font: 500 clamp(110px, 20vw, 260px)/.9 "Space Grotesk", Arial, sans-serif; letter-spacing: -.06em; color: #e3c692; }
+.not-found h1 { margin: 22px 0 14px; font-size: clamp(32px, 4vw, 56px); line-height: 1.08; }
+.not-found-note { max-width: 520px; margin: 0 0 34px; color: #d0d9d1; font-size: 17px; line-height: 1.7; }
+.not-found nav { display: flex; flex-wrap: wrap; gap: 12px 32px; }
+.not-found nav a { padding-bottom: 6px; border-bottom: 2px solid var(--orange); font: 500 clamp(18px, 1.6vw, 22px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+.not-found nav a span { color: #e3c692; }

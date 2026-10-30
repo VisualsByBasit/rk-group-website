@@ -9,7 +9,7 @@ ORIGIN = 'https://rkgroupofindustries.com'
 ROOT = Path(__file__).resolve().parents[1] / 'out'
 class Page(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.canonicals=[]; self.links=[]; self.ids=[]; self.h1=0; self.schemas=[]; self.script=False; self.buffer=''; self.description=None; self.robots=''; self.titles=[]; self.intitle=False
+        super().__init__(); self.canonicals=[]; self.links=[]; self.ids=[]; self.h1=0; self.schemas=[]; self.script=False; self.buffer=''; self.description=None; self.robots=''; self.titles=[]; self.intitle=False; self.og={}
         self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
@@ -20,6 +20,7 @@ class Page(HTMLParser):
         if tag=='link' and a.get('rel')=='canonical':self.canonicals.append(a['href'])
         if tag=='meta' and a.get('name')=='description':self.description=a.get('content')
         if tag=='meta' and a.get('name')=='robots':self.robots=a.get('content','')
+        if tag=='meta' and str(a.get('property','')).startswith('og:image'):self.og[a['property']]=a.get('content','')
         if tag=='script' and a.get('type')=='application/ld+json':self.script=True;self.buffer=''
     def handle_data(self, data):
         if self.script:self.buffer+=data
@@ -43,6 +44,9 @@ for url in urls:
     assert p.schemas, path
     assert len(p.ids)==len(set(p.ids)), (path,'duplicate IDs')
     assert 'rkgroupofindustries.vercel.app' not in text, path
+    assert p.og.get('og:image','').startswith(ORIGIN+'/') and p.og.get('og:image:alt'), (path,'share image',p.og)
+    assert (ROOT/urlsplit(p.og['og:image']).path.lstrip('/')).is_file(), (path,'share image file',p.og['og:image'])
+    if path!='/':assert p.og.get('og:image:width')=='1200' and p.og.get('og:image:height')=='630', (path,'share image size',p.og)
     assert len(p.titles)==1 and p.titles[0].strip(), (path,'title')
     if path=='/our-story/':
         types={n.get('@type') for s in p.schemas for n in s.get('@graph',[s])}
@@ -63,4 +67,4 @@ for path,p in pages.items():
 robots=(ROOT/'robots.txt').read_text()
 assert f'Sitemap: {ORIGIN}/sitemap.xml' in robots
 assert 'Disallow: /' not in robots
-print(f'PASS: {EXPECTED} exported pages; self-canonicals, unique titles, JSON-LD (Person, ProfilePage and BreadcrumbList on leadership pages), descriptions, H1s, IDs, internal links, anchor targets, sitemap and robots.')
+print(f'PASS: {EXPECTED} exported pages; self-canonicals, unique titles, JSON-LD (Person, ProfilePage and BreadcrumbList on leadership pages), share images, descriptions, H1s, IDs, internal links, anchor targets, sitemap and robots.')

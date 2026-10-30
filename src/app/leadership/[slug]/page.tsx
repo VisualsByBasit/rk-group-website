@@ -19,7 +19,7 @@ async function getLeader(params: Props["params"]) {
 
 export async function generateMetadata({ params }: Props) {
   const leader = await getLeader(params);
-  return pageMetadata(leader.seo.title, leader.seo.description, leaderPath(leader), leaderImage(leader));
+  return pageMetadata(leader.seo.title, leader.seo.description, leaderPath(leader), `/share/${leader.slug}.jpg`, leader.imageAlt);
 }
 
 export default async function LeaderPage({ params }: Props) {
