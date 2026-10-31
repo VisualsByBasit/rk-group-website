@@ -124,6 +124,15 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .portfolio::after { content: "RK"; position: absolute; right: -30px; bottom: -130px; color: rgba(255,255,255,.025); font: 600 420px/1 "Space Grotesk"; letter-spacing: -.12em; pointer-events: none; }
 .portfolio-intro { display: grid; grid-template-columns: 1fr .55fr; align-items: end; margin-bottom: 66px; }
 .portfolio-intro > p { justify-self: end; max-width: 420px; color: rgba(255,255,255,.58); line-height: 1.75; }
+.portfolio-intro, .company-grid { position: relative; z-index: 1; }
+.company-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.company-card { min-height: 292px; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 17px; background: rgba(255,255,255,.035); display: flex; flex-direction: column; position: relative; transition: background .25s ease, transform .25s ease, border-color .25s ease; }
+.company-card:hover { background: rgba(255,255,255,.075); border-color: rgba(237,136,24,.5); transform: translateY(-4px); }
+.company-card > span { font-size: 9px; color: rgba(255,255,255,.37); letter-spacing: .13em; }
+.company-logo { position: relative; height: 132px; margin: 15px 0 18px; border-radius: 11px; overflow: hidden; background: rgba(255,255,255,.96); }
+.company-logo img { object-fit: contain; padding: 17px; }
+.company-card h3 { font-size: 19px; margin: auto 0 7px; letter-spacing: -.035em; }
+.company-card p { font-size: 10px; text-transform: uppercase; letter-spacing: .13em; color: rgba(255,255,255,.48); margin: 0; }
 
 .standards { background: radial-gradient(circle at 8% 90%, rgba(14,58,44,.1), transparent 30%), var(--paper); }
 .standards-grid { display: grid; grid-template-columns: 1fr; gap: 58px; }
@@ -155,6 +164,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .story-grid, .standards-grid { grid-template-columns: 1fr; gap: 42px; }
   .story-heading { position: static; }
   .story-copy { padding-top: 0; }
+  .company-grid { grid-template-columns: repeat(3,1fr); }
   .brand-showcase { grid-template-columns: .8fr 1.2fr; min-height: 580px; }
   .brand-copy { padding: 42px; }
   .brand-visual { min-height: 580px; }
@@ -190,6 +200,9 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .brand-copy { min-height: 350px; padding: 44px 28px; }
   .brand-visual { min-height: 420px; }
   .format-list { margin-top: 22px; }
+  .company-grid { grid-template-columns: repeat(2,1fr); }
+  .company-card { min-height: 260px; padding: 15px; }
+  .company-logo { height: 125px; }
   .standards-list { grid-template-columns: 1fr; }
   .standards-list article { min-height: 230px; }
   .standards-list h3 { margin-top: 42px; }
@@ -200,6 +213,9 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 
 @media (max-width: 430px) {
+  .company-grid { grid-template-columns: 1fr; }
+  .company-card { min-height: 240px; }
+  .company-logo { height: 130px; }
   .brand-visual { min-height: 350px; }
 }
 
@@ -282,6 +298,8 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .brand-directory a:hover { background: var(--green); color: #fff; }
 .brand-directory span { color: #84653e; }
 .brand-showcase { border-radius: 4px; box-shadow: none; scroll-margin-top: 24px; }
+.company-card { border-radius: 4px; }
+.company-logo { border-radius: 2px; }
 .standards-list article { border-radius: 4px; box-shadow: none; }
 .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 35px; font-size: 13px; color: #c0c9c1; }
 .footer-nav a:hover { color: #e3c692; }
@@ -326,6 +344,10 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 .profile-details summary span::before, .profile-details summary span::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
 .profile-details summary span::after { transform: translate(-50%, -50%) rotate(90deg); transition: opacity .2s ease; }
 .profile-details[open] summary span::after { opacity: 0; }
+.company-grid { gap: 18px; }
+.company-card { background: #ffffff06; padding: 22px; }
+.company-card p { color: #c5d0c6; line-height: 1.7; }
+.company-logo { background: #faf8f2; }
 .standards { background: #faf8f2; }
 .standards-list article { background: transparent; border: 0; border-top: 1px solid #c8b89c; padding: 28px 22px 0 0; min-height: 250px; }
 .standards-list article > span { color: #84653e; font-size: 12px; }
@@ -393,6 +415,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .brand-copy h3 { font-size: 38px; }
   .brand-directory { gap: 0; }
   .brand-directory a { padding: 13px 12px; }
+  .company-card { padding: 16px; }
   .standards-list article { min-height: 0; padding-block: 28px; }
   .standards-list h3 { margin-top: 24px; }
 }
@@ -497,17 +520,10 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .enquiry-line { padding: 18px 16px 20px; }
 }
 
-/* Approved product claims and pack sizes on the homepage brand blocks. */
+/* Approved product claims on the homepage brand blocks. */
 .brand-claims { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 0; padding: 0; list-style: none; }
 .brand-claims li { position: relative; padding-left: 14px; font-size: 13px; font-weight: 500; line-height: 1.5; }
 .brand-claims li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.size-list { display: grid; gap: 10px; margin: 22px 0 0; padding-top: 18px; border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 28%, transparent); }
-.size-list div { display: grid; grid-template-columns: minmax(110px, .9fr) 1.6fr; gap: 14px; align-items: baseline; }
-.size-list dt { font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: .12em; font-weight: 500; }
-.size-list dd { margin: 0; font-size: 13px; line-height: 1.5; font-variant-numeric: tabular-nums; }
-@media (max-width: 430px) {
-  .size-list div { grid-template-columns: 1fr; gap: 2px; }
-}
 
 /* Contrast fixes (WCAG AA 4.5:1 for small text, 3:1 for large), kept as close to the original colours as possible. */
 .brand-gulberg .brand-meta span { opacity: .78; }
@@ -801,8 +817,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .heritage-timeline p { max-width: none; }
   .story-figures { margin-top: 56px; }
 }
-@media (prefers-reduced-motion: reduce) {
-}
 
 /* Our story page. */
 .profile-portrait--story img { object-position: 62% 50%; }
@@ -883,34 +897,6 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
   .story-people li > div { padding: 18px 16px; }
 }
 
-/* Companies: grouped by sector, with the logos on large light panels. */
-.company-groups { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 44px 18px; }
-.company-group { grid-column: span 3; min-width: 0; padding-top: 16px; border-top: 2px solid var(--orange); }
-.company-group h3 { white-space: nowrap; }
-.company-group--5 { grid-column: span 12; }
-.company-group--2 { grid-column: span 6; }
-.company-group h3 { margin: 0 0 18px; font-size: clamp(20px, 2vw, 28px); line-height: 1.1; letter-spacing: -.03em; }
-.company-group ul { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
-.company-group--5 ul { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.company-group--2 ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.company-group li { display: flex; flex-direction: column; min-width: 0; }
-.company-logo { position: relative; display: block; aspect-ratio: 4 / 3; margin-bottom: 12px; background: #faf8f2; }
-.company-logo img { object-fit: contain; padding: clamp(14px, 1.8vw, 26px); }
-.company-group strong { font: 500 18px/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
-.company-group li > span:last-child { margin-top: 3px; color: #c5d0c6; font-size: 13px; line-height: 1.45; }
-@media (max-width: 960px) {
-  .company-group { grid-column: span 6; }
-  .company-group--5 ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 720px) {
-  .company-groups { gap: 34px 12px; }
-  .company-group--5, .company-group--2 { grid-column: span 12; }
-  .company-group ul { gap: 18px 12px; }
-  .company-group--5 ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .company-group h3 { font-size: 21px; white-space: normal; }
-  .company-group--1 h3 { min-height: 2.3em; }
-  .company-group strong { font-size: 16px; }
-}
 
 /* Order section top. */
 .order-top { position: relative; }
@@ -958,7 +944,7 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 @media (max-width: 720px) {
   .footer-nav a, .brand-breadcrumb a, .profile-breadcrumb a, .privacy-summary a { display: inline-block; padding-block: 5px; }
   .brand-page-link, .brand-hero-social { padding-block: 3px; }
-  .format-list span, .leader-index, .team-body .leader-index, .size-list dt, .portrait-caption, .hero-pause, .cookie-status, .footer-bottom, .group-ribbon span { font-size: 10px; }
+  .format-list span, .leader-index, .team-body .leader-index, .portrait-caption, .hero-pause, .cookie-status, .footer-bottom, .group-ribbon span { font-size: 10px; }
 }
 @media (max-width: 360px) {
   .story-figures { gap: 10px; }
@@ -1014,4 +1000,65 @@ h1,h2,h3 { font-family: "Space Grotesk", Arial, sans-serif; font-weight: 500; le
 }
 @media (max-width: 720px) {
   .page-sections a, .enquiry-intro a { display: inline-block; padding-block: 3px; }
+}
+
+/* Macaroni shapes: one tile per shape across the full width of the section, sizes below. */
+.brand-range--shapes { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.brand-range--shapes .brand-range-intro > p:last-child { max-width: 620px; }
+.shape-row { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
+.shape-row li { display: flex; flex-direction: column; min-width: 0; }
+.shape-row img { display: block; box-sizing: content-box; width: 100%; height: auto; aspect-ratio: 2 / 3; border-bottom: 2px solid var(--orange); }
+.shape-row span { margin-top: 12px; font: 500 clamp(17px, 1.5vw, 21px)/1.2 "Space Grotesk", Arial, sans-serif; letter-spacing: -.02em; }
+@media (max-width: 720px) {
+  .shape-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 10px; }
+  .shape-row span { margin-top: 8px; font-size: 15px; }
+}
+
+/* Companies: polish on the original card grid. The last card fills its row so the grid always ends cleanly. */
+.company-grid { gap: 20px; }
+.company-card { min-height: 0; padding: 20px 20px 24px; transition: background .25s ease, transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.company-card:hover { box-shadow: 0 18px 40px rgba(4,16,12,.42); }
+.company-card > span { color: #c5d0c6; font-size: 11px; }
+.company-logo { height: 164px; margin: 12px 0 20px; overflow: hidden; }
+.company-logo img { padding: 16px; transition: transform .35s ease; }
+.company-card:hover .company-logo img { transform: scale(1.05); }
+.company-card h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.2; }
+.company-card:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: 20px; align-items: center; }
+.company-card:last-child > span { grid-column: 1 / -1; }
+.company-card:last-child .company-logo { margin-bottom: 0; }
+@media (max-width: 960px) {
+  .company-card:last-child { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+}
+@media (max-width: 720px) {
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .company-card { min-height: 0; padding: 12px 12px 16px; }
+  .company-card > span { font-size: 10px; }
+  .company-logo { height: 118px; margin: 8px 0 14px; }
+  .company-logo img { padding: 10px; }
+  .company-card h3 { margin-bottom: 6px; font-size: 17px; }
+  .company-card p { line-height: 1.5; letter-spacing: .1em; overflow-wrap: anywhere; }
+  .company-card:last-child { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 12px; }
+}
+@media (max-width: 360px) {
+  .company-logo { height: 100px; }
+  .company-card h3 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .company-card:hover, .company-card:hover .company-logo img { transform: none; }
+}
+
+/* Companies 3D hover. --tilt-max is the one setting for tilt strength; CompanyTilt.tsx feeds in --tx, --ty, --mx and --my. */
+.company-grid { --tilt-max: 7deg; }
+.company-sheen { display: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .company-card { transform-style: preserve-3d; transition: background .3s ease, border-color .3s ease, box-shadow .45s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
+  /* The hit area reaches below the card so the lift cannot pull it out from under the pointer. */
+  .company-card:hover::before { content: ""; position: absolute; inset: 0 0 -8px; }
+  .company-card:last-child { --tilt-card: calc(var(--tilt-max) * .35); }
+  .company-card.is-tilting { transform: perspective(900px) rotateX(calc(var(--ty, 0) * var(--tilt-card, var(--tilt-max)) * -1)) rotateY(calc(var(--tx, 0) * var(--tilt-card, var(--tilt-max)))) translate3d(0, -4px, 14px); box-shadow: 0 34px 60px -14px rgba(4,16,12,.72), 0 14px 26px rgba(4,16,12,.34); transition-duration: .3s, .3s, .45s, .18s; will-change: transform; }
+  .company-logo { transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .company-card.is-tilting .company-logo { transform: translateZ(26px); }
+  .company-sheen { display: block; position: absolute; inset: 0; overflow: hidden; border-radius: inherit; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  .company-sheen::after { content: ""; position: absolute; top: 0; left: 0; width: 380px; height: 380px; background: radial-gradient(circle, rgba(255,255,255,.15), rgba(255,255,255,0) 66%); transform: translate(calc(var(--mx, 0px) - 190px), calc(var(--my, 0px) - 190px)); }
+  .company-card.is-tilting .company-sheen { opacity: 1; }
 }
