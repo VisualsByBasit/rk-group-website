@@ -272,3 +272,4 @@ Abdulbasit decided to build these now and show Saim before merging. Full brief i
 - 31 Oct 2026: Macaroni shape tiles now use the 640x960 pack images on cream, at an exact 2:3 ratio with no cropping. `assets/macaroni-packs-hd` deleted. All checks pass. Not merged.
 - 31 Oct 2026: Homepage company cards gained a 3D tilt hover for mouse users (`src/components/CompanyTilt.tsx` with the styles in `globals.css`). Tone it down with `--tilt-max` on `.company-grid` (7deg). Touch and reduced motion have no tilt. All checks pass. Not merged.
 - 31 Oct 2026: Company cards are not Tab stops: `tabIndex` and the focus styles removed because the cards are not interactive. The mouse tilt is unchanged. Lint, tsc, build and axe-core pass. Not merged.
+- 31 Oct 2026: Saim confirmed the 3D tilt hover on the companies cards is what he wanted, and the homepage length on phones is fine as it is (no mobile height cuts).
